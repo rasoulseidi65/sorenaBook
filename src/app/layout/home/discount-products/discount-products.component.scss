@@ -1,0 +1,141 @@
+
+.pricing{
+  padding: 40px 0;
+  text-align:center;
+  color: #034251;
+}
+.pricing .box {
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+   box-shadow: 0 0 11px rgba(122, 120, 120, 0.2);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .pricing .box img{
+    align-self: center;
+  }
+  .pricing .box .category {
+    font-size: 12px;
+    line-height: 1;
+    color: #999;
+  }
+
+  .pricing .box .actions-list {
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    left: 0;
+  }
+  .pricing .box .actions-list .action {
+    position: relative;
+    display: block;
+    padding-top: 10px;
+    padding-left: 20px;
+    margin: 0;
+    border: none;
+    transition: color .08s,background .08s;
+    background-color: transparent;
+    color: #ccc;
+  }
+  .pricing .box .actions-list .action:last-child {
+    border-bottom-left-radius: 2px;
+  }
+
+  .pricing .box .actions-list button svg{
+    fill: #CCCCCC;
+  }
+  .pricing .box .actions-list button:hover svg{
+    fill: #00dfb2;
+  }
+  .pricing .box .badges{
+    position: absolute;
+    font-size: 13px;
+    line-height: 15px;
+    padding: 4px 12px;
+    background-color: #00dfb2;
+    color: white;
+    border-radius: 10px;
+  }
+  .pricing .box .title {
+    line-height: 1.1875;
+    direction: rtl;
+    margin: 15px 0 5px;
+  }
+  .pricing .box .title h5 {
+    font-weight: 400;
+    font-size: 16px;
+    font-weight: 600;
+    color: #053f4a;
+    text-align: center;
+  }
+  .pricing .box .title h5:hover {
+     color: #00dfb2;
+  }
+  .pricing .title .prices {
+    color: #444444;
+    font-size: 14px;
+    line-height: 1;
+    margin-right: auto;
+
+  }
+
+  .pricing .prices .na {
+    color: #ccc;
+    text-decoration: line-through;
+  }
+
+
+  .pricing .btn-buy {
+    padding: 5px 15px;
+    text-align: center;
+    background: #00c7a0;
+    display: inline-block;
+    padding: 8px 35px 10px 35px;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    transition: 0.3s;
+  }
+    .pricing .btn-buy:hover {
+    background: #00ddb2;
+    text-decoration: none;
+  }
+  .pricing .advanced {
+    width: 200px;
+    position: absolute;
+    top: 18px;
+    right: -68px;
+    transform: rotate(45deg);
+    z-index: 1;
+    font-size: 14px;
+    padding: 1px 0 3px 0;
+    background: #00c7a0;
+    color: #fff;
+  }
+
+
+  /*slider style*/
+  .owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+  }
+  :host::ng-deep .owl-prev,
+  :host::ng-deep .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  :host::ng-deep .owl-prev {
+    left: 0;
+  }
+  :host::ng-deep .owl-next {
+    right: 0;
+  }
+:host::ng-deep.owl-carousel.owl-drag .owl-item {
+  margin-left: 8px;
+}
