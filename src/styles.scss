@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@font-face {
+  font-family: 'IRANSans_Bold';
+  src: url('/assets/fonts/IRANSansWeb(FaNum)_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IRANSans_Light';
+  src: url('/assets/fonts/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
