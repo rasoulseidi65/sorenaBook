@@ -29,6 +29,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {AccordionModule} from 'primeng/accordion';
 import {MenubarModule} from 'primeng/menubar';
 import {TooltipModule} from 'primeng/tooltip';
+import {MegaMenuModule} from 'primeng/megamenu';
 
 // @ts-ignore
 @NgModule({
@@ -65,7 +66,8 @@ import {TooltipModule} from 'primeng/tooltip';
     // EditorModule,
     AccordionModule,
     MenubarModule,
-    TooltipModule
+    TooltipModule,
+    MegaMenuModule
   ],
   exports: [
     CommonModule,
@@ -99,7 +101,8 @@ import {TooltipModule} from 'primeng/tooltip';
     // EditorModule,
     AccordionModule,
     MenubarModule,
-    TooltipModule
+    TooltipModule,
+    MegaMenuModule
   ],
 })
 export class PrimNgComponentModule {

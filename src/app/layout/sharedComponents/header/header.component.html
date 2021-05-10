@@ -1,0 +1,86 @@
+<div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <div class="info">
+        <a class="facebook">
+          <i class="fab fa-google-plus-g white-text"></i>
+        </a>
+        <a class="facebook">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="facebook" href="http://www.facebook.com/jahantebkhoram">
+          <i class="fab fa-facebook-f white-text"></i>
+        </a>
+        <a class="linkedin" href="http://www.linkedin.com/in/jahantebkhoram">
+          <i class="fab fa-linkedin-in white-text"></i>
+        </a>
+        <a class="instagram" href="http://instagram.com/jahantebkhoram">
+          <i class="fab fa-instagram white-text"></i>
+        </a>
+      </div>
+    </div>
+    <div class="info mr-auto">
+      <i class="fa fa-envelope"></i> <a href="mailto:contact@jahantebkhoram.ir">contact@jahantebkhoram.ir</a>
+      <i class="fas fa-phone mr-2"></i>066-33411975
+      <i class="fas fa-map-marker-alt mr-2"></i> خرم آباد، شهرک صنعتی شماره 2 خیابان ابتکار 1
+    </div>
+  </div>
+</div>
+
+<!-- ======= Header ======= -->
+<header id="header" class="pc-header fixed-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <a class="logo"><img src="../../../../assets/images/other/logo.png" alt=""></a>
+      </div>
+      <div class="col-sm-8">
+        <p-megaMenu [model]="itemsPc" orientation="horizontal"></p-megaMenu>
+      </div>
+      <div class="col-sm-2">
+        <a  class="account scrollto"><i class="fa fa-user icon"></i>حساب کاربری</a>
+       <a class="account mr-3 scrollto"><i class="fa fa-shopping-cart icon"></i>سبد خرید</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- side MENU -->
+<p-sidebar class="menuSidebar" Scroll [(visible)]="displayMobileMenu" [blockScroll]="true"
+           [modal]="true"
+           position="right">
+  <div class=" text-center shoppingMe">
+    <img height="60px" src="../../../../assets/images/other/logo.png">
+  </div>
+  <div class="d-flex flex-column">
+    <div class="mb-auto">
+      <p-panelMenu [model]="items" [style]="{'width':'100%'}"></p-panelMenu>
+    </div>
+  </div>
+</p-sidebar>
+
+
+<!--mobile header-->
+<header class="mobile-header">
+  <div class="row">
+    <div class="col">
+      <button (click)="showMobileMenu()" type="button" class="mobile-bar">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <div class="col">
+      <a [routerLink]="['/']" class="navbar-brand text-center">
+        <img src="../../../../assets/images/other/logo.png" alt="جهان طب خرم" class="mobile-logo">
+      </a>
+    </div>
+    <div class="col mobile-icon">
+      <i class="fa fa-user ml-3"></i>
+      <i class="fa fa-shopping-cart"></i>
+    </div>
+  </div>
+</header>
+
+
+
+

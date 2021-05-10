@@ -5,6 +5,15 @@ import {LoginAdminComponent} from './Auth/Admin/login-admin.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
+  },
+  {
     path: 'loginUser',
     component: LoginRegisterUserComponent
   },

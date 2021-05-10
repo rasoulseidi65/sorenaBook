@@ -1,0 +1,281 @@
+@media (max-width: 992px) {
+  .mobile-header{
+    display: block;
+  }
+  .pc-header{
+    display: none;
+  }
+  #header {
+    top: 0;
+  }
+}
+@media (min-width: 992px) {
+  .mobile-header{
+    display: none;
+  }
+  .pc-header{
+    display: block;
+  }
+  #header {
+    top: 0;
+  }
+}
+
+
+#topbar {
+  background: #00c7a0;
+  color: #fff;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.5s;
+  font-family: IRANSans_Light;
+}
+
+#topbar.topbar-scrolled {
+  top: -40px;
+}
+
+#topbar .info a {
+  color: #fff;
+  padding-left: 15px;
+  display: inline-block;
+  line-height: 1px;
+  transition: 0.3s;
+  font-family: IRANSans_Light;
+}
+#topbar .info i{
+  padding-left: 5px;
+}
+
+#topbar .info a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+#topbar .info a:first-child {
+  border-left: 0;
+}
+
+
+
+
+#header {
+  background: #fff;
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 15px 0;
+  top: 40px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header.header-scrolled {
+  top: 0;
+}
+
+#header .logo img {
+  max-height: 55px;
+}
+.mobile-header {
+  background-color: #fff;
+}
+.mobile-header .mobile-bar{
+  color:#00c7a0;
+  font-size: 20px;
+  background-color: transparent;
+  border-color: #fff;
+  border-radius: 2px;
+  float: right;
+  padding-top: 20px;
+}
+.mobile-header .mobile-logo{
+  max-height: 60px;
+}
+.mobile-header .mobile-icon{
+  font-size: 20px;
+   color:#00c7a0;
+   padding-top: 20px;
+   margin-left: 10px;
+}
+.account {
+  color: #08404f;
+  font-size: 13px;
+  display: inline-block;
+}
+.account:hover {
+  text-decoration: none;
+  color: #000;
+
+}
+.account .icon{
+  margin-top: 10px;
+  color:#00c7a0;
+  font-size: 20px;
+  padding-left: 4px;
+}
+.account .icon:hover{
+  color:#00ddb2;
+}
+
+
+
+
+
+
+:host::ng-deep .p-panelmenu {
+  text-align: right;
+  direction: rtl;
+  margin-top: 30px;
+  width: 100%!important;
+  background-color: transparent!important;
+  border: none!important;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {
+  position: absolute;
+  left: 0;
+  margin-right: unset!important;
+  margin-left: 0.5rem;
+}
+:host::ng-deep .pi-chevron-right:before {
+  content: "\e900";
+}
+
+:host::ng-deep .pi-angle-right:before {
+  content: "\e931";
+}
+
+:host::ng-deep .p-panelmenu .p-panelmenu-header.p-highlight > a {
+  background: transparent!important;
+  border-color: transparent!important;
+  color: #4d4d4d!important;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+:host::ng-deep .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a {
+  background: transparent!important;
+  border-color: transparent!important;
+  color: #4d4d4d!important;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-header > a:focus {
+  box-shadow: none!important;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover {
+  border: none!important;
+  background: transparent!important;
+  color: #00c7a0!important;
+}
+
+:host::ng-deep .p-panelmenu .p-panelmenu-header > a .p-menuitem-icon {
+  margin-right: unset!important;
+  margin-left: 0.5rem;
+  color: #00c7a0!important;
+
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-panelmenu-icon {
+  left: 0;
+  margin-right: unset!important;
+  margin-left: 0.5rem;
+}
+
+:host::ng-deep .p-panelmenu-content {
+  padding: 0.25rem 0;
+  border: none!important;
+  background-color: #fcf9f9!important;
+  color: #4d4d4d;
+  border-radius: unset!important;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-icon {
+  color: #6c757d;
+  margin-right: unset!important;
+  margin-left: 0.5rem;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-submenu-list:not(.p-panelmenu-root-submenu) {
+  padding: 0 1rem 0 0!important;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus {
+  color: #00c7a0!important;
+  box-shadow: none!important;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+  color: #00c7a0;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: #00c7a0;
+}
+:host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {
+  background: #fcf9f9!important;
+}
+.box-counter__divider::after {
+  content: '';
+  display: inline-block;
+  width: 80px;
+  height: 1.6px;
+  background: #00c7a0;
+}
+.box-counter__divider_mobile::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1.6px;
+  background: #00c7a0;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  opacity: 1;
+}
+
+
+/*pc-menu*/
+:host::ng-deep .pc-header .p-megamenu-horizontal {
+  background-color: #fff !important;
+  border-color: #fff;
+  margin: 8px 25px 0 0;
+
+}
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list{
+  border-color: rgb(160, 15, 15);
+  padding: 0;
+}
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem-text{
+font-size: 13px;
+}
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem:hover{
+  background-color:#ffffff;
+  }
+  .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text ng-star-inserted{
+background-color: #fff;  }
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link :hover{
+  background-color: #fff;  }
+:host::ng-deep .pc-header .p-megamenu-horizontal {
+padding: 0 10px 0 0;
+}
+
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-megamenu-submenu-header{
+background-color: #edfffb;
+}
+
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem{
+padding:0;
+}
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem .p-menuitem-link{
+  padding-left: 5px;
+  }
+:host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem-icon{
+  margin-left: 5px;
+  color: #00ddb2;
+}
+
+:host::ng-deep.p-megamenu .p-megamenu-root-list > .p-menuitem a.product:hover .p-megamenu-panel{
+  display: block!important;
+  color: #0e3c53;
+}
+:host::ng-deep.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+  background: #edfffb!important;
+}
+:host::ng-deep.p-menu .p-menu-list .p-menu-item .p-state-hover{
+  background-color: #11a88a;
+  border-radius:20px
+}
