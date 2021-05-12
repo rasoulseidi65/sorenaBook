@@ -21,8 +21,8 @@
     </div>
     <div class="info mr-auto">
       <i class="fa fa-envelope"></i> <a href="mailto:contact@jahantebkhoram.ir">contact@sorenabook.ir</a>
-      <i class="fas fa-phone mr-2"></i>066-32526055
-      <i class="fas fa-map-marker-alt mr-2"></i>الشتر-خیابان شهید کلانتری
+      <i class="fas fa-phone mr-2"></i>066-325250666055
+      <i class="fas fa-map-marker-alt mr-2"></i>الشتر- خیابان شهید کلانتری
     </div>
   </div>
 </div>
@@ -34,12 +34,12 @@
       <div class="col-sm-2">
         <a class="logo"><img src="../../../../assets/images/other/logo.png" alt=""></a>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-10">
         <p-megaMenu [model]="itemsPc" orientation="horizontal"></p-megaMenu>
       </div>
 <!--      <div class="col-sm-2">-->
-<!--        <a  class="account scrollto"><i class="fa fa-user icon"></i>حساب کاربری</a>-->
-<!--       <a class="account mr-3 scrollto"><i class="fa fa-shopping-cart icon"></i>سبد خرید</a>-->
+<!--        <a routerLink="/register" class="account scrollto"><i class="fa fa-user icon"></i>حساب کاربری</a>-->
+<!--        <a class="account mr-3 scrollto"><i class="fa fa-shopping-cart icon"></i>سبد خرید</a>-->
 <!--      </div>-->
     </div>
   </div>
@@ -51,10 +51,11 @@
            [modal]="true"
            position="right">
   <div class=" text-center shoppingMe">
-    <img height="60px" src="../../../../assets/images/other/logo.png">
+    <p>کتابفروشی  سورنا</p>
+<!--    <img height="60px" src="../../../../assets/images/other/logo.png">-->
   </div>
-  <div class="d-flex flex-column">
-    <div class="mb-auto">
+  <div class="p-d-flex p-flex-column">
+    <div class="p-mb-auto">
       <p-panelMenu [model]="items" [style]="{'width':'100%'}"></p-panelMenu>
     </div>
   </div>
@@ -70,12 +71,14 @@
       </button>
     </div>
     <div class="col">
-      <a [routerLink]="['/']" class="navbar-brand text-center">
-        <img src="../../../../assets/images/other/logo.png" alt="جهان طب خرم" class="mobile-logo">
+      <a [routerLink]="['/']" class="navbar-brand text-center"><p>
+        کتابفروشی سورنا
+      </p>
+<!--        <img src="../../../../assets/images/other/logo.png" alt="کتابفروشی سورنا" class="mobile-logo">-->
       </a>
     </div>
-    <div class="col mobile-icon">
-      <i class="fa fa-user ml-3"></i>
+    <div class="col mobile-icon p-d-flex">
+      <i class="fa fa-user p-ml-auto"></i>
       <i class="fa fa-shopping-cart"></i>
     </div>
   </div>

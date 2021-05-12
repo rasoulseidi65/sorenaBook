@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "assets/css/font-awesome/css/all.min.css";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   direction: rtl;
 }
@@ -19,4 +20,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   direction
   src: url('/assets/fonts/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+}
+h5{
+  font-family: IRANSans_Bold;
 }

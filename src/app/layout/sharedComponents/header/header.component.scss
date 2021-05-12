@@ -29,7 +29,7 @@
   font-size: 13px;
   font-weight: 600;
   transition: all 0.5s;
-  font-family: IRANSans_Light;
+  font-family: 'IRANSans_Light';
 }
 
 #topbar.topbar-scrolled {
@@ -92,9 +92,9 @@
 }
 .mobile-header .mobile-icon{
   font-size: 20px;
-   color:#00c7a0;
-   padding-top: 20px;
-   margin-left: 10px;
+  color:#00c7a0;
+  padding-top: 20px;
+  margin-left: 10px;
 }
 .account {
   color: #08404f;
@@ -128,6 +128,7 @@
   width: 100%!important;
   background-color: transparent!important;
   border: none!important;
+  font-family: IRANSans_Light;
 }
 :host::ng-deep .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {
   position: absolute;
@@ -233,49 +234,56 @@
   background-color: #fff !important;
   border-color: #fff;
   margin: 8px 25px 0 0;
-
+font-family: IRANSans_Light;
 }
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list{
   border-color: rgb(160, 15, 15);
   padding: 0;
 }
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem-text{
-font-size: 13px;
+  font-size: 13px;
 }
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem:hover{
   background-color:#ffffff;
-  }
-  .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text ng-star-inserted{
-background-color: #fff;  }
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text ng-star-inserted{
+  background-color: #fff;  }
 .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link :hover{
   background-color: #fff;  }
 :host::ng-deep .pc-header .p-megamenu-horizontal {
-padding: 0 10px 0 0;
+  padding: 0 10px 0 0;
 }
 
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-megamenu-submenu-header{
-background-color: #edfffb;
+  background-color: #edfffb;
 }
 
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem{
-padding:0;
+  padding:0;
 }
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem .p-menuitem-link{
   padding-left: 5px;
-  }
+}
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem-icon{
   margin-left: 5px;
   color: #00ddb2;
 }
 
-:host::ng-deep.p-megamenu .p-megamenu-root-list > .p-menuitem a.product:hover .p-megamenu-panel{
-  display: block!important;
-  color: #0e3c53;
-}
+//:host::ng-deep.p-megamenu .p-megamenu-root-list > .p-menuitem a.product:hover .p-megamenu-panel{
+//  display: block!important;
+//  color: #0e3c53;
+//}
 :host::ng-deep.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
   background: #edfffb!important;
 }
 :host::ng-deep.p-menu .p-menu-list .p-menu-item .p-state-hover{
   background-color: #11a88a;
   border-radius:20px
+}
+:host::ng-deep.pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem .product.p-menuitem-link:not(.p-disabled):hover  .p-megamenu-root-list>.p-menuitem-active>.p-megamenu-panel{
+  //background: black!important;
+  display: block!important;
+}
+.row{
+  margin-left: 1px!important;
 }

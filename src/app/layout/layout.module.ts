@@ -13,10 +13,11 @@ import {DiscountProductsComponent} from './home/discount-products/discount-produ
 import {SubscriptionComponent} from './home/subscription/subscription.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RippleModule} from 'primeng/ripple';
+import {ProductsComponent} from './home/products/products.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent],
+    declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

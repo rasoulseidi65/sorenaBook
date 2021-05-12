@@ -11,23 +11,22 @@ import {MegaMenuItem, MenuItem} from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[];
-  displayMobileMenu: boolean = false;
+  displayMobileMenu:boolean = false;
   itemsPc: MegaMenuItem[];
 
-  constructor(private viewportScroller: ViewportScroller, private route: Router) {
+  constructor(private viewportScroller: ViewportScroller,private route: Router) {
     this.items = [
       {
         label: 'صفحه اصلی',
         icon: 'pi pi-pw pi-home',
         command: event => this.route.navigate(['/'])
       },
-
       {
-        label: 'محصولات',
+        label: 'دسته بندی محصولات',
         icon: 'pi pi-fw pi-list',
         items: [
           {
-            label: 'محصولات استریل',
+            label: 'کمک درسی',
             items: [
               {
                 label: 'گان جراح',
@@ -40,7 +39,7 @@ export class HeaderComponent implements OnInit {
             ]
           },
           {
-            label: 'محصولات غیر استریل',
+            label: 'محصولات غیلر استری',
             items: [
               {
                 label: 'گان جراحی',
@@ -50,8 +49,7 @@ export class HeaderComponent implements OnInit {
                 label: 'دست کش',
                 icon: 'pi pi-fw pi-angle-left',
               }
-            ]
-          },
+            ]},
           {
             label: 'محصولات اختصاصی',
             items: [
@@ -100,43 +98,27 @@ export class HeaderComponent implements OnInit {
       },
       {
 
-        label: 'محصولات', icon: 'pi pi-fw pi-list',
+        label: 'دسته بندی محصولات', icon: 'pi pi-fw pi-list',
         items: [
           [
             {
-              label: 'محصولات استریل',
-              items: [{label: 'گان جراح'}, {label: 'پک جراحی'}]
+              label: 'کمک درسی',
+              items: [{label: 'ابتدایی '}, {label: 'دوره متوسطه '}]
             },
             {
-              label: 'محصولات غیر استریل',
-              items: [{label: 'گان جراح'}, {label: 'پک جراحی'}]
+              label: 'عمومی',
+              items: [{label: 'دانشگاهی '}, {label: 'تاریخ '}]
             },
             {
-              label: 'محصولات اختصاصی',
-              items: [{label: 'دست کش'}, {label: 'پک ضد عفونی'}]
+              label: 'پزشکی',
+              items: [{label: 'پرستاری '}, {label: 'پوست و مو  '}]
             }
           ],
-          [
-            {
-              label: 'Video 3',
-              items: [{label: 'Video 3.1'}, {label: 'Video 3.2'}]
-            },
-            {
-              label: 'Video 4',
-              items: [{label: 'Video 4.1'}, {label: 'Video 4.2'}]
-            }
-          ]
+
         ],
-        styleClass: 'product'
+        styleClass:'product'
       },
-      {
-        label: 'سوالات متداول', icon: 'pi pi-fw pi-question-circle',
-        command: event => this.route.navigate(['/faq'])
-      },
-      {
-        label: 'گالری تصاویر', icon: 'pi pi-fw pi-image',
-        command: event => this.route.navigate(['/gallery'])
-      },
+
       {
         label: 'درباره ما', icon: 'pi pi-fw pi-info-circle',
         command: event => this.route.navigate(['/about'])
@@ -145,6 +127,15 @@ export class HeaderComponent implements OnInit {
         label: 'تماس ما', icon: 'pi pi-fw pi-phone',
         command: event => this.route.navigate(['./contact'])
       },
+
+      {
+        label: 'سبد خرید ', icon: 'pi pi-fw pi-shopping-cart',
+        command: event => this.route.navigate(['/gallery'])
+      },
+      {
+        label: 'ورود و ثبت نام', icon: 'pi pi-fw pi-user',
+        command: event => this.route.navigate(['/faq'])
+      },
     ];
 
   }
@@ -152,7 +143,7 @@ export class HeaderComponent implements OnInit {
   public onClick(elementId: string): void {
     this.viewportScroller.scrollToAnchor(elementId);
 
-    if (this.displayMobileMenu === true) {
+    if (this.displayMobileMenu === true){
       this.displayMobileMenu = false;
     }
   }
@@ -169,5 +160,6 @@ export class HeaderComponent implements OnInit {
   showMobileMenu(): void {
     this.displayMobileMenu = true;
   }
+
 
 }
