@@ -32,7 +32,7 @@
   text-align: justify;
   text-justify: inter-word;
   font-size: 12px;
-  color:#F44336;
+  color:#2979FF;
 }
 :host::ng-deep.p-dialog .p-dialog-header {
   color: #777777!important;
@@ -73,6 +73,7 @@
   background-color: #fff;
   box-shadow: 0 0 11px rgba(33,33,33,.2);
   border-radius: 20px;
+  height: 350px;
 }
 .product-card--layout--grid {
   display: -ms-flexbox;
@@ -142,10 +143,10 @@
   left: 9px;
 }
 .product-card__actions-list button svg{
-  fill: #CCCCCC;
+  fill: #EDE7F6;
 }
 .product-card__actions-list button:hover svg{
-  fill: #F44336;
+  fill: #2979FF;
 }
 .product-card--layout--grid .product-card__fit .status-badge__text {
   display: none;
@@ -210,7 +211,7 @@
   font-family: IRANSans_Bold;
 }
 .product-card .product-card__price--new {
-  color:#F44336;
+  color:#2979FF;
   font-size: 12px;
   margin-left: 22px;
 
@@ -233,7 +234,7 @@
   padding: 8px;
   border-radius: 2px;
   background: transparent;
-  color: #F44336;
+  color: #2979FF;
   z-index: 0;
   transition: color .2s;
 }
@@ -253,7 +254,7 @@
 }
 .product-card .product-card__addtocart-icon svg {
   display: block;
-  fill: #F44336;
+  fill: #2979FF;
 }
 
 .product-card--layout--grid:after {
@@ -267,6 +268,7 @@
 }
 img.image__tag {
   padding: 15px;
+  height: 270px;
 }
 .product-card--layout--grid .product-card__badges {
   position: absolute;
@@ -282,6 +284,7 @@ img.image__tag {
 }
 .tag-badge--sale {
   color: #fff;
+  font-family: IRANSans_Bold;
 }
 .tag-badge {
   display: inline-block;
@@ -295,7 +298,8 @@ img.image__tag {
   padding: 4px 14px 0;
 }
 .tag-badge--sale:before {
-  background: #F44336;
+  background: #D50000;
+
 }
 .tag-badge:before {
   content: "";
@@ -322,7 +326,7 @@ img.image__tag {
 .product-card:active .product-card__addtocart-icon:before,
 .product-card:hover .product-card__addtocart-icon:before {
   transform: scale(1);
-  background:#F44336;
+  background:#2979FF;
   background-image: initial;
   background-position-x: initial;
   background-position-y: initial;
@@ -332,13 +336,13 @@ img.image__tag {
   background-attachment: initial;
   background-origin: initial;
   background-clip: initial;
-  background-color: rgb(204, 51, 51);
+  background-color: rgb(41, 121, 255);
 }
 :host ::ng-deep .product-card:hover .product-card__addtocart-icon svg {
   fill: #ffffff!important;
 }
 :host ::ng-deep .product-card__actions-list button:hover svg path {
-  fill: #F44336!important;
+  fill: #2979FF!important;
 }
 .arrow__button {
   height: 23px;
@@ -375,7 +379,7 @@ img.image__tag {
   transition: background .15s;
 }
 .arrow__button:before {
-  background: #F44336;
+  background: #2979FF;
 }
 .arrow--prev svg {
   margin-right: -1px;
@@ -410,4 +414,12 @@ img.image__tag {
 
 .product-title:hover{
   color: #F44336!important;
+}
+.section-title h2{
+  font-family: IRANSans_Bold;
+  //color:#2979FF ;
+}
+.product-title{
+  font-family: IRANSans_Bold;
+
 }

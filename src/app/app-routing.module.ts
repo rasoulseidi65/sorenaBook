@@ -14,6 +14,10 @@ const routes: Routes = [
     loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
   },
   {
+    path: 'admin/panel',
+    loadChildren: () => import('./Core/dashboardAdmin/dashboardadmin.module').then(m => m.DashboardadminModule)
+  },
+  {
     path: 'loginUser',
     component: LoginRegisterUserComponent
   },
@@ -24,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true, initialNavigation: 'enabled', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

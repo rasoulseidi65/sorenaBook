@@ -23,7 +23,7 @@
 
 
 #topbar {
-  background: #00c7a0;
+  background: #2979FF;
   color: #fff;
   height: 40px;
   font-size: 13px;
@@ -79,7 +79,7 @@
   background-color: #fff;
 }
 .mobile-header .mobile-bar{
-  color:#00c7a0;
+  color:#2979FF;
   font-size: 20px;
   background-color: transparent;
   border-color: #fff;
@@ -92,7 +92,7 @@
 }
 .mobile-header .mobile-icon{
   font-size: 20px;
-  color:#00c7a0;
+  color:#2979FF;
   padding-top: 20px;
   margin-left: 10px;
 }
@@ -108,12 +108,12 @@
 }
 .account .icon{
   margin-top: 10px;
-  color:#00c7a0;
+  color:#2979FF;
   font-size: 20px;
   padding-left: 4px;
 }
 .account .icon:hover{
-  color:#00ddb2;
+  color:#2979FF;
 }
 
 
@@ -163,13 +163,13 @@
 :host::ng-deep .p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover {
   border: none!important;
   background: transparent!important;
-  color: #00c7a0!important;
+  color: #2979FF!important;
 }
 
 :host::ng-deep .p-panelmenu .p-panelmenu-header > a .p-menuitem-icon {
   margin-right: unset!important;
   margin-left: 0.5rem;
-  color: #00c7a0!important;
+  color: #2979FF!important;
 
 }
 :host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-panelmenu-icon {
@@ -194,14 +194,14 @@
   padding: 0 1rem 0 0!important;
 }
 :host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus {
-  color: #00c7a0!important;
+  color: #2979FF!important;
   box-shadow: none!important;
 }
 :host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
-  color: #00c7a0;
+  color: #2979FF;
 }
 :host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
-  color: #00c7a0;
+  color: #2979FF;
 }
 :host::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {
   background: #fcf9f9!important;
@@ -211,14 +211,14 @@
   display: inline-block;
   width: 80px;
   height: 1.6px;
-  background: #00c7a0;
+  background: #2979FF;
 }
 .box-counter__divider_mobile::after {
   content: '';
   display: inline-block;
   width: 40px;
   height: 1.6px;
-  background: #00c7a0;
+  background: #2979FF;
 }
 .animated {
   -webkit-animation-duration: 1s;
@@ -266,7 +266,7 @@ font-family: IRANSans_Light;
 }
 :host::ng-deep .pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem-icon{
   margin-left: 5px;
-  color: #00ddb2;
+  color: #2979FF;
 }
 
 //:host::ng-deep.p-megamenu .p-megamenu-root-list > .p-menuitem a.product:hover .p-megamenu-panel{
@@ -277,7 +277,7 @@ font-family: IRANSans_Light;
   background: #edfffb!important;
 }
 :host::ng-deep.p-menu .p-menu-list .p-menu-item .p-state-hover{
-  background-color: #11a88a;
+  background-color: #2979FF;
   border-radius:20px
 }
 :host::ng-deep.pc-header .p-megamenu-horizontal .p-megamenu-root-list .p-menuitem .product.p-menuitem-link:not(.p-disabled):hover  .p-megamenu-root-list>.p-menuitem-active>.p-megamenu-panel{

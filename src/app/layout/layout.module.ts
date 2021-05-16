@@ -14,10 +14,12 @@ import {SubscriptionComponent} from './home/subscription/subscription.component'
 import {ReactiveFormsModule} from '@angular/forms';
 import {RippleModule} from 'primeng/ripple';
 import {ProductsComponent} from './home/products/products.component';
+import {FeaturesComponent} from './home/features/features.component';
+import { AdvertisingComponent } from './home/advertising/advertising.component';
 
 
 @NgModule({
-    declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent],
+    declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

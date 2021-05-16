@@ -30,6 +30,8 @@ import {AccordionModule} from 'primeng/accordion';
 import {MenubarModule} from 'primeng/menubar';
 import {TooltipModule} from 'primeng/tooltip';
 import {MegaMenuModule} from 'primeng/megamenu';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 
 // @ts-ignore
 @NgModule({
@@ -67,7 +69,8 @@ import {MegaMenuModule} from 'primeng/megamenu';
     AccordionModule,
     MenubarModule,
     TooltipModule,
-    MegaMenuModule
+    MegaMenuModule,
+    ConfirmDialogModule,
   ],
   exports: [
     CommonModule,
@@ -102,7 +105,9 @@ import {MegaMenuModule} from 'primeng/megamenu';
     AccordionModule,
     MenubarModule,
     TooltipModule,
-    MegaMenuModule
+    MegaMenuModule,
+    ConfirmDialogModule,
+
   ],
 })
 export class PrimNgComponentModule {
