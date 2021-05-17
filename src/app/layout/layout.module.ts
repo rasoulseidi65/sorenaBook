@@ -16,10 +16,11 @@ import {RippleModule} from 'primeng/ripple';
 import {ProductsComponent} from './home/products/products.component';
 import {FeaturesComponent} from './home/features/features.component';
 import { AdvertisingComponent } from './home/advertising/advertising.component';
+import {PanelMenuModule} from 'primeng/panelmenu';
 
 
 @NgModule({
-    declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent],
+  declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
@@ -27,10 +28,14 @@ import { AdvertisingComponent } from './home/advertising/advertising.component';
     NgbCarouselModule,
     CarouselModule,
     ReactiveFormsModule,
-    RippleModule
+    RippleModule,
+    PanelMenuModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
+  exports: [
+    FooterComponent
+  ]
 })
 export class LayoutModule { }

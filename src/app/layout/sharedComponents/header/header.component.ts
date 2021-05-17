@@ -134,7 +134,7 @@ export class HeaderComponent implements OnInit {
       },
       {
         label: 'ورود و ثبت نام', icon: 'pi pi-fw pi-user',
-        command: event => this.route.navigate(['/faq'])
+        command: event => this.route.navigate(['/login'])
       },
     ];
 
