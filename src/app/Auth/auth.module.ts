@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginRegisterUserComponent } from './User/login-register-user.component';
 import { LoginAdminComponent } from './Admin/login-admin.component';
-import {SharedmoduleModule} from '../SharedModule/sharedmodule.module';
 import {LayoutModule} from '../layout/layout.module';
+import {SharedmoduleModule} from '../SharedModule/sharedmodule.module';
+import {SharedComponentsModule} from '../sharedComponents/shared-components.module';
 
 
 @NgModule({
@@ -13,8 +14,11 @@ import {LayoutModule} from '../layout/layout.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
+    LayoutModule,
     SharedmoduleModule,
-    LayoutModule
-  ]
+    SharedComponentsModule,
+
+  ],
+
 })
 export class AuthModule { }

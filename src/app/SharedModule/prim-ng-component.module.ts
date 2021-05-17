@@ -32,7 +32,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DividerModule} from 'primeng/divider';
-
+import {PanelMenuModule} from 'primeng/panelmenu';
 
 // @ts-ignore
 @NgModule({
@@ -73,6 +73,7 @@ import {DividerModule} from 'primeng/divider';
     TooltipModule,
     MegaMenuModule,
     ConfirmDialogModule,
+    PanelMenuModule
   ],
   exports: [
     CommonModule,
@@ -109,7 +110,8 @@ import {DividerModule} from 'primeng/divider';
     TooltipModule,
     MegaMenuModule,
     ConfirmDialogModule,
-    DividerModule
+    DividerModule,
+    PanelMenuModule
 
   ],
 })

@@ -121,11 +121,11 @@ export class HeaderComponent implements OnInit {
 
       {
         label: 'درباره ما', icon: 'pi pi-fw pi-info-circle',
-        command: event => this.route.navigate(['/about'])
+        command: event => this.route.navigate(['home/about'])
       },
       {
         label: 'تماس ما', icon: 'pi pi-fw pi-phone',
-        command: event => this.route.navigate(['./contact'])
+        command: event => this.route.navigate(['home/contact'])
       },
 
       {

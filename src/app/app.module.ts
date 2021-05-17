@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SharedmoduleModule} from './SharedModule/sharedmodule.module';
 import {HttpClientModule} from '@angular/common/http';
+import {SharedComponentsModule} from './sharedComponents/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,11 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     SharedmoduleModule,
     HttpClientModule,
+    SharedComponentsModule,
     NgbModule
   ],
   providers: [],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
