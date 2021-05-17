@@ -31,6 +31,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {TooltipModule} from 'primeng/tooltip';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {DividerModule} from 'primeng/divider';
 
 
 // @ts-ignore
@@ -38,6 +39,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
   declarations: [],
   imports: [
     CommonModule,
+    DividerModule,
     InputTextModule,
     PasswordModule,
     ButtonModule,
@@ -107,6 +109,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     TooltipModule,
     MegaMenuModule,
     ConfirmDialogModule,
+    DividerModule
 
   ],
 })

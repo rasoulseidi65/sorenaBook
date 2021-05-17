@@ -24,7 +24,7 @@
     "@angular/router": "~11.1.0",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "animate.css": "^4.1.1",
-    "bootstrap": "^5.0.0",
+    "bootstrap": "^5.0.1",
     "jalali-moment": "^3.3.10",
     "jquery": "^3.6.0",
     "ngx-owl-carousel-o": "^5.0.0",
