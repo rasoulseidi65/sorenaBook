@@ -8,10 +8,11 @@ import {LayoutModule} from '../layout/layout.module';
 import {SharedmoduleModule} from '../SharedModule/sharedmodule.module';
 import {SharedComponentsModule} from '../sharedComponents/shared-components.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [LoginRegisterUserComponent, LoginAdminComponent],
+  declarations: [LoginRegisterUserComponent, LoginAdminComponent, RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
