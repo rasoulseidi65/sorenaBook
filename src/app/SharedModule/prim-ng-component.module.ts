@@ -33,6 +33,8 @@ import {MegaMenuModule} from 'primeng/megamenu';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DividerModule} from 'primeng/divider';
 import {PanelMenuModule} from 'primeng/panelmenu';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 // @ts-ignore
 @NgModule({
@@ -73,13 +75,13 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     TooltipModule,
     MegaMenuModule,
     ConfirmDialogModule,
-    PanelMenuModule
+    PanelMenuModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
     InputTextModule,
     CarouselModule,
-    PasswordModule,
     ButtonModule,
     ToastModule,
     KeyFilterModule,
@@ -94,6 +96,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     DialogModule,
     TabViewModule,
     PanelModule,
+    PasswordModule,
     RadioButtonModule,
     InputTextareaModule,
     MultiSelectModule,
@@ -111,8 +114,8 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     MegaMenuModule,
     ConfirmDialogModule,
     DividerModule,
-    PanelMenuModule
-
+    PanelMenuModule,
+    ReactiveFormsModule
   ],
 })
 export class PrimNgComponentModule {

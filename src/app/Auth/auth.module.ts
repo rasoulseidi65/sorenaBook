@@ -7,6 +7,7 @@ import { LoginAdminComponent } from './Admin/login-admin.component';
 import {LayoutModule} from '../layout/layout.module';
 import {SharedmoduleModule} from '../SharedModule/sharedmodule.module';
 import {SharedComponentsModule} from '../sharedComponents/shared-components.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -16,8 +17,7 @@ import {SharedComponentsModule} from '../sharedComponents/shared-components.modu
     AuthRoutingModule,
     LayoutModule,
     SharedmoduleModule,
-    SharedComponentsModule,
-
+    SharedComponentsModule
   ],
 
 })
