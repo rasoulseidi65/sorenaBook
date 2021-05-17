@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginRegisterUserComponent} from './Auth/User/login-register-user.component';
-import {LoginAdminComponent} from './Auth/Admin/login-admin.component';
 
 const routes: Routes = [
   {
@@ -18,13 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./Core/dashboardAdmin/dashboardadmin.module').then(m => m.DashboardadminModule)
   },
   {
-    path: 'loginUser',
-    component: LoginRegisterUserComponent
+    path: 'auth',
+    loadChildren: () => import('./Auth/auth.module').then(m => m.AuthModule)
   },
-  {
-    path: 'loginAdmin',
-    component: LoginAdminComponent
-  }
+
 ];
 
 @NgModule({

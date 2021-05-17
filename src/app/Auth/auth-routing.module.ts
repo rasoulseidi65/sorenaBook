@@ -1,9 +1,17 @@
 import {Component, NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginRegisterUserComponent} from './User/login-register-user.component';
+import {LoginAdminComponent} from './Admin/login-admin.component';
 
 const routes: Routes = [
-
+  {
+    path: 'loginUser',
+    component: LoginRegisterUserComponent
+  },
+  {
+    path: 'loginAdmin',
+    component: LoginAdminComponent
+  }
 ];
 
 @NgModule({

@@ -97,33 +97,19 @@ export class AdminServiceService {
   }
   //#endregion
 
-  //#region News
-  getAllNews(): any {
+//#region Feature
+  getAllFeature(){
     return this.http.get(
-      'http://api.sorenabook.ir/api/v1/admin/getAllNews'
-    );
-  }
-
-  addNews(data: any): any {
+      'http://api.sorenabook.ir/api/v1/admin/indexFeature'
+    );  }
+  postFeature(data:any){
     return this.http.post(
-      'http://api.sorenabook.ir/api/v1/admin/registerNews',
-      data
-    );
-  }
-  editNews(id: any, data: any): any {
-    return this.http.put(
-      'http://api.sorenabook.ir/api/v1/admin/updateNews/' + id,
-      data
-    );
-  }
-  deleteNews(id: any): any {
-    return this.http.delete(
-      'http://api.sorenabook.ir/api/v1/admin/deleteNews/' + id
-    );
-  }
-
-  //#endregion
-
+      'http://api.sorenabook.ir/api/v1/admin/feature',data
+    );  }
+  postFeatureValue(data:any){
+    return this.http.post(
+      'http://api.sorenabook.ir/api/v1/admin/featureValue',data
+    );  }
   //#region Products
   getAllProducts(): any {
     return this.http.get(
@@ -292,4 +278,5 @@ export class AdminServiceService {
       'http://api.sorenabook.ir/api/v1/admin/deleteContactUs/' + id
     );
   }
+
 }

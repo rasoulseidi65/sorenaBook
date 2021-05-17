@@ -27,7 +27,7 @@
               label="جدید"
               icon="pi pi-plus"
               class="p-button-success p-mr-2 p-button-icon-right"
-
+              (click)="showAddFeatureDialog()"
             ></button>
           </div>
           <div class="col-sm-12">
@@ -56,14 +56,14 @@
           <th>عملیات</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-rowIndex="rowIndex" let-category let-expanded="expanded">
+      <ng-template pTemplate="body" let-rowIndex="rowIndex" let-feature let-expanded="expanded">
         <tr>
           <td>
             <button
               type="button"
               pButton
               pRipple
-              [pRowToggler]="category"
+              [pRowToggler]="feature"
               class="p-button-text p-button-rounded p-button-plain"
               [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
             ></button>
@@ -72,14 +72,14 @@
             {{ rowIndex + 1 }}
           </td>
           <td>
-            {{ category.title }}
+            {{ feature.titleFarsi }}
           </td>
           <td>
             <button
               pButton
               pRipple
-              label="ثبت دسته بندی دوم"
-
+              label="ثبت مقدار ویژگی"
+              (click)="showAddFeatureValueDialog(feature._id)"
               class="p-button-outlined p-button-success ml-2"
             ></button>
             <button
@@ -100,28 +100,28 @@
         </tr>
       </ng-template>
 
-      <ng-template pTemplate="rowexpansion" let-category let-secondexpanded="expanded">
+      <ng-template pTemplate="rowexpansion" let-feature let-secondexpanded="expanded">
         <tr>
           <td colspan="4">
             <div class="p-p-3 pr-3">
-              <p-table [value]="category.SubCategory" dataKey="id" class="bg-light-table mr-4">
+              <p-table [value]="feature.FeaturesValue" dataKey="id" class="bg-light-table mr-4">
                 <ng-template pTemplate="header">
         <tr>
           <th style="width: 50px">
             ردیف
           </th>
           <th pSortableColumn="id">
-            عنوان دسته بندی دوم
+        مقدار ویژگی
             <p-sortIcon field="title"></p-sortIcon>
           </th>
           <th>عملیات</th>
         </tr>
       </ng-template>
 
-      <ng-template pTemplate="body" let-subCategory let-rowIndex="rowIndex">
+      <ng-template pTemplate="body" let-FeaturesValue let-rowIndex="rowIndex">
         <tr>
           <td>{{rowIndex + 1}}</td>
-          <td>{{ subCategory.title}}</td>
+          <td>{{ FeaturesValue.value}}</td>
           <td>
             <button
               pButton
