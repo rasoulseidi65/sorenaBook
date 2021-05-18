@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="card" style="width: 18rem;">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img src="../../../assets/images/bgreg.jpg" class="card-img-top" alt="...">
+      </ng-template>
+      <span>ثبت نام کاربر</span>
+      <ng-template pTemplate="footer">
+        <div class="p-field p-grid">
+          <label for="firstname1" class="p-col-fixed" ><i class="pi pi-user" style="font-size: 1rem;color: #000000"></i></label>
+          <div class="p-col">
+            <input id="firstname1" class="form-control" placeholder="نام "  type="text" pInputText>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="firstname5" class="p-col-fixed" ><i class="pi pi-user" style="font-size: 1rem;color: #000000"></i></label>
+          <div class="p-col">
+            <input id="firstname5" class="form-control" placeholder="نام خانوادگی"  type="text" pInputText>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="firstname6" class="p-col-fixed" ><i class="pi pi-phone" style="font-size: 1rem;color: #000000"></i></label>
+          <div class="p-col">
+            <input id="firstname6" class="form-control" placeholder="شماره مبایل"  type="text" pInputText>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="firstname2" class="p-col-fixed" ><i class="pi pi-lock" style="font-size: 1rem;color: #000000"></i></label>
+          <div class="p-col">
+            <input pPassword id="firstname2" class="form-control"  placeholder="گذر واژه" type="password"  promptLabel="رمز را وارد نمائید" weakLabel="ضعیف" mediumLabel="متوسط" strongLabel="قوی"/>
+          </div>
+        </div>
+        <button pButton type="button"  class="p-button-warning">ثبت نام</button>
+        <p>در سایت ثبت نام کرده اید؟<a routerLink="/auth/loginUser">لاگین</a></p>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
