@@ -31,7 +31,9 @@
   transition: all 0.5s;
   font-family: 'IRANSans_Light';
 }
-
+::ng-deep .p-megamenu-panel.ng-star-inserted {
+  z-index: 999999;
+}
 #topbar.topbar-scrolled {
   top: -40px;
 }
@@ -55,9 +57,6 @@
 #topbar .info a:first-child {
   border-left: 0;
 }
-
-
-
 
 #header {
   background: #fff;
