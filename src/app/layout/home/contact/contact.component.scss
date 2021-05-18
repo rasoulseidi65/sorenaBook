@@ -1,0 +1,43 @@
+:host::ng-deep .card-header {
+  direction: rtl;
+  font-family: IRANSans_Bold;
+  border-bottom: 2px solid #EF2B2F;
+}
+:host::ng-deep .card {
+  border: none;
+  margin-top: 10px;
+}
+:host::ng-deep ul.call-my {
+  text-align: center;
+  direction: rtl;
+  list-style-type: none;
+}
+:host::ng-deep ul.call-my li{
+  line-height: 2;
+}
+:host::ng-deep ul.call-my li span{
+  font-family: IRANSans_Light;
+  font-size: 14px;
+}
+:host::ng-deep ul.call-my li span i span{
+  font-family: IRANSans_Bold;
+  color: #EF2B2F;
+  margin-right: 5px;
+  font-size: 16px;
+}
+:host::ng-deep ul.call-my li span i{
+  color: #EF2B2F;
+}
+:host::ng-deep .map-responsive{
+  overflow:hidden;
+  padding-bottom:50%;
+  position:relative;
+  height:0;
+}
+:host::ng-deep .map-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
