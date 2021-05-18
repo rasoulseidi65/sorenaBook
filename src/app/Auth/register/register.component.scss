@@ -8,12 +8,8 @@
   margin: 10px auto;
   position: relative;
 }
-.container-fluid .card p-card span {
-  font-family: IRANSans_Bold;
-  color: #fff;
-  background-color: #6076c2;
-  padding: 5px 50px;
-  border-radius: 8px;
+::ng-deep .p-card .p-card-content {
+  padding: 0rem 0;
 }
 @media (min-width: 960px) {
   .container-fluid .card{
