@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./Core/dashboardAdmin/dashboardadmin.module').then(m => m.DashboardadminModule)
   },
   {
+    path: 'user/panel',
+    loadChildren: () => import('./Core/dashboardUser/dashboarduser.module').then(m => m.DashboarduserModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./Auth/auth.module').then(m => m.AuthModule)
   },

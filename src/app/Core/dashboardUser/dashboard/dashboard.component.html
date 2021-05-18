@@ -1,0 +1,77 @@
+<mat-sidenav-container class="sidenav-container" dir="rtl">
+  <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar class="title-sidebar text-center">
+      <div class="row w-100">
+        <div class="col-12">
+          <!-- <img [src]="localStorage.userJson.image"
+               class="d-block img-fluid mb-2 mx-a mx-auto rounded-circle" width="50px"> -->
+          <img src="https://shakeriimagingcenter.com/wp-content/uploads/2020/10/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+               class="d-block img-fluid mb-2 mx-a mx-auto rounded-circle" width="50px">
+
+        </div>
+      </div>
+    </mat-toolbar>
+    <hr style="margin-top: -10px"/>
+    <mat-nav-list>
+      <mat-list>
+        <mat-list-item >
+          <i class="pi pi-home pl-2 text-white" style="font-size: 1rem"></i>رسول صیدی
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item  routerLink="./order">
+          <i class="pi pi-users pl-2 text-white" style="font-size: 1rem"></i>مدیریت سفارشات
+        </mat-list-item>
+
+        <mat-list-item routerLink="./profile">
+          <i class="pi pi-user-edit pl-2 text-white" style="font-size: 1rem"></i>پروفایل کاربری
+        </mat-list-item>
+
+        <mat-list-item (click) = "logOut()">
+          <i class="pi pi-sign-out pl-2 text-white" style="font-size: 1rem"></i> خروج
+        </mat-list-item>
+      </mat-list>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <p-toolbar>
+      <div class="row col">
+        <div class="col-1">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()">
+            <div class="pi pi-bars"></div>
+          </button>
+        </div>
+        <div class="col">
+          <span class="mx-3 text-white text-center">{{date}}</span>
+          <span class="mx-3 text-white text-center">{{time}}</span>
+        </div>
+        <div class="col">
+          <span class="mx-3 text-white text-center">{{ adminName }}</span>
+          <span class="mx-3 text-white text-center">
+              <a class="text-white" (click)="logOut()"><i class="pi pi-power-off text-white pl-2"></i>خروج</a>
+            </span>
+        </div>
+      </div>
+    </p-toolbar>
+
+    <ng-content>
+
+    </ng-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
