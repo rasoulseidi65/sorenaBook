@@ -18,10 +18,11 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 import {SharedComponentsModule} from '../sharedComponents/shared-components.module';
 import { AboutComponent } from './home/about/about.component';
 import { ContactComponent } from './home/contact/contact.component';
+import { ProductDetailComponent } from './home/product-detail/product-detail.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent, AboutComponent, ContactComponent],
+  declarations: [HomeComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent, AboutComponent, ContactComponent, ProductDetailComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
