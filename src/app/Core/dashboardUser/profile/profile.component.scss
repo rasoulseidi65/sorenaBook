@@ -1,0 +1,17 @@
+.container .row .panel-default{
+  margin-top: 10px;
+  border: 1px solid #eeeeee;
+}
+.container .row .panel-default .panel-heading .row{
+  font-family: IRANSans_Bold;
+}
+:host::ng-deep .ui-grid.ui-grid-pad>.ui-grid-row>div {
+  font-family: 'IRANSans_Light';
+}
+:host::ng-deep .ui-panel .ui-panel-titlebar {
+  font-family: 'IRANSans_Bold';
+}
+input{
+  font-family: 'IRANSans_Bold';
+
+}
