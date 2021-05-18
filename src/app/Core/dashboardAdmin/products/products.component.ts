@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
   showAddProductDialog(): void {
     const ref = this.dialogService.open(ProductAddDialogComponent, {
       header: 'ثبت محصول',
-      width: '70%'
+      width: '80%'
     });
 
     ref.onClose.subscribe(res => {

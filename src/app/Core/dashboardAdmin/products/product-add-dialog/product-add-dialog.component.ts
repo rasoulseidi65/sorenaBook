@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MessageService} from 'primeng/api';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AdminServiceService} from '../../admin-service.service';
@@ -15,7 +15,7 @@ export class ProductAddDialogComponent implements OnInit {
   index: number = 0;
   titleCategory: string[] = [];
   commissionPersent: string;//حق کمیسیون
-  commissionPersentFlag:boolean=false
+  commissionPersentFlag: boolean = false;
   activeState: boolean[] = [true, true, true];
   errorMessages = {
     title: [
@@ -70,21 +70,26 @@ export class ProductAddDialogComponent implements OnInit {
   featuresID: any;
   featuresValueID: any;
   featuresTitle: any;
-  values: any[] = [];
+  featuresValues: any[] = [];
   showSelectedFeatures: any[] = [];
-  constructor( private formBuilder: FormBuilder,
-               private service: AdminServiceService,
-               public ref: DynamicDialogRef,
-               public messageService: MessageService,
-               public config: DynamicDialogConfig) { }
+
+  constructor(private formBuilder: FormBuilder,
+              private service: AdminServiceService,
+              public ref: DynamicDialogRef,
+              public messageService: MessageService,
+              public config: DynamicDialogConfig) {
+  }
 
   ngOnInit(): void {
+    this.getCategories();
+    this.geFeatures();
     this.createform();
   }
+
   createform(): void {
     this.form = this.formBuilder.group({
       sellerID: new FormControl(
-       ''
+        ''
       ),
       title: new FormControl(
         null,
@@ -184,9 +189,59 @@ export class ProductAddDialogComponent implements OnInit {
     });
   }
 
-  submitForm(){
-
+  submitForm() {
+    this.service.addProduct(this.form.value).subscribe((response) => {
+      if (response['success'] === true) {
+        alert('ok');
+      }
+    });
   }
+
+  getCategories(): any {
+    this.service.getAllCategories().subscribe((response) => {
+      if (response.success === true) {
+        console.log(response);
+        this.categories = response.data;
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: ' دریافت اطلاعات ',
+          detail: response.data,
+        });
+      }
+    });
+  }
+
+  geFeatures(): any {
+    this.service.getAllFeature().subscribe((response) => {
+      if (response['success'] === true) {
+        console.log(response);
+        this.features = response['data'];
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: ' دریافت اطلاعات ',
+          detail: response['data'],
+        });
+      }
+    });
+  }
+
+  showSubCategory(e: any) {
+    let value = e.value;
+    if (value['SubCategory'].length > 0) {
+      this.subCategory = value['SubCategory'];
+    }
+  }
+
+  showFeatureValue(e: any) {
+    console.log(e)
+    let value = e.value;
+    if (value['FeaturesValue'].length > 0) {
+      this.featuresValues = value['FeaturesValue'];
+    }
+  }
+
   imageUploader(event): void {
     const formData = new FormData();
     formData.append('file', event.files[0], event.files[0].name);
@@ -218,9 +273,9 @@ export class ProductAddDialogComponent implements OnInit {
 
       if (response.success === true) {
 
-        let imgPathList : any[] = [];
+        let imgPathList: any[] = [];
         response.imagePath.forEach(element => {
-          imgPathList.push('http://api.jahantebkhoram.ir/'+ element.path);
+          imgPathList.push('http://api.jahantebkhoram.ir/' + element.path);
         });
 
         this.form.controls.gallery.setValue(imgPathList);

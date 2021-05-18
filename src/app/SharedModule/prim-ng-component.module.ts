@@ -34,6 +34,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DividerModule} from 'primeng/divider';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ListboxModule} from 'primeng/listbox';
 
 
 // @ts-ignore
@@ -76,7 +77,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MegaMenuModule,
     ConfirmDialogModule,
     PanelMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ListboxModule
   ],
   exports: [
     CommonModule,
@@ -115,7 +117,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ConfirmDialogModule,
     DividerModule,
     PanelMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ListboxModule
   ],
 })
 export class PrimNgComponentModule {

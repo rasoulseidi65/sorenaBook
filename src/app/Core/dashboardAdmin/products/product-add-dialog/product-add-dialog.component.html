@@ -6,7 +6,7 @@
       <p-accordionTab header="گام اول: انتخاب دسته محصول" [selected]="true">
         <div class="p-d-flex p-flex-column p-flex-md-row">
           <div class="p-mb-2 p-mr-2">
-            <p-listbox [options]="categories"    [metaKeySelection]="false"  [filter]="true"  optionLabel="title" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+            <p-listbox [options]="categories"  (onChange)="showSubCategory($event)"   [metaKeySelection]="false"  [filter]="true"  optionLabel="title" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
               <ng-template let-category pTemplate="item">
                 <div class="country-item">
                   <div>{{category.title}}</div>
@@ -23,26 +23,9 @@
               </ng-template>
             </p-listbox>
           </div>
-          <div class="p-mb-2 p-mr-2">
-            <p-listbox [options]="subSubCategory"   [metaKeySelection]="false"  [filter]="true"  optionLabel="title" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
-              <ng-template let-category pTemplate="item">
-                <div class="country-item">
-                  <div>{{category.title}}</div>
-                </div>
-              </ng-template>
-            </p-listbox>
-          </div>
+
         </div>
-        <div class="alert alert-success">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a>گروه محصول انتخابی شما:</a></li>
-              <li class="breadcrumb-item"><a>{{titleCategory[0]}}</a></li>
-              <li class="breadcrumb-item active text-info" >{{titleCategory[1]}}</li>
-              <li class="breadcrumb-item active text-danger" >{{titleCategory[2]}}</li>
-            </ol>
-          </nav>
-        </div>
+
 
 
       </p-accordionTab>
@@ -182,7 +165,7 @@
       <p-accordionTab header="گام سوم: درج ویژگی های محصول">
         <div class="p-d-flex p-flex-column p-flex-md-row">
           <div class="p-mb-2 p-mr-2">
-            <p-listbox [options]="features"     [metaKeySelection]="false"  [filter]="true"  optionLabel="titleFarsi" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+            <p-listbox [options]="features"   (onChange)="showFeatureValue($event)"   [metaKeySelection]="false"  [filter]="true"  optionLabel="titleFarsi" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
               <ng-template let-category pTemplate="item">
                 <div class="country-item">
                   <div>{{category.titleFarsi}}</div>
@@ -191,7 +174,7 @@
             </p-listbox>
           </div>
           <div class="p-mb-2 p-mr-2">
-            <p-listbox [options]="values"     [metaKeySelection]="false"  [filter]="true"  optionLabel="value" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+            <p-listbox [options]="featuresValues"     [metaKeySelection]="false"  [filter]="true"  optionLabel="value" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
               <ng-template let-category pTemplate="item">
                 <div class="country-item">
                   <div>{{category.value}}</div>
