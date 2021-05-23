@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {LayoutServiceService} from '../../layout-service.service';
+import {CartService} from '../../../serviceCart/cart.service';
 
 @Component({
   selector: 'app-discount-products',
@@ -39,21 +40,26 @@ export class DiscountProductsComponent implements OnInit {
       }
     }
   };
-  products:any[]=[];
-  constructor(private service: LayoutServiceService) {
+  products: any[] = [];
+  displayBasic:boolean;
+  constructor(private service: LayoutServiceService,
+              private cart: CartService) {
   }
 
   ngOnInit(): void {
-    this.getProduct()
+    this.getProduct();
   }
 
   getProduct() {
-    this.service.getAllProducts().subscribe((response)=>{
-      if(response['success']===true){
-        this.products=response['data'];
+    this.service.getAllProducts().subscribe((response) => {
+      if (response['success'] === true) {
+        this.products = response['data'];
 
       }
-    })
+    });
   }
-
+  addCart(product: any): void {
+    this.cart.addToCart(product);
+    this.displayBasic = true;
+  }
 }

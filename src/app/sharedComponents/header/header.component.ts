@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 // import * as $ from 'jquery';
 import {ViewportScroller} from '@angular/common';
 import {Router} from '@angular/router';
 import {MegaMenuItem, MenuItem} from 'primeng/api';
+import {CartService} from '../../serviceCart/cart.service';
+import {LocalStorageService} from '../../Auth/localStorageLogin/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +13,38 @@ import {MegaMenuItem, MenuItem} from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[];
-  displayMobileMenu:boolean = false;
+  displayMobileMenu: boolean = false;
   itemsPc: MegaMenuItem[];
+  isLogged: boolean = false;
+  cartlist: any[] = [];
+  lengthCartlist = 0;
+  sumOfPrice = 0;
+  countBadge = 0;
+  showCartList = true;
+  @ViewChild('basketDropDown') basketDropDown: ElementRef;
+  @ViewChild('category') category: ElementRef;
+  @ViewChild('navBar') navBar: ElementRef;
+  constructor(private viewportScroller: ViewportScroller
+    , private route: Router,
+              private serviceCart: CartService,
+              private localstorage: LocalStorageService) {
 
-  constructor(private viewportScroller: ViewportScroller,private route: Router) {
+
+  }
+
+  public onClick(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+
+    if (this.displayMobileMenu === true) {
+      this.displayMobileMenu = false;
+    }
+  }
+
+  ngOnInit(): void {
+    this.isLogged = this.localstorage.getCurrentUser();
+    setInterval(() => {
+      this.getAllPrice();
+    }, 1000);
     this.items = [
       {
         label: 'صفحه اصلی',
@@ -49,7 +79,8 @@ export class HeaderComponent implements OnInit {
                 label: 'دست کش',
                 icon: 'pi pi-fw pi-angle-left',
               }
-            ]},
+            ]
+          },
           {
             label: 'محصولات اختصاصی',
             items: [
@@ -116,7 +147,7 @@ export class HeaderComponent implements OnInit {
           ],
 
         ],
-        styleClass:'product'
+        styleClass: 'product'
       },
 
       {
@@ -129,7 +160,7 @@ export class HeaderComponent implements OnInit {
       },
 
       {
-        label: 'سبد خرید ', icon: 'pi pi-fw pi-shopping-cart',
+        label:this.countBadge+'سبد خرید', icon: 'pi pi-fw pi-shopping-cart',
         command: event => this.route.navigate(['/gallery'])
       },
       {
@@ -137,29 +168,76 @@ export class HeaderComponent implements OnInit {
         command: event => this.route.navigate(['auth/loginUser'])
       },
     ];
-
-  }
-
-  public onClick(elementId: string): void {
-    this.viewportScroller.scrollToAnchor(elementId);
-
-    if (this.displayMobileMenu === true){
-      this.displayMobileMenu = false;
-    }
-  }
-
-  ngOnInit(): void {
-    // $(function() {
-    //   $(document).scroll(function() {
-    //     let nav = $('#menu-navbar');
-    //     nav.toggleClass('scrolled', $(this).scrollTop() > nav.height());
-    //   });
-    // });
   }
 
   showMobileMenu(): void {
     this.displayMobileMenu = true;
   }
 
+  getAllPrice(): void {
+    // @ts-ignore
+    this.cartlist = this.serviceCart.getItems();
+    console.log(this.cartlist)
+    this.sumOfPrice = 0;
+    this.countBadge = 0;
+    this.showCartList = true;
+    this.lengthCartlist = this.cartlist.length;
+    if (this.cartlist != null) {
+      if (this.cartlist.length > 0) {
+        for (let i = 0; i < this.cartlist.length; i++) {
+          this.countBadge++;
+          this.sumOfPrice += Number(this.cartlist[i]['cartList'].price);
+          this.showCartList = false;
+        }
+      }
+    }
 
+  }
+
+  onDeleteCart(item: any): void {
+    this.serviceCart.deleteItem(item);
+    // @ts-ignore
+    this.cartlist = this.serviceCart.getItems();
+    this.getAllPrice();
+  }
+
+  goPageCart() {
+    this.localstorage.getCurrentUser();
+    if (this.localstorage.userJson != null) {
+      this.route.navigate(['/home/cart']);
+    } else {
+      this.route.navigate(['/auth/login']);
+    }
+  }
+  toggleBasketDropDown(): void {
+    this.basketDropDown.nativeElement.classList.toggle('indicator-display');
+    this.basketDropDown.nativeElement.classList.toggle('indicator-open');
+  }
+
+  openBasketDropDown(): void {
+
+      this.basketDropDown.nativeElement.classList.add('indicator-display');
+      this.basketDropDown.nativeElement.classList.add('indicator-open');
+
+  }
+
+  closeBasketDropDown(): void {
+    this.basketDropDown.nativeElement.classList.remove('indicator-display');
+    this.basketDropDown.nativeElement.classList.remove('indicator-open');
+  }
+
+  toggleNavBar(): void {
+    this.navBar.nativeElement.classList.toggle('nav-row-open');
+  }
+
+  openNavBar(): void {
+
+      this.navBar.nativeElement.classList.add('nav-row-open');
+
+  }
+
+  closeNavBar(): void {
+    this.category.nativeElement.classList.remove('category-row-open');
+    this.navBar.nativeElement.classList.remove('nav-row-open');
+  }
 }
