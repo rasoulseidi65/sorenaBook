@@ -123,6 +123,12 @@ export class AdminServiceService {
       data
     );
   }
+  addProductFeature(data:any){
+    return this.http.post(
+      'http://api.sorenabook.ir/api/v1/admin/productFeature',
+      data
+    );
+  }
   editProduct(id: any, data: any): any {
     return this.http.put(
       'http://api.sorenabook.ir/api/v1/admin/updateProduct/' + id,

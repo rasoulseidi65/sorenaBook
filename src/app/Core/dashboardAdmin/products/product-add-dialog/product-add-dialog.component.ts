@@ -88,9 +88,6 @@ export class ProductAddDialogComponent implements OnInit {
 
   createform(): void {
     this.form = this.formBuilder.group({
-      sellerID: new FormControl(
-        ''
-      ),
       title: new FormControl(
         null,
         [
@@ -191,10 +188,40 @@ export class ProductAddDialogComponent implements OnInit {
 
   submitForm() {
     this.service.addProduct(this.form.value).subscribe((response) => {
+      console.log(response);
       if (response['success'] === true) {
-        alert('ok');
+        const value = {
+          productID: response.result._id,
+          productFeature: this.showSelectedFeatures,
+        };
+        this.service.addProductFeature(value).subscribe((res) => {
+          if (res['success'] === true) {
+            this.messageService.add({severity: 'success', summary: ' موفقیت ', detail: 'محصول با موفقیت ثبت شد'});
+          }
+        })
       }
     });
+  }
+  onSubCategory(e:any){
+    let category = e.value;
+    this.form.patchValue({subCategory: category._id});
+  }
+  addSelectedValues(event: any): void {
+    console.log(event);
+    // const parent = this.featuresValues.find(x => x.value === event.value)._id;
+    this.showSelectedFeatures.push(
+      {
+        featuresID: this.featuresID,
+        title: this.featuresTitle,
+        valueID: event.value['_id'],
+        value: event.value['value']
+      }
+    );
+// console.log(this.showSelectedFeatures)
+  }
+
+  deleteFeature(item: any) {
+    this.showSelectedFeatures.splice(item, 1);
   }
 
   getCategories(): any {
@@ -228,6 +255,7 @@ export class ProductAddDialogComponent implements OnInit {
   }
 
   showSubCategory(e: any) {
+    this.form.controls['categoryID'].setValue(e.value);
     let value = e.value;
     if (value['SubCategory'].length > 0) {
       this.subCategory = value['SubCategory'];
@@ -235,11 +263,13 @@ export class ProductAddDialogComponent implements OnInit {
   }
 
   showFeatureValue(e: any) {
-    console.log(e)
-    let value = e.value;
-    if (value['FeaturesValue'].length > 0) {
-      this.featuresValues = value['FeaturesValue'];
-    }
+    this.featuresValues = e.value['FeaturesValue'];
+    this.featuresID = e.value['_id'];
+    this.featuresTitle = e.value['titleFarsi'];
+    // let value = e.value;
+    // if (value['FeaturesValue'].length > 0) {
+    //   this.featuresValues = value['FeaturesValue'];
+    // }
   }
 
   imageUploader(event): void {
@@ -275,7 +305,7 @@ export class ProductAddDialogComponent implements OnInit {
 
         let imgPathList: any[] = [];
         response.imagePath.forEach(element => {
-          imgPathList.push('http://api.jahantebkhoram.ir/' + element.path);
+          imgPathList.push('http://api.sorenabook.ir/' + element.path);
         });
 
         this.form.controls.gallery.setValue(imgPathList);

@@ -21,6 +21,7 @@ import { FeatureValueEditDialogComponent } from './features/feature-value-edit-d
 import { ProductsComponent } from './products/products.component';
 import { ProductAddDialogComponent } from './products/product-add-dialog/product-add-dialog.component';
 import { ProductEditDialogComponent } from './products/product-edit-dialog/product-edit-dialog.component';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ProductEditDialogComponent } from './products/product-edit-dialog/produ
     LayoutModule,
     HttpClientModule,
     RippleModule,
+    InputSwitchModule,
 
   ],
   entryComponents: [],
