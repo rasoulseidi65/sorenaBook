@@ -68,9 +68,7 @@
             قیمت
             <p-sortIcon field="price"></p-sortIcon>
           </th>
-          <th>
-            تعداد دیدگاه
-          </th>
+
           <th>عملیات</th>
         </tr>
       </ng-template>
@@ -88,7 +86,7 @@
               width="150"
               [src]="product.image"
               class="img-fluid"
-              [alt]="product.imageDescription"
+              [alt]="product.title"
             />
           </td>
           <td>
@@ -98,13 +96,10 @@
             {{ product.Category[0].title }}
           </td>
           <td>
-            {{ product.SubCategory[0].title }}
-          </td>
-          <td>
             {{ product.price }}
           </td>
           <td>
-            {{ product.Comment.length }}
+            {{ product.price }}
           </td>
           <td>
             <button
@@ -118,14 +113,14 @@
               pButton
               pRipple
               icon="pi pi-pencil"
-
+              (click)="showEditProductDialog(product._id)"
               class="p-button-outlined p-button-warning ml-2"
             ></button>
             <button
               pButton
               pRipple
               icon="pi pi-trash"
-
+              (click)="deleteProduct(product._id)"
               class="p-button-outlined p-button-danger"
             ></button>
           </td>

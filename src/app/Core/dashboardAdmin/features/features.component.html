@@ -93,7 +93,7 @@
               pButton
               pRipple
               icon="pi pi-trash"
-
+              (click)="deleteFeature(feature._id)"
               class="p-button-outlined p-button-danger"
             ></button>
           </td>
@@ -134,7 +134,7 @@
               pButton
               pRipple
               icon="pi pi-trash"
-
+              (click)="deleteFeatureValue(FeaturesValue._id)"
               class="p-button-outlined p-button-danger"
             ></button>
           </td>

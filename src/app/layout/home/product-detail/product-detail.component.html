@@ -1,11 +1,197 @@
 <app-header></app-header>
+
+<section class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a routerLink="/">صفحه اصلی</a></li>
+      <li><a routerLink="/">{{ product.Category[0].title }}</a></li>
+      <li><a routerLink="/">  {{ product.SubCategory[0].title }}</a></li>
+      <li>{{ product.title }}</li>
+    </ol>
+  </div>
+</section>
 <div class="container">
-  <p-breadcrumb>نمایش درخی مسیرها</p-breadcrumb>
-  <div class="row">
-    <div class="col-md-4">
-      <img class="rounded" src="../../../../assets/images/book1.jpg" style="height: 300px;width: 80%" alt="">
+  <div class="row detail-box">
+    <div class="col-xl-6 col-lg-6">
+      <p-galleria
+        [value]="images"
+        [responsiveOptions]="responsiveOptions"
+        [containerStyle]="{ 'max-width': '660px', 'margin-top': '2em' }"
+        [numVisible]="5"
+        dir="ltr"
+        thumbnailsPosition="bottom"
+        [autoPlay]="true"
+        [transitionInterval]="2000"
+        [circular]="true"
+        [showItemNavigators]="true"
+        [showItemNavigatorsOnHover]="true"
+      >
+        <ng-template
+          pTemplate="item"
+          *ngFor="let item of images; let i = index"
+        >
+          <div class="full-screen">
+            <a><i class="fas fa-expand"></i></a>
+          </div>
+          <img
+            [src]="item.previewImageSrc"
+            style="width: 100%; height: 350px"
+          />
+<!--          <lib-ngx-image-zoom-->
+<!--            [thumbImage]="item.thumbnailImageSrc"-->
+<!--            [fullImage]="item.previewImageSrc"-->
+<!--            [magnification]="1"-->
+<!--            [enableScrollZoom]="true"-->
+<!--            [enableLens]="true"-->
+<!--            [lensWidth]="200"-->
+<!--            [lensHeight]="150"-->
+<!--            zoomMode="hover"-->
+<!--          >-->
+<!--          </lib-ngx-image-zoom>-->
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="p-grid p-nogutter p-justify-center">
+            <img
+              [src]="item.thumbnailImageSrc"
+              style="width: 80px; height: 80px; display: block"
+            />
+          </div>
+        </ng-template>
+      </p-galleria>
     </div>
-    <div class="col-md-8">bnbn</div>
+    <div class="col-xl-6 col-lg-6">
+      <p-panel dir="rtl">
+        <ng-template pTemplate="header">
+<!--          <span class="col-4 text-right">-->
+<!--            <b>{{ product.Category[0].title }}</b>-->
+<!--          </span>-->
+<!--          <span class="col-4 text-center">-->
+<!--           <b> {{ product.SubCategory[0].title }}</b>-->
+<!--          </span>-->
+          <span class="col-4 text-left">
+           <b> {{ product.title }}</b>
+          </span>
+
+        </ng-template>
+        <div class="row desc no-gutters ">
+          <div class="col-sm-12 col-md-12 ">
+            <div class="d-flex mb-3">
+              <label class="p-ml-auto p-text-right">تعداد دیدگاه</label>
+              <span>3</span>
+            </div>
+            <div class="d-flex mb-3">
+              <label class="p-ml-auto">دسته بندی: </label>
+              <span>{{product.Category[0]['title']}}</span>
+            </div>
+            <div class="d-flex mb-3">
+              <label class="p-ml-auto">قیمت: </label>
+              <span class="text-danger">{{product.price|number}}</span>
+            </div>
+          </div>
+          <div class="d-flex">
+           <div class="p-ml-auto">
+             <p-inputNumber
+               [showButtons]="true"
+               buttonLayout="horizontal"
+               inputId="count"
+               spinnerMode="horizontal"
+               [step]="1"
+               [min]="1"
+               decrementButtonClass="p-button-info"
+               incrementButtonClass="p-button-info"
+               incrementButtonIcon="pi pi-plus"
+               decrementButtonIcon="pi pi-minus"
+
+             >
+             </p-inputNumber>
+           </div>
+            <div>
+              <button
+                type="submit"   pButton
+                class="p-button-info"
+                icon="pi pi-fw pi-shopping-cart" iconPos="left"
+                label=" افزودن به سبد خرید"
+              >
+
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </p-panel>
+    </div>
+  </div>
+
+  <div class="row detail-box mb-4">
+
+    <p-tabView class="tabview ">
+      <p-tabPanel class="col-sm-12" header=" مشخصات کتاب" leftIcon="pi pi-list">
+        <table>
+          <tbody>
+          <tr *ngFor="let item of featuresValues">
+            <td>{{item.feature[0].titleFarsi}}</td>
+            <td>{{item.value[0].value}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </p-tabPanel>
+      <p-tabPanel class="col-sm-12" header="توضیحات" leftIcon="pi pi-book">
+        <p>
+          {{product.detail}}
+        </p>
+      </p-tabPanel>
+      <p-tabPanel header="دیدگاه" leftIcon="pi pi-comments">
+        <div class="command-form">
+          <form [formGroup]="formComment">
+            <div class="form-group mt-3 justify-content-center">
+              <label>نظر شما (اجباری)</label>
+              <textarea class="form-control" [(ngModel)]="commentText" formControlName="commentText"></textarea>
+              <button
+                type="submit"
+                class="btn mx-auto d-block mt-2 text-white add-to-cart"
+
+              >
+                ثبت دیدگاه
+              </button>
+            </div>
+          </form>
+        </div>
+<!--        <div class="row justify-content-center comment" *ngIf="product.Comment.length > 0">-->
+<!--          <div class="col-12 align-items-center text-center">-->
+<!--            <div class="title-box-d">-->
+<!--              <h3 class="title-d">دیدگاه ({{ product.Comment.length }})</h3>-->
+<!--            </div>-->
+<!--            <div class="box-comments">-->
+<!--              <ul class="list-comments" *ngFor="let item of product.Comment">-->
+<!--                <li>-->
+<!--                  <div class="comment-avatar">-->
+<!--                    <img [src]="item.User[0].image" alt="" />-->
+<!--                  </div>-->
+<!--                  <div class="comment-details">-->
+<!--                    <h4 class="comment-author">{{item.User[0].fullName}}</h4>-->
+<!--                    <p class="date">{{item.date}}</p>-->
+<!--                    <p class="comment-description">-->
+<!--                      {{item.commentText}}-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="comment-children" *ngIf="item.reply != null">-->
+<!--                  <div class="comment-avatar">-->
+<!--                    <img src="../../../assets/images/admin-default.png" alt="" />-->
+<!--                  </div>-->
+<!--                  <div class="comment-details">-->
+<!--                    <h4 class="comment-author">ادمین</h4>-->
+<!--                    <p class="comment-description">{{item.reply}}</p>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+      </p-tabPanel>
+    </p-tabView>
+
   </div>
 </div>
 <app-footer></app-footer>

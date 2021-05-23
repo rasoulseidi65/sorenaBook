@@ -17,7 +17,7 @@ export class AdminServiceService {
   }
   uploadFile(data: any): any {
     return this.http.post(
-      'http://api.sorenabook.ir/api/v1/admin/upload',
+      'http://api.sorenabook.ir/api/v1/admin/image',
       data
     );
   }
@@ -110,10 +110,20 @@ export class AdminServiceService {
     return this.http.post(
       'http://api.sorenabook.ir/api/v1/admin/featureValue',data
     );  }
+  deleteFeature(id: any): any {
+    return this.http.delete(
+      'http://api.sorenabook.ir/api/v1/admin/deleteFeature/' + id
+    );
+  }
+  deleteFeatureValue(id: any): any {
+    return this.http.delete(
+      'http://api.sorenabook.ir/api/v1/admin/deleteFeatureValue/' + id
+    );
+  }
   //#region Products
   getAllProducts(): any {
     return this.http.get(
-      'http://api.sorenabook.ir/api/v1/admin/getAllProduct'
+      'http://api.sorenabook.ir/api/v1/admin/products'
     );
   }
 
@@ -137,7 +147,7 @@ export class AdminServiceService {
   }
   deleteProduct(id: any): any {
     return this.http.delete(
-      'http://api.sorenabook.ir/api/v1/admin/deleteProduct/' + id
+      'http://api.sorenabook.ir/api/v1/admin/products/' + id
     );
   }
 

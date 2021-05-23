@@ -36,6 +36,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ListboxModule} from 'primeng/listbox';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {GalleriaModule} from 'primeng/galleria';
 // @ts-ignore
 @NgModule({
   declarations: [],
@@ -78,11 +79,13 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
     ConfirmDialogModule,
     PanelMenuModule,
     ReactiveFormsModule,
-    ListboxModule
+    ListboxModule,
+    GalleriaModule
   ],
   exports: [
     CommonModule,
     InputTextModule,
+    GalleriaModule,
     CarouselModule,
     ButtonModule,
     ToastModule,

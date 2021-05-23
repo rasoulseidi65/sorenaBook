@@ -60,4 +60,58 @@ export class FeaturesComponent implements OnInit {
       }
     });
   }
+
+    deleteFeature(id: any): void {
+      this.confirmationService.confirm({
+        message: 'آیا از حذف رکورد انتخابی مطمین هستید؟',
+        header: 'تایید حذف',
+        icon: 'pi pi-exclamation-triangle',
+        rejectLabel: 'خیر',
+        acceptLabel: 'بله',
+        defaultFocus: 'reject',
+        accept: () => {
+          // delete from db
+          this.service.deleteFeature(id).subscribe((response) => {
+            if (response.success === true) {
+              this.confirmationService.close();
+              this.messageService.add({severity: 'success', summary: ' حذف اطلاعات ', detail: response.data});
+              this.getFeatures();
+            } else {
+              this.messageService.add({severity: 'error', summary: ' حذف اطلاعات ', detail: response.data});
+            }
+          });
+        },
+        reject: () => {
+          // close
+          this.confirmationService.close();
+        }
+      });
+    }
+
+  deleteFeatureValue(id: any): void {
+    this.confirmationService.confirm({
+      message: 'آیا از حذف رکورد انتخابی مطمین هستید؟',
+      header: 'تایید حذف',
+      icon: 'pi pi-exclamation-triangle',
+      rejectLabel: 'خیر',
+      acceptLabel: 'بله',
+      defaultFocus: 'reject',
+      accept: () => {
+        // delete from db
+        this.service.deleteFeatureValue(id).subscribe((response) => {
+          if (response.success === true) {
+            this.confirmationService.close();
+            this.messageService.add({severity: 'success', summary: ' حذف اطلاعات ', detail: response.data});
+            this.getFeatures();
+          } else {
+            this.messageService.add({severity: 'error', summary: ' حذف اطلاعات ', detail: response.data});
+          }
+        });
+      },
+      reject: () => {
+        // close
+        this.confirmationService.close();
+      }
+    });
+  }
 }

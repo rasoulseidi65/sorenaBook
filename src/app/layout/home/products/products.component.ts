@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {LayoutServiceService} from '../../layout-service.service';
 
 @Component({
   selector: 'app-products',
@@ -38,9 +39,20 @@ export class ProductsComponent implements OnInit {
       }
     }
   };
-  constructor() { }
-
-  ngOnInit(): void {
+   products:any[]=[];
+  constructor(private service: LayoutServiceService) {
   }
 
+  ngOnInit(): void {
+    this.getProduct()
+  }
+
+  getProduct() {
+    this.service.getAllProducts().subscribe((response)=>{
+      if(response['success']===true){
+        this.products=response['data'];
+        console.log(this.products)
+      }
+    })
+  }
 }

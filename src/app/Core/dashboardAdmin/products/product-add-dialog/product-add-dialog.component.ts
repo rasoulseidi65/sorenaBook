@@ -274,9 +274,11 @@ export class ProductAddDialogComponent implements OnInit {
 
   imageUploader(event): void {
     const formData = new FormData();
-    formData.append('file', event.files[0], event.files[0].name);
+    formData.append('image', event.files[0], event.files[0].name);
     this.service.uploadFile(formData).subscribe((response) => {
+
       if (response.success === true) {
+
         this.form.controls.image.setValue(response.imagePath);
 
         this.messageService.add({
@@ -300,7 +302,7 @@ export class ProductAddDialogComponent implements OnInit {
       formData.append('files', event.files[i], event.files[i].name);
     }
     this.service.uploadMultiFiles(formData).subscribe((response) => {
-
+      console.log(response)
       if (response.success === true) {
 
         let imgPathList: any[] = [];
