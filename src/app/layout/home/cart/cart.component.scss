@@ -1,12 +1,6 @@
 .stepar{
   font-family: IRANSans_Bold;
 }
-.table-striped tr {
-  font-family: IRANSans_Light;
-}
-.mat-stepper-horizontal {
-  margin-top: 8px;
-}
 button {
   font-family: IRANSans_Light;
 }
@@ -37,4 +31,12 @@ button {
 }
 .table-many th {
   font-family: IRANSans_Bold;
+}
+.table-many .footer span{
+  font-family: IRANSans_Light;
+  line-height: 3;
+  font-size: 14px;
+}
+.table-many .footer{
+  text-align: center;
 }
