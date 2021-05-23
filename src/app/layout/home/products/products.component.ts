@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {LayoutServiceService} from '../../layout-service.service';
+import {CartService} from '../../../serviceCart/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -40,7 +41,9 @@ export class ProductsComponent implements OnInit {
     }
   };
    products:any[]=[];
-  constructor(private service: LayoutServiceService) {
+  displayBasic:boolean;
+  constructor(private service: LayoutServiceService,
+              private cart: CartService) {
   }
 
   ngOnInit(): void {
@@ -54,5 +57,9 @@ export class ProductsComponent implements OnInit {
         console.log(this.products)
       }
     })
+  }
+  addCart(product: any): void {
+    this.cart.addToCart(product);
+    this.displayBasic = true;
   }
 }

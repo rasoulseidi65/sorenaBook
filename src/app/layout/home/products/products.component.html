@@ -84,6 +84,7 @@
                 <div class="product-card__footer">
                   <button class="product-card__addtocart-icon" type="button"
                           pTooltip="افزودن به سبد خرید" tooltipPosition="bottom"
+                          (click)="addCart(item)"
                   >
                     <svg width="20" height="20">
                       <circle cx="7" cy="17" r="2"></circle>
@@ -117,3 +118,19 @@
     </div>
   </div>
 </section>
+<p-dialog [(visible)]="displayBasic" [style]="{width: '30rem'}" [baseZIndex]="10000" dir="rtl">
+  <p-header>
+    <p>انجام شد</p>
+  </p-header>
+  <p class="text-right text-success mt-2">محصول با موفقیت به سبد خرید اضافه شد</p>
+  <p class="text-right textDialog">برای ثبت نهایی سفارش بر روی دکمه ی مشاهده سبد خرید کلیک کنید و برای افزودن دیگر
+    محصولات به سبد خرید، بر روی دکمه ی ادامه کلیک کنید.</p>
+  <hr style="margin-bottom: -15px"/>
+  <p-footer class="p-d-flex">
+    <button pButton pRipple type="button" (click)="displayBasic=false" label="ادامه"
+            class="p-button-danger p-ml-auto"></button>
+    <button pButton pRipple type="button" (click)="displayBasic=false" label="مشاهده سبد خرید"
+            class="p-button-danger" [routerLink]="['./cart']"></button>
+
+  </p-footer>
+</p-dialog>
