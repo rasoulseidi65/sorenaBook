@@ -1,92 +1,103 @@
-.stepar{
+::ng-deep .stepar{
   font-family: IRANSans_Bold;
 }
-button {
+::ng-deep .stepar button {
   font-family: IRANSans_Light;
 }
-.table-step1 thead {
+::ng-deep .stepar .table-step1 thead {
   background-color: #6880e8;
   color: #fff;
 }
-.table-step1 thead th{
+::ng-deep .stepar .table-step1 thead th{
   padding: 25px 0px !important;
 }
-.table-step1 thead th:first-child {
+::ng-deep .stepar .table-step1 thead th:first-child {
   border-radius: 0 10px 0 0;
 }
-.table-step1 thead th:last-child {
+::ng-deep .stepar .table-step1 thead th:last-child {
   border-radius:  10px 0 0 0;
 }
-.table-step1 tbody {
+::ng-deep .stepar .table-step1 tbody {
   border: 1px solid #5a6aa038;
 }
-::ng-deep .p-card.p-component {
+::ng-deep .stepar .p-card.p-component {
   width: 500px;
   border: 1px solid #5767c359;
   border-radius: 3px;
 }
-.table-many td {
+
+@media (max-width: 960px) {
+  ::ng-deep .stepar .p-card.p-component {
+    width: auto;
+    border: 1px solid #5767c359;
+    border-radius: 3px;
+  }
+}
+::ng-deep .table-many td {
   text-align: left;
   font-family: IRANSans_Light;
 }
-.table-many th {
+::ng-deep .stepar .table-many th {
   font-family: IRANSans_Bold;
 }
-.table-many .footer span{
+::ng-deep .stepar .table-many .footer span{
   font-family: IRANSans_Light;
   line-height: 3;
   font-size: 14px;
 }
-.table-many .footer{
+::ng-deep .stepar .table-many .footer{
   text-align: center;
 }
-::ng-deep .p-inputnumber {
+::ng-deep .stepar .p-inputnumber {
   direction: ltr;
 }
-::ng-deep .p-field {
+::ng-deep .stepar .p-field {
   margin-bottom: 0px;
 }
-span.p-inputgroup-addon {
+::ng-deep .stepar span.p-inputgroup-addon {
   background: none;
   border: none;
 }
-input.p-inputtext.p-component::placeholder {
+::ng-deep .stepar input.p-inputtext.p-component::placeholder {
   font-family: IRANSans_Light;
   font-size: 14px;
 }
-input.p-inputtext.p-component {
-  border-radius: 10px;
+::ng-deep input.p-inputtext.p-component {
+  //border-radius: 10px;
   box-shadow: 0px 0px 10px 0px #e8e6e6b5;
 }
-select.form-select {
+::ng-deep .stepar select.form-select {
   font-family: IRANSans_Light;
   font-size: 14px;
 }
-textarea#exampleFormControlTextarea1 {
+::ng-deep .stepar textarea#exampleFormControlTextarea1 {
   font-family: IRANSans_Light;
   font-size: 14px;
 }
-::ng-deep .mat-horizontal-stepper-content {
+::ng-deep .stepar .mat-horizontal-stepper-content {
   text-align: center;
 }
-::ng-deep button.mat-focus-indicator.mat-stepper-next.mat-button.mat-button-base {
+::ng-deep .stepar button.mat-focus-indicator.mat-stepper-next.mat-button.mat-button-base {
   background-color: #7688d6c9;
   padding: 5px 70px;
   border-radius: 25px;
   color: #fff;
   margin-top: 10px;
 }
-::ng-deep button.mat-focus-indicator.mat-stepper-previous.mat-button.mat-button-base {
+::ng-deep .stepar button.mat-focus-indicator.mat-stepper-previous.mat-button.mat-button-base {
   background-color: #7688d6c9;
   padding: 5px 70px;
   border-radius: 25px;
   color: #fff;
   margin-top: 10px;
 }
-::ng-deep button.mat-focus-indicator.mat-button.mat-button-base {
+::ng-deep .stepar button.mat-focus-indicator.mat-button.mat-button-base {
   background-color: #7688d6c9;
   padding: 5px 70px;
   border-radius: 25px;
   color: #fff;
   margin-top: 10px;
+}
+::ng-deep .stepar p-card {
+  float: left;
 }

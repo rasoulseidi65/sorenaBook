@@ -4,7 +4,7 @@
   <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel >لیست سفارشات</ng-template>
-      <table class="table table-step1">
+      <table class="table table-step1 table-responsive p-col-12">
         <thead>
         <tr>
           <th scope="col">ردیف</th>
@@ -176,8 +176,8 @@
 
     </p-card>
     <div>
+      <button mat-button matStepperNext>بعدی</button><br>
       <button mat-button matStepperPrevious>قبلی</button>
-      <button mat-button matStepperNext>بعدی</button>
     </div>
   </mat-step>
   <mat-step>
