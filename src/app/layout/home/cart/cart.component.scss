@@ -10,53 +10,31 @@
 button {
   font-family: IRANSans_Light;
 }
-.mat-form-field {
-   display: block;
+.table-step1 thead {
+  background-color: #6880e8;
+  color: #fff;
 }
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
-  text-align: right;
-  background: none;
+.table-step1 thead th{
+  padding: 25px 0px !important;
 }
-::ng-deep .mat-form-field-infix {
-  text-align: right;
+.table-step1 thead th:first-child {
+  border-radius: 0 10px 0 0;
 }
-.mat-card {
-  text-align: center;
+.table-step1 thead th:last-child {
+  border-radius:  10px 0 0 0;
 }
-.mat-card-image {
-  width: calc(25% + 32px);
-  margin: 0 -16px 16px -16px;
+.table-step1 tbody {
+  border: 1px solid #5a6aa038;
 }
-table.table-shap {
-  width: max-content;
-  text-align: center;
-  margin: 0px auto;
+::ng-deep .p-card.p-component {
+  width: 500px;
+  border: 1px solid #5767c359;
+  border-radius: 3px;
 }
-.card {
-  width: 400px;
-  margin: 0px auto;
+.table-many td {
+  text-align: left;
+  font-family: IRANSans_Light;
 }
-@media (max-width: 960px) {
-  .card {
-    width: auto;
-    margin: 0px auto;
-  }
-}
-.mat-form-field {
-   display:flex;
-}
-.p-fluid {
-  margin: 0px auto;
-}
-.mat-form-field {
-  margin-top: 16px;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
+.table-many th {
+  font-family: IRANSans_Bold;
 }
