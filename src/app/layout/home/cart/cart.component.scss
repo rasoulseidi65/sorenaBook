@@ -40,3 +40,9 @@ button {
 .table-many .footer{
   text-align: center;
 }
+::ng-deep .p-inputnumber {
+  direction: ltr;
+}
+::ng-deep .p-field {
+  margin-bottom: 0px;
+}
