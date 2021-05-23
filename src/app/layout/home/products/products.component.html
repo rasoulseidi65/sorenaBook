@@ -4,7 +4,7 @@
       <div class="col col-12 align-items-center">
         <div class="section-title text-right">
           <p-divider align="center" type="solid">
-            <h2 class="p-text-center">همه محصولات</h2>
+            <h2 class="p-text-center">جدیدترین محصولات</h2>
           </p-divider>
         </div>
       </div>
@@ -74,10 +74,10 @@
                       <div class="product-card__badges" *ngIf="item['offer'] === false">
                         <div class="tag-badge tag-badge--sale">{{item['topText']}}</div>
                       </div>
-                     <div class="text-center">
-                       <a class="product-title text-center" routerLink="./product-detail">{{item.title}}</a>
+                      <div class="text-center">
+                        <h4 class="product-title text-center" [routerLink]="['/home/product-detail',item._id]">{{item.title}}</h4>
 
-                     </div>
+                      </div>
                     </div>
                   </div>
                 </div>

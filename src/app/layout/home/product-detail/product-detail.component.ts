@@ -85,6 +85,7 @@ export class ProductDetailComponent implements OnInit {
       (params) => (this.productID = params.get('id'))
     );
     this.createform();
+    this.featuresValues.splice(0,this.featuresValues.length)
     this.service.getProducts(this.productID).subscribe((response) => {
       if (response.success === true) {
         console.log(response)
