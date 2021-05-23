@@ -2,7 +2,6 @@
 <div class="container">
   <form [formGroup]="form"  class="w-100 mt-3" (ngSubmit)="submitForm()">
     <p-accordion [activeIndex]="index">
-
       <p-accordionTab header="گام اول: انتخاب دسته محصول" [selected]="true">
         <div class="p-d-flex p-flex-column p-flex-md-row">
           <div class="p-mb-2 p-mr-2">
@@ -15,7 +14,7 @@
             </p-listbox>
           </div>
           <div class="p-mb-2 p-mr-2">
-            <p-listbox [options]="subCategory"     [metaKeySelection]="false"  [filter]="true"  optionLabel="title" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+            <p-listbox [options]="subCategory"   (onChange)="onSubCategory($event)"   [metaKeySelection]="false"  [filter]="true"  optionLabel="title" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
               <ng-template let-category pTemplate="item">
                 <div class="country-item">
                   <div>{{category.title}}</div>
@@ -76,37 +75,7 @@
             <!--          </ul>-->
           </div>
         </div>
-        <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col text-right">
-            <label for="weight"> وزن محصول:<label class="text-danger">*</label></label>
-            <input id="weight" type="text" pInputText
-                   formControlName="weight">
-            <!--          <ul class="mt-1 text-right list-inline"-->
-            <!--              *ngFor="let error of errorMessages.weight">-->
-            <!--            <li class="font-small text-danger font-weight-bold list-inline-item"-->
-            <!--                *ngIf="form.get('weight').hasError(error.type)-->
-            <!--                            && (form.get('weight').dirty-->
-            <!--                            || form.get('weight').touched)">-->
-            <!--              {{ error.message }}-->
-            <!--            </li>-->
-            <!--          </ul>-->
-          </div>
-          <div class="p-field p-col text-right">
-            <label for="topText">متن بالای محصول</label>
-            <input id="topText" type="text" pInputText
-                   formControlName="topText">
-            <!--          <ul class="mt-1 text-right list-inline"-->
-            <!--              *ngFor="let error of errorMessages.topText">-->
-            <!--            <li class="font-small text-danger font-weight-bold list-inline-item"-->
-            <!--                *ngIf="form.get('topText').hasError(error.type)-->
-            <!--                            && (form.get('topText').dirty-->
-            <!--                            || form.get('topText').touched)">-->
-            <!--              {{ error.message }}-->
-            <!--            </li>-->
-            <!--          </ul>-->
-          </div>
 
-        </div>
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col text-right">
             <label class="d-block">ارسال محصول رایگان است؟  {{form.controls.freeSend.value === true ? 'بله' : 'خیر'}}</label>
@@ -174,7 +143,7 @@
             </p-listbox>
           </div>
           <div class="p-mb-2 p-mr-2">
-            <p-listbox [options]="featuresValues"     [metaKeySelection]="false"  [filter]="true"  optionLabel="value" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+            <p-listbox [options]="featuresValues"  (onChange)="addSelectedValues($event)"   [metaKeySelection]="false"  [filter]="true"  optionLabel="value" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
               <ng-template let-category pTemplate="item">
                 <div class="country-item">
                   <div>{{category.value}}</div>
@@ -196,7 +165,7 @@
             <tr>
               <td>{{feature.title}}</td>
               <td>{{feature.value}}</td>
-              <td><i class="fas fa-trash" ></i> </td>
+              <td><i class="fas fa-trash" (click)="deleteFeature(rowIndex)"></i> </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
@@ -212,16 +181,16 @@
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col text-right">
             <label>آپلود تصویر کالا<label class="text-danger">*</label>:</label>
-<!--            <p-fileUpload-->
-<!--              chooseLabel="انتخاب تصویر"-->
-<!--              uploadLabel="آپلود تصویر"-->
-<!--              cancelLabel="انصراف"-->
-<!--              customUpload="true"-->
-<!--              (uploadHandler)="imageUploader($event)"-->
-<!--              invalidFileSizeMessageDetail="حداکثر سایز فایل 2 مگابایت می باشد"-->
-<!--              invalidFileSizeMessageSummary="اندازه فایل بیش از حد مجاز می باشد"-->
-<!--              accept="image/jpeg,image/png" maxFileSize="2000000">-->
-<!--            </p-fileUpload>-->
+            <p-fileUpload
+              chooseLabel="انتخاب تصویر"
+              uploadLabel="آپلود تصویر"
+              cancelLabel="انصراف"
+              [customUpload]="true"
+              (uploadHandler)="imageUploader($event)"
+              invalidFileSizeMessageDetail="حداکثر سایز فایل 2 مگابایت می باشد"
+              invalidFileSizeMessageSummary="اندازه فایل بیش از حد مجاز می باشد"
+              accept="image/jpeg,image/png" >
+            </p-fileUpload>
             <!--          <ul class="mt-1 text-right list-inline"-->
             <!--              *ngFor="let error of errorMessages.image">-->
             <!--            <li class="font-small text-danger font-weight-bold list-inline-item"-->
@@ -236,17 +205,17 @@
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col text-right">
             <label>آپلود تصاویر گالری محصول<label class="text-danger">*</label>:</label>
-<!--            <p-fileUpload-->
-<!--              chooseLabel="انتخاب تصویر"-->
-<!--              uploadLabel="آپلود تصویر"-->
-<!--              cancelLabel="انصراف"-->
-<!--              customUpload="true"-->
-<!--              multiple="multiple"-->
-<!--              (uploadHandler)="onMultipleUpload($event)"-->
-<!--              invalidFileSizeMessageDetail="حداکثر سایز فایل 2 مگابایت می باشد"-->
-<!--              invalidFileSizeMessageSummary="اندازه فایل بیش از حد مجاز می باشد"-->
-<!--              accept="image/jpeg,image/png" maxFileSize="2000000">-->
-<!--            </p-fileUpload>-->
+            <p-fileUpload
+              chooseLabel="انتخاب تصویر"
+              uploadLabel="آپلود تصویر"
+              cancelLabel="انصراف"
+              [customUpload]="true"
+              [multiple]="true"
+              (uploadHandler)="onMultipleUpload($event)"
+              invalidFileSizeMessageDetail="حداکثر سایز فایل 2 مگابایت می باشد"
+              invalidFileSizeMessageSummary="اندازه فایل بیش از حد مجاز می باشد"
+              accept="image/jpeg,image/png">
+            </p-fileUpload>
           </div>
         </div>
       </p-accordionTab>
@@ -254,7 +223,7 @@
     <div class="p-fluid p-formgrid p-grid pt-3">
       <div class="p-field p-col">
         <div class="float-left">
-          <button pButton label="ثبت کالا" class="ui-button-success"
+          <button pButton label="ثبت محصول" class="ui-button-success"
                   icon="pi pi-check" iconPos="left" ></button>
         </div>
       </div>
