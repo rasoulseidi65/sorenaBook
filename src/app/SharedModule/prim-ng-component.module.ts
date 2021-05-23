@@ -35,13 +35,13 @@ import {DividerModule} from 'primeng/divider';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ListboxModule} from 'primeng/listbox';
-
-
+import {BreadcrumbModule} from 'primeng/breadcrumb';
 // @ts-ignore
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    BreadcrumbModule,
     DividerModule,
     InputTextModule,
     PasswordModule,
@@ -118,7 +118,8 @@ import {ListboxModule} from 'primeng/listbox';
     DividerModule,
     PanelMenuModule,
     ReactiveFormsModule,
-    ListboxModule
+    ListboxModule,
+    BreadcrumbModule
   ],
 })
 export class PrimNgComponentModule {

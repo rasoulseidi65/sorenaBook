@@ -19,10 +19,15 @@ import {SharedComponentsModule} from '../sharedComponents/shared-components.modu
 import { AboutComponent } from './home/about/about.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { ProductDetailComponent } from './home/product-detail/product-detail.component';
+import { CartComponent } from './home/cart/cart.component';
+import {StepsModule} from 'primeng/steps';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
-  declarations: [HomeComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent, AboutComponent, ContactComponent, ProductDetailComponent],
+  declarations: [HomeComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent, AboutComponent, ContactComponent, ProductDetailComponent, CartComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
@@ -32,7 +37,11 @@ import { ProductDetailComponent } from './home/product-detail/product-detail.com
     ReactiveFormsModule,
     RippleModule,
     PanelMenuModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    StepsModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatCardModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
