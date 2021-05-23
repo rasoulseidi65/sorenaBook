@@ -60,50 +60,74 @@
       <ng-template matStepLabel >مشخصات پستی</ng-template>
       <div class="card">
         <div class="p-fluid">
-          <div class="p-field p-col-12 p-md-3">
-            <mat-form-field appearance="fill" >
-              <mat-label >انتخاب استان</mat-label>
-              <mat-select disableRipple>
-                <mat-option value="1">Option 1</mat-option>
-                <mat-option value="2">Option 2</mat-option>
-                <mat-option value="3">Option 3</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="p-field p-col-12 p-md-3">
-            <mat-form-field appearance="fill">
-              <mat-label>انتخاب شهر</mat-label>
-              <mat-select disableRipple>
-                <mat-option value="1">Option 1</mat-option>
-                <mat-option value="2">Option 2</mat-option>
-                <mat-option value="3">Option 3</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="p-field p-col-12 p-md-3">
-            <mat-form-field class="example-full-width">
-              <mat-label>ادرس کامل</mat-label>
-              <textarea matInput placeholder="لرستان-الشتر...."></textarea>
-            </mat-form-field>
-          </div>
-          <div class="p-field p-col-12 p-md-3">
-            <mat-form-field class="example-full-width">
-              <mat-label>کد پستی</mat-label>
-              <input matInput placeholder="Ex. Pizza" value="6891948859">
-            </mat-form-field>
-          </div>
-          <div class="p-field p-col-12 p-md-3">
-            <div class="example-form">
-              <mat-form-field class="example-full-width">
-                <mat-label>شماره تلفن</mat-label>
-                <input type="tel" matInput placeholder="09166996165">
-                <mat-icon matSuffix>mode_edit</mat-icon>
-              </mat-form-field>
+          <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-4">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText placeholder="نام ">
+              </div>
             </div>
-          </div>
+            <div class="p-col-12 p-md-4">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText placeholder="نام خانوادگی">
+              </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-mobile"></i></span>
+                <input type="text" pInputText placeholder="تلفن">
+              </div>
+            </div>
+        </div>
+          <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-6">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                <input type="text" pInputText placeholder="تلفن ثابت">
+              </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-ellipsis-h"></i></span>
+                <input type="text" pInputText placeholder="کد پستی">
+              </div>
+            </div>
+        </div>
+          <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-6">
+              <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"><i class="pi pi-map-marker"></i></span>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>انتخاب استان مورد نظر</option>
+                <option value="1">تهران</option>
+                <option value="2">لرستان</option>
+                <option value="3">سنندج</option>
+              </select>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+              <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"><i class="pi pi-map-marker"></i></span>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>انتخاب شهر مورد نظر</option>
+                <option value="1">تهران</option>
+                <option value="2">لرستان</option>
+                <option value="3">سنندج</option>
+              </select>
+              </div>
+            </div>
+        </div>
+          <div class="p-grid p-fluid">
+            <div class="p-col-12 ">
+              <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"><i class="pi pi-map-marker"></i></span>
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="آدرس کامل" rows="3"></textarea>
+              </div>
+            </div>
         </div>
       </div>
-
+      </div>
       <div>
         <button mat-button matStepperPrevious>قبلی</button>
         <button mat-button matStepperNext>بعدی</button>
@@ -111,30 +135,54 @@
     </form>
   </mat-step>
   <mat-step >
-    <ng-template matStepLabel >مرحله نهایی</ng-template>
-    <table class="table">
+    <ng-template matStepLabel >پیش فاکتور</ng-template>
+    <table class="table table-step1">
       <thead>
       <tr>
         <th scope="col">ردیف</th>
-        <th scope="col">عنوان کتاب</th>
+        <th scope="col">عنوان</th>
         <th scope="col">تعداد</th>
-        <th scope="col">قیمت</th>
+        <th scope="col">قیمت واحد</th>
         <th scope="col">قیمت کل</th>
-        <th scope="col"> تصویر</th>
+        <th scope="col">تصویر</th>
       </tr>
       </thead>
-      <tbody>
-      <tr style="font-family: IRANSans_Light;">
+      <tbody style="font-family: IRANSans_Light;">
+      <tr>
         <th scope="row">1</th>
-        <td>زنان مریخی مردان ونوسی</td>
+        <td>مردان مریخی زنان ونوسی</td>
         <td>2</td>
         <td>25000تومان</td>
-        <td>50000تومان</td>
+        <td>5000تومان</td>
         <td><img style="width: 50px;height: 50px" src="../../../../assets/images/book1.jpg" alt=""></td>
       </tr>
       </tbody>
     </table>
-    <button mat-flat-button color="primary">اضافه به سبد خرید</button>
+    <p-card>
+      <table class="table table-many">
+        <tr>
+          <th>مبلغ پرداختی</th>
+          <td>50000تومان</td>
+        </tr>
+        <hr>
+        <tr>
+          <th>مبلغ قابل پرداخت</th>
+          <td>50000تومان</td>
+        </tr>
+        <div class="footer">
+          <span>خرید های بالای 20 هزار تومان به صورت خودکار تخفیف خورده میشود</span>
+        </div>
+      </table>
+
+    </p-card>
+    <div>
+      <button mat-button matStepperPrevious>قبلی</button>
+      <button mat-button matStepperNext>بعدی</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel >مرحله نهایی</ng-template>
+    <button mat-flat-button color="primary">پرداخت آنلاین</button>
     <div>
       <button mat-button matStepperPrevious>قبلی</button>
       <button mat-button (click)="stepper.reset()">پایان</button>
