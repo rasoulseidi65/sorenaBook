@@ -1,20 +1,20 @@
-.container-fluid{
+::ng-deep .container-fluid{
   height: 100vh;
   background-image: url("../../../assets/images/bglogin.png");
   text-align: center;
 }
-.container-fluid .card{
+::ng-deep  .container-fluid .card{
   margin: 0px auto;
   background-color: #084ea6;
   box-shadow: -5px 6px #6db3cd;
   border-radius: 30px;
 }
-.container-fluid .card span{
+::ng-deep .container-fluid .card span{
   font-family: IRANSans_Bold;
   margin-top: 10px;
   color: #FFFFFF;
 }
-button.p-button-warning {
+::ng-deep button.p-button-warning {
   background: #ffc83a;
   border: none;
   border-radius: 8px;
@@ -22,22 +22,22 @@ button.p-button-warning {
   color: #000;
   padding: 5px 30px;
 }
-.container-fluid .card p {
+::ng-deep .container-fluid  p {
   font-family: IRANSans_Bold;
   color: #fff;
   padding: 15px 0px;
 }
-.container-fluid .card p a{
+::ng-deep .container-fluid  p a{
   text-decoration: none;
   color: #000000;
   margin-right: 4px;
 }
-.container-fluid .card .card-body input::placeholder {
+::ng-deep .container-fluid .card .card-body input::placeholder {
   font-family: IRANSans_Light;
 }
 
 @media (min-width: 960px) {
-  .container-fluid .card{
+  ::ng-deep .container-fluid .card{
     width: 25rem;
   }
 }

@@ -11,22 +11,22 @@ export class AuthService {
   }
 
   registerUser(data: any): Observable<any> {
-    return this.http.post('http://api.sorenabook.ir/api/v1/user/register', data);
+    return this.http.post('http://api.sorenabook.ir/api/v1/users/register', data);
   }
 
   loginUser(data: any): Observable<any> {
-    return this.http.post('http://api.sorenabook.ir/api/v1/user/login', data);
+    return this.http.post('http://api.sorenabook.ir/api/v1/users/login', data);
   }
 
   resetPasswordUser(data: any) {
-    return this.http.post('http://api.sorenabook.ir/api/v1/user/resetPassword', data);
+    return this.http.post('http://api.sorenabook.ir/api/v1/users/resetPassword', data);
   }
 
   changePasswordUser(id: any) {
-    return this.http.get('http://api.sorenabook.ir/api/v1/user/changePassword/' + id);
+    return this.http.get('http://api.sorenabook.ir/api/v1/users/changePassword/' + id);
   }
 
   getUser(id: any) {
-    return this.http.get('http://api.sorenabook.ir/api/v1/user/index/' + id);
+    return this.http.get('http://api.sorenabook.ir/api/v1/users/index/' + id);
   }
 }

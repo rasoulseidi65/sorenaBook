@@ -1,22 +1,25 @@
 <div class="container-fluid">
   <img src="../../../assets/images/imglogin.png" style="margin-top: 20px" alt="">
+  <form [formGroup]="formlogin" (ngSubmit)="sublogin(formlogin.value)">
   <div class="card" >
     <span>ورود کاربر</span>
     <div class="card-body">
       <div class="p-field p-grid">
         <label for="firstname3" class="p-col-fixed" ><i class="pi pi-user" style="font-size: 1rem;color: #fff"></i></label>
         <div class="p-col">
-          <input id="firstname3" class="form-control" placeholder="نام کاربری"  type="text" pInputText>
+          <input id="firstname3" formControlName="mobile" class="form-control" placeholder="نام کاربری"  type="text" pInputText>
         </div>
       </div>
       <div class="p-field p-grid">
         <label for="firstname4" class="p-col-fixed" ><i class="pi pi-lock" style="font-size: 1rem;color: #fff"></i></label>
         <div class="p-col">
-          <input pPassword id="firstname4" class="form-control"  placeholder="گذر واژه" type="password"  promptLabel="رمز را وارد نمائید" weakLabel="ضعیف" mediumLabel="متوسط" strongLabel="قوی"/>
+          <input pPassword id="firstname4" formControlName="password" class="form-control"  placeholder="گذر واژه" type="password"  promptLabel="رمز را وارد نمائید" weakLabel="ضعیف" mediumLabel="متوسط" strongLabel="قوی"/>
         </div>
       </div>
-      <button pButton type="button"  class="p-button-warning">ورود</button>
-      <p>کاربر جدید هستید؟<a routerLink="/auth/register">ثبت نام</a></p>
     </div>
   </div>
+    <button pButton type="submit"   class="p-button-warning" >ورود</button>
+    <p>کاربر جدید هستید؟<a routerLink="/auth/register">ثبت نام</a></p>
+</form>
 </div>
+<p-toast position="top-center"></p-toast>

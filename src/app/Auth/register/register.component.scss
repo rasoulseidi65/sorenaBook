@@ -1,22 +1,22 @@
-.container-fluid{
+::ng-deep .register{
   height: 100vh;
   background-color: #fadeed;
   text-align: center;
   position: absolute;
 }
-.container-fluid .card{
+::ng-deep .register .card{
   margin: 10px auto;
   position: relative;
 }
-::ng-deep .p-card .p-card-content {
+::ng-deep .register .p-card .p-card-content {
   padding: 0rem 0;
 }
 @media (min-width: 960px) {
-  .container-fluid .card{
+  ::ng-deep .register .card{
     width: 2rem;
   }
 }
-button.p-button-warning {
+::ng-deep .register button.p-button-warning {
   background: #6076c2;
   border: none;
   border-radius: 8px;
@@ -24,16 +24,16 @@ button.p-button-warning {
   color: #FFFFFF;
   padding: 5px 30px;
 }
-.container-fluid .card p {
+::ng-deep .register  p {
   font-family: IRANSans_Bold;
   color: #000000;
   padding: 15px 0px;
 }
-.container-fluid .card p a{
+::ng-deep .register  p a{
   text-decoration: none;
   color:#6076c2;
   margin-right: 4px;
 }
-.container-fluid .card p-card input::placeholder {
+::ng-deep .register .card p-card input::placeholder {
   font-family: IRANSans_Light;
 }
