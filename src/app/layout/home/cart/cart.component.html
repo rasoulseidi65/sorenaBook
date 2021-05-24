@@ -1,61 +1,88 @@
 <app-header></app-header>
 
-<mat-horizontal-stepper class="stepar" linear #stepper>
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+<mat-horizontal-stepper class="stepar" linear #stepper [selectedIndex]="valueIndex">
+  <mat-step [stepControl]="firstFormGroup">
+    <ng-template matStepLabel>لیست سفارشات</ng-template>
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel >لیست سفارشات</ng-template>
-      <table class="table table-step1 table-responsive p-col-12">
-        <thead>
-        <tr>
-          <th scope="col">ردیف</th>
-          <th scope="col">عنوان</th>
-          <th scope="col">تعداد</th>
-          <th scope="col">قیمت واحد</th>
-          <th scope="col">قیمت کل</th>
-          <th scope="col">تصویر</th>
-          <th scope="col">عملیات</th>
-        </tr>
-        </thead>
-        <tbody style="font-family: IRANSans_Light;">
-        <tr>
-          <th scope="row">1</th>
-          <td>مردان مریخی زنان ونوسی</td>
-          <td>
-            <div class="p-field p-col-12 p-md-3">
-              <p-inputNumber  mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100">
-              </p-inputNumber>
-            </div>
-          </td>
-          <td>25000تومان</td>
-          <td>5000تومان</td>
-          <td><img style="width: 50px;height: 50px" src="../../../../assets/images/book1.jpg" alt=""></td>
-          <td><i class="pi pi-times-circle"></i></td>
-        </tr>
-        </tbody>
-      </table>
-      <p-card>
-          <table class="table table-many">
-            <tr>
-              <th>مبلغ پرداختی</th>
-              <td>50000تومان</td>
-            </tr>
-            <hr>
-            <tr>
-              <th>مبلغ قابل پرداخت</th>
-              <td>50000تومان</td>
-            </tr>
-            <div class="footer">
-              <span>خرید های بالای 20 هزار تومان به صورت خودکار تخفیف خورده میشود</span>
-            </div>
-          </table>
+      <p-panel styleClass="mb-3 pt-2" dir="rtl">
+        <p-header>
+          <p class="TitlePanel">لطفا قبل از ثبت سفارش از نوع , تعداد و قیمت محصولات مورد درخواست خود اطمینان حاصل
+            نمایید .</p>
+        </p-header>
+        <p-table [value]="items" selectionMode="single" #dt  [rows]="4">
+          <ng-template pTemplate="header">
+            <tr class="title-table">
+              <th class="text-center">ردیف</th>
+              <th class="text-center">تصویر</th>
+              <th class="text-center">عنوان</th>
+              <th class="text-center">تعداد</th>
+              <th class="text-center">قیمت واحد</th>
+              <th class="text-center">قیمت کل</th>
+              <th class="text-center">حذف</th>
 
-      </p-card>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+            <tr>
+              <td class="text-center">{{rowIndex + 1}}</td>
+              <td class="text-center"><img [src]="product['cartList'].image" width="100" class="img-fluid">
+              </td>
+              <td class="text-center">{{product['cartList'].title}}</td>
+              <td class="text-center">
+                <input type="text" pInputText pKeyFilter="int" style="width: 100px" [disabled]="true"
+                       value="1" (change)="addCart(items[rowIndex],$event.target)"/>
+              </td>
+              <td class="text-center"
+                  *ngIf="product['cartList'].offer">{{product['cartList'].price - ((product['cartList'].price * product['cartList'].offerPercent) / 100)|number}}</td>
+              <td class="text-center"
+                  *ngIf="product['cartList'].offer">{{(product['cartList'].price - ((product['cartList'].price * product['cartList'].offerPercent) / 100)) |number}}</td>
+
+              <td class="text-center"
+                  *ngIf="!product['cartList'].offer">{{product['cartList'].price|number}}</td>
+              <td class="text-center"
+                  *ngIf="!product['cartList'].offer">{{product['cartList'].price |number}}</td>
+
+              <td class="text-center"><i class="fas fa-times  text-danger" (click)="deleteCart(product)"></i></td>
+
+            </tr>
+          </ng-template>
+
+        </p-table>
+
+        <p-footer>
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <ul class="list-group" style="list-style-type: none" dir="rtl">
+                <li class="list-group-item ">
+                  <div class="d-flex flex-row justify-content-center">
+                    <div>جمع کل:</div>
+                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <div class="d-flex flex-row justify-content-center">
+                    <div>مبلغ قابل پرداخت:</div>
+                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  </div>
+                </li>
+
+              </ul>
+
+
+            </div>
+          </div>
+        </p-footer>
+      </p-panel>
       <div>
-        <button mat-button matStepperNext>بعدی</button>
+        <button matStepperNext class="mt-5 p-button-danger" pButton type="button" label="مرحله بعدی"
+                icon="pi pi-angle-left" iconPos="right" ></button>
+
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+  <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel >مشخصات پستی</ng-template>
       <div class="card">
@@ -128,64 +155,109 @@
         </div>
       </div>
       </div>
-      <div>
-        <button mat-button matStepperPrevious>قبلی</button>
-        <button mat-button matStepperNext>بعدی</button>
+      <div class="d-flex flex-row">
+
+        <button matStepperPrevious class="mt-5 p-button-danger p-ml-auto" pButton type="button" label="مرحله قبلی"
+                icon="pi pi-angle-right" iconPos="left" ></button>
+        <button matStepperNext class="mt-5 p-button-danger " pButton type="button" label="مرحله بعدی"
+                icon="pi pi-angle-left" iconPos="right" ></button>
       </div>
     </form>
   </mat-step>
   <mat-step >
     <ng-template matStepLabel >پیش فاکتور</ng-template>
-    <table class="table table-step1">
-      <thead>
-      <tr>
-        <th scope="col">ردیف</th>
-        <th scope="col">عنوان</th>
-        <th scope="col">تعداد</th>
-        <th scope="col">قیمت واحد</th>
-        <th scope="col">قیمت کل</th>
-        <th scope="col">تصویر</th>
-      </tr>
-      </thead>
-      <tbody style="font-family: IRANSans_Light;">
-      <tr>
-        <th scope="row">1</th>
-        <td>مردان مریخی زنان ونوسی</td>
-        <td>2</td>
-        <td>25000تومان</td>
-        <td>5000تومان</td>
-        <td><img style="width: 50px;height: 50px" src="../../../../assets/images/book1.jpg" alt=""></td>
-      </tr>
-      </tbody>
-    </table>
-    <p-card>
-      <table class="table table-many">
-        <tr>
-          <th>مبلغ پرداختی</th>
-          <td>50000تومان</td>
-        </tr>
-        <hr>
-        <tr>
-          <th>مبلغ قابل پرداخت</th>
-          <td>50000تومان</td>
-        </tr>
-        <div class="footer">
-          <span>خرید های بالای 20 هزار تومان به صورت خودکار تخفیف خورده میشود</span>
-        </div>
-      </table>
+    <form [formGroup]="firstFormGroup">
+      <p-panel styleClass="mb-3 pt-2" dir="rtl">
+        <p-header>
+          <p class="TitlePanel">لطفا قبل از ثبت سفارش از نوع , تعداد و قیمت محصولات مورد درخواست خود اطمینان حاصل
+            نمایید .</p>
+        </p-header>
+        <p-table [value]="items" selectionMode="single" #dt  [rows]="4">
+          <ng-template pTemplate="header">
+            <tr class="title-table">
+              <th class="text-center">ردیف</th>
+              <th class="text-center">تصویر</th>
+              <th class="text-center">عنوان</th>
+              <th class="text-center">تعداد</th>
+              <th class="text-center">قیمت واحد</th>
+              <th class="text-center">قیمت کل</th>
+              <th class="text-center">حذف</th>
 
-    </p-card>
-    <div>
-      <button mat-button matStepperNext>بعدی</button><br>
-      <button mat-button matStepperPrevious>قبلی</button>
-    </div>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+            <tr>
+              <td class="text-center">{{rowIndex + 1}}</td>
+              <td class="text-center"><img [src]="product['cartList'].image" width="100" class="img-fluid">
+              </td>
+              <td class="text-center">{{product['cartList'].title}}</td>
+              <td class="text-center">
+                <input type="text" pInputText pKeyFilter="int" style="width: 100px" [disabled]="true"
+                       value="1" (change)="addCart(items[rowIndex],$event.target)"/>
+              </td>
+              <td class="text-center"
+                  *ngIf="product['cartList'].offer">{{product['cartList'].price - ((product['cartList'].price * product['cartList'].offerPercent) / 100)|number}}</td>
+              <td class="text-center"
+                  *ngIf="product['cartList'].offer">{{(product['cartList'].price - ((product['cartList'].price * product['cartList'].offerPercent) / 100)) |number}}</td>
+
+              <td class="text-center"
+                  *ngIf="!product['cartList'].offer">{{product['cartList'].price|number}}</td>
+              <td class="text-center"
+                  *ngIf="!product['cartList'].offer">{{product['cartList'].price |number}}</td>
+
+              <td class="text-center"><i class="fas fa-times  text-danger" (click)="deleteCart(product)"></i></td>
+
+            </tr>
+          </ng-template>
+
+        </p-table>
+
+        <p-footer>
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <ul class="list-group" style="list-style-type: none" dir="rtl">
+                <li class="list-group-item ">
+                  <div class="d-flex flex-row justify-content-center">
+                    <div>جمع کل:</div>
+                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <div class="d-flex flex-row justify-content-center">
+                    <div>مبلغ قابل پرداخت:</div>
+                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  </div>
+                </li>
+
+              </ul>
+
+
+            </div>
+          </div>
+        </p-footer>
+      </p-panel>
+      <div class="d-flex flex-row">
+
+        <button matStepperPrevious class="mt-5 p-button-danger p-ml-auto" pButton type="button" label="مرحله قبلی"
+                icon="pi pi-angle-right" iconPos="left" ></button>
+        <button matStepperNext class="mt-5 p-button-danger " pButton type="button" label="مرحله بعدی"
+                icon="pi pi-angle-left" iconPos="right" ></button>
+      </div>
+    </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel >مرحله نهایی</ng-template>
-    <button mat-flat-button color="primary">پرداخت آنلاین</button>
+
     <div>
-      <button mat-button matStepperPrevious>قبلی</button>
-      <button mat-button (click)="stepper.reset()">پایان</button>
+      <div class="d-flex flex-row">
+
+        <button matStepperPrevious class="mt-5 p-button-danger p-ml-auto" pButton type="button" label="مرحله قبلی"
+                icon="pi pi-angle-right" iconPos="left" ></button>
+        <button class="mt-5 p-button-danger " pButton type="button" label="پرداخت هزینه "
+                icon="pi pi-check" iconPos="left" ></button>
+      </div>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

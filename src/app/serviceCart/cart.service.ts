@@ -17,12 +17,14 @@ export class CartService {
     // localStorage.removeItem('cartList');
   }
 
-  addToCart(Product: any) {
+  addToCart(Product: any, count: any) {
     let local_Storage;
     let itemsInCart = [];
     this.items = {
       cartList: Product,
+      number: count
     };
+    console.log(count);
     if (localStorage.getItem('cartList') === null) {
       // @ts-ignore
       itemsInCart.push(this.items);

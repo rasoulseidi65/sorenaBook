@@ -23,8 +23,9 @@
 
 
 #topbar {
-  background: #2979FF;
-  color: #fff;
+
+  background: #777;
+  color:  #fff;
   height: 40px;
   font-size: 13px;
   font-weight: 600;
@@ -59,7 +60,7 @@
 }
 
 #header {
-  background: #fff;
+  background: #777;
   transition: all 0.5s;
   z-index: 997;
   //padding: 15px 0;
@@ -82,7 +83,7 @@
   color:#2979FF;
   font-size: 20px;
   background-color: transparent;
-  border-color: #fff;
+  border-color: #777;
   border-radius: 2px;
   float: right;
   padding-top: 20px;
@@ -293,7 +294,7 @@ font-family: IRANSans_Light;
 
 .nav-panel {
   height: 54px;
-  background: #CC3333;
+  background:  #2979FF;
   /*background: #EF2B2F;*/
   box-shadow: 0 1px rgba(0, 0, 0, .04), inset 0 -1px rgba(0, 0, 0, .04);
   color: #FFFFFF;
@@ -343,7 +344,7 @@ font-family: IRANSans_Light;
 }
 
 .nav-links__item-link:hover .nav-links__item-body {
-  background-color: rgb(211, 81, 81);
+  background-color: #2979FF;
 }
 
 .nav-panel__indicators {
@@ -825,8 +826,8 @@ font-family: IRANSans_Light;
 }
 
 .btn-primary, .btn-primary.disabled, .btn-primary:disabled {
-  border-color: #c33;
-  background-color: #c33 !important;
+  border-color: #2979FF;
+  background-color: #2979FF !important;
   color: #fff;
   fill: #fff;
 }
@@ -903,5 +904,5 @@ font-family: IRANSans_Light;
 }
 
 .sub-sub-title:hover, .sub-title:hover {
-  color: #cc3333;
+  color:#2979FF;
 }

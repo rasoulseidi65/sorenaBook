@@ -59,7 +59,7 @@ export class ProductsComponent implements OnInit {
     })
   }
   addCart(product: any): void {
-    this.cart.addToCart(product);
+    this.cart.addToCart(product,1);
     this.displayBasic = true;
   }
 }
