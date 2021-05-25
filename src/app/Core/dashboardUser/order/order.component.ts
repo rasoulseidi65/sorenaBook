@@ -21,8 +21,8 @@ export class OrderComponent implements OnInit {
   }
  buyuserform(){
     this.formbuyuser = this.fb.group({
-     img: new FormControl('' , Validators.required),
-     title: new FormControl('' , Validators.required),
+      image: new FormControl('' , Validators.required),
+      title: new FormControl('' , Validators.required),
      teacher: new FormControl('' , Validators.required),
      price: new FormControl('' , Validators.required),
      date: new FormControl('' , Validators.required)
