@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">نام مشتری</th>
+    <th scope="col">نام خانوادگی</th>
+    <th scope="col">شماره همراه</th>
+    <th scope="col">تلفن </th>
+    <th scope="col">استان </th>
+    <th scope="col">شهر </th>
+    <th scope="col">کدپستی </th>
+    <th scope="col">آدرس</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of userInfo;let i=index">
+    <th scope="row">{{i+1}}</th>
+    <td>{{item.firstName}}</td>
+    <td>{{item.lastName}}</td>
+    <td>{{item.mobile}}</td>
+    <td>{{item.state}}</td>
+    <td>{{item.city}}</td>
+    <td>{{item.postalCode}}</td>
+    <td style="width: 20%">{{item.address}}</td>
+
+  </tr>
+
+  </tbody>
+</table>

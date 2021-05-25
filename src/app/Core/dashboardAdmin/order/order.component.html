@@ -1,0 +1,115 @@
+<div class="pnl-content p-3">
+  <div class="box text-right" dir="rtl">
+    <p-table
+      #dt
+      [value]="orders"
+      dataKey="id"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [paginator]="true"
+      currentPageReportTemplate="نمایش {first} تا {last} از {totalRecords} صفحه"
+      [filterDelay]="0"
+      [globalFilterFields]="['title','product.Category[0].title', 'product.SubCategory[0].title', 'price']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="table-header row">
+          <div class="col-sm-6">لیست سفارشات</div>
+
+          <div class="col-sm-12">
+            <span class="p-input-icon-left w-100 mt-3">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                class="w-100"
+
+                placeholder="جستجو کلی"
+              />
+            </span>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ردیف</th>
+          <th pSortableColumn="image">
+            تصویر محصول
+            <p-sortIcon field="image"></p-sortIcon>
+          </th>
+          <th pSortableColumn="title">
+            عنوان محصول
+            <p-sortIcon field="title"></p-sortIcon>
+          </th>
+
+          <th pSortableColumn="price">
+            قیمت
+            <p-sortIcon field="price"></p-sortIcon>
+          </th>
+
+          <th>وضعیت سفارش</th>
+          <th> مشخصات مشتری</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body"
+                   let-rowIndex="rowIndex"
+                   let-product
+                   let-expanded="expanded"
+      >
+        <tr>
+          <td>
+            {{ rowIndex + 1 }}
+          </td>
+          <td>
+            <img
+
+              [src]="product['product'][0].image"
+              class="img-fluid"
+              [alt]="product['product'][0].title"
+              style="width: 50px;height: 70px"
+            />
+          </td>
+          <td>
+            {{ product['product'][0].title }}
+          </td>
+          <td>
+            {{ product.price|number }}
+          </td>
+          <td >
+           <p class="text-success"> {{ product.success }}</p>
+          </td>
+          <td>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-eye"
+              (click)="showUserInfo(product['user'])"
+              class="p-button-outlined p-button-info ml-2"
+            ></button>
+<!--            <button-->
+<!--              pButton-->
+<!--              pRipple-->
+<!--              icon="pi pi-pencil"-->
+
+<!--              class="p-button-outlined p-button-warning ml-2"-->
+<!--            ></button>-->
+<!--            <button-->
+<!--              pButton-->
+<!--              pRipple-->
+<!--              icon="pi pi-trash"-->
+
+<!--              class="p-button-outlined p-button-danger"-->
+<!--            ></button>-->
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="8">هیچ رکوردی یافت نشد.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

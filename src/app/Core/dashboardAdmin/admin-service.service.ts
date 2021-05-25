@@ -266,33 +266,5 @@ export class AdminServiceService {
       'http://api.sorenabook.ir/api/v1/admin/getContactUs/' + id
     );
   }
-  deleteContactFormMessage(id: any): any {
-    return this.http.delete(
-      'http://api.sorenabook.ir/api/v1/admin/deleteContactUs/' + id
-    );
-  }
-  //#endregion
-
-  //#region Subscriptions
-  getAllEmailSubscriptions(): any {
-    return this.http.get(
-      'http://api.sorenabook.ir/api/v1/admin/getEmailSubscription'
-    );
-  }
-  getAllSmsSubscriptions(): any {
-    return this.http.get(
-      'http://api.sorenabook.ir/api/v1/admin/getSmsSubscription'
-    );
-  }
-  deleteSmsSubscription(id: any): any {
-    return this.http.delete(
-      'http://api.sorenabook.ir/api/v1/admin/deleteEmailSubscription/' + id
-    );
-  }
-  deleteEmailSubscription(id: any): any {
-    return this.http.delete(
-      'http://api.sorenabook.ir/api/v1/admin/deleteContactUs/' + id
-    );
-  }
 
 }

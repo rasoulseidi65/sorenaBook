@@ -22,10 +22,12 @@ import { ProductsComponent } from './products/products.component';
 import { ProductAddDialogComponent } from './products/product-add-dialog/product-add-dialog.component';
 import { ProductEditDialogComponent } from './products/product-edit-dialog/product-edit-dialog.component';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import { OrderComponent } from './order/order.component';
+import { UserOrdersComponent } from './order/user-orders/user-orders.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, CategoriesComponent, CategoryAddDialogComponent, CategoryEditDialogComponent, SubCategoryAddDialogComponent, SubCategoryEditDialogComponent, FeaturesComponent, FeatureAddDialogComponent, FeatureEditDialogComponent, FeatureValueAddDialogComponent, FeatureValueEditDialogComponent, ProductsComponent, ProductAddDialogComponent, ProductEditDialogComponent],
+  declarations: [DashboardComponent, CategoriesComponent, CategoryAddDialogComponent, CategoryEditDialogComponent, SubCategoryAddDialogComponent, SubCategoryEditDialogComponent, FeaturesComponent, FeatureAddDialogComponent, FeatureEditDialogComponent, FeatureValueAddDialogComponent, FeatureValueEditDialogComponent, ProductsComponent, ProductAddDialogComponent, ProductEditDialogComponent, OrderComponent, UserOrdersComponent],
   imports: [
     CommonModule,
     DashboardadminRoutingModule,

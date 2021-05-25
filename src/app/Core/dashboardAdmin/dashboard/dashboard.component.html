@@ -49,10 +49,7 @@
             <i class="pi pi-percentage pl-2 text-white" style="font-size: 1rem"></i>مدیریت ویژگی ها
           </mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item >
-            <i class="pi pi-comments pl-2 text-white" style="font-size: 1rem"></i>مدیریت دیدگاه ها
-          </mat-list-item>
-          <mat-divider></mat-divider>
+
         </div>
         <mat-divider *ngIf="userType == 'admin'"></mat-divider>
 
@@ -86,7 +83,7 @@
         </mat-list-item>
         <div class="submenu mr-3" [ngClass]="{'expanded' : showSubmenu4}"
              *ngIf="isShowing4 || isExpanded4">
-          <mat-list-item >
+          <mat-list-item [routerLink]="['order']">
             <i class="pi pi-shopping-cart pl-2 text-white" style="font-size: 1rem"></i>مدیریت سفارشات
           </mat-list-item>
           <mat-divider></mat-divider>
@@ -94,12 +91,6 @@
             <i class="pi pi-eye pl-2 text-white" style="font-size: 1rem"></i>پیگیری سفارشات
           </mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item>
-            <i class="pi pi-users pl-2 text-white" style="font-size: 1rem"></i>مدیریت اعضا خبرنامه
-          </mat-list-item>
-          <mat-list-item>
-            <i class="pi pi-comments pl-2 text-white" style="font-size: 1rem"></i> مدیریت پیام های فرم تماس با ما
-          </mat-list-item>
         </div>
         <mat-divider></mat-divider>
 
@@ -118,30 +109,7 @@
             <i class="pi pi-images pl-2 text-white" style="font-size: 1rem"></i>مدیریت اسلایدر
           </mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item>
-            <i class="pi pi-image pl-2 text-white"
-                                                                  style="font-size: 1rem"></i> گالری تصاویر
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item >
-            <i class="pi pi-file pl-2 text-white"
-                                                                  style="font-size: 1rem"></i> کاتالوگ
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item >
-            <i class="pi pi-question-circle pl-2 text-white"
-                                                                  style="font-size: 1rem"></i> سوالات متداول
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item  >
-            <i class="pi pi-exclamation-circle pl-2 text-white"
-              style="font-size: 1rem"></i> درباره ما
-          </mat-list-item>
 
-          <mat-divider></mat-divider>
-          <mat-list-item ><i class="pi pi-phone pl-2 text-white"
-                                                             style="font-size: 1rem"></i> تماس با ما
-          </mat-list-item>
         </div>
         <mat-divider *ngIf="userType == 'admin'"></mat-divider>
 
@@ -153,11 +121,6 @@
 
         <mat-list-item  >
           <i class="pi pi-users pl-2 text-white" style="font-size: 1rem"></i>مدیریت ادمین ها
-        </mat-list-item>
-        <mat-divider *ngIf="userType == 'admin'"></mat-divider>
-
-        <mat-list-item >
-          <i class="pi pi-twitter pl-2 text-white" style="font-size: 1rem"></i>مدیریت شبکه اجتماعی
         </mat-list-item>
         <mat-divider *ngIf="userType == 'admin'"></mat-divider>
 
