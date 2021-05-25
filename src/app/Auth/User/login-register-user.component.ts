@@ -32,7 +32,7 @@ export class LoginRegisterUserComponent implements OnInit {
     this.service.loginUser(this.formlogin.value).subscribe((result) => {
       if (result ['success'] === true){
        this.servicestorg.saveCurrentUser(JSON.stringify(result ['data'] ));
-        this.route.navigate(['user/panel']);
+        this.route.navigate(['/']);
       }
       else {
         this.messageService.add({severity: 'error', summary: 'کاربر گرامی  ', detail: 'اطلاعات را درست وارد کنید'});

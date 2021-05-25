@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   lengthCartlist = 0;
   sumOfPrice = 0;
   countBadge = 0;
-  showCartList = true;
+  showCartList:boolean = false;
   @ViewChild('basketDropDown') basketDropDown: ElementRef;
   @ViewChild('category') category: ElementRef;
   @ViewChild('navBar') navBar: ElementRef;
@@ -177,17 +177,17 @@ export class HeaderComponent implements OnInit {
   getAllPrice(): void {
     // @ts-ignore
     this.cartlist = this.serviceCart.getItems();
-    console.log(this.cartlist)
+
     this.sumOfPrice = 0;
     this.countBadge = 0;
-    this.showCartList = true;
+    this.showCartList = false;
     this.lengthCartlist = this.cartlist.length;
     if (this.cartlist != null) {
       if (this.cartlist.length > 0) {
         for (let i = 0; i < this.cartlist.length; i++) {
           this.countBadge++;
           this.sumOfPrice += Number(this.cartlist[i]['cartList'].price);
-          this.showCartList = false;
+          this.showCartList = true;
         }
       }
     }
@@ -239,5 +239,13 @@ export class HeaderComponent implements OnInit {
   closeNavBar(): void {
     this.category.nativeElement.classList.remove('category-row-open');
     this.navBar.nativeElement.classList.remove('nav-row-open');
+  }
+  gotoCart(){
+    if(this.isLogged && this.showCartList){
+      this.route.navigate(['/home/cart']);
+    }
+    else{
+      this.route.navigate(['/auth/register']);
+    }
   }
 }
