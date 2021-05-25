@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <form [formGroup]="formbuyuser" >
   <div class="card-header">
     <span>صفحه مدیریت سفارشات</span>
   </div>
@@ -6,6 +7,7 @@
     <thead>
     <tr>
       <th scope="col">ردیف</th>
+      <th scope="col">تصویر</th>
       <th scope="col">عنوان کتاب</th>
       <th scope="col">نویسنده</th>
       <th scope="col">تاریخ خرید</th>
@@ -14,15 +16,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr >
-      <th scope="row">1</th>
-      <td>بل</td>
-      <td>بلبل</td>
-      <td>بلبل</td>
-      <td>بلبل</td>
+    <tr *ngFor="let item of listbuyuser;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td><img style="width: 50px;height: 50px" [src]="item.img"  alt=""></td>
+      <td>{{item.title}}</td>
+      <td>{{item.teacher}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.price}}</td>
       <td><span>موفق</span></td>
     </tr>
 
     </tbody>
   </table>
+  </form>
 </div>

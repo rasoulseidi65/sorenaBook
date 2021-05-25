@@ -35,7 +35,6 @@ export class LoginRegisterUserComponent implements OnInit {
         this.route.navigate(['user/panel']);
       }
       else {
-        console.log(result)
         this.messageService.add({severity: 'error', summary: 'کاربر گرامی  ', detail: 'اطلاعات را درست وارد کنید'});
       }
     });

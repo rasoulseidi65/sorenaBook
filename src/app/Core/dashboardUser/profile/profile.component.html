@@ -1,4 +1,5 @@
-<form >
+<p-toast position="top-center"></p-toast>
+<form [formGroup]="formupdate" (ngSubmit)="onsubmit(formupdate.value)">
   <p-panel header=" اطلاعات شخصی">
     <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
       <div class="ui-grid-row">
@@ -6,7 +7,7 @@
           نام <label style="color: red">*</label>:
         </div>
         <div class="ui-grid-col-6">
-          <input pInputText type="text"  formControlName="firstName" placeholder=""/>
+          <input pInputText type="text"  formControlName="firstName" [(ngModel)]="userInfo.firstName" placeholder=""/>
         </div>
 <!--        <div class="ui-grid-col-4">-->
 <!--          <p-message severity="error" text="نام خود را وارد کنید"-->
@@ -18,7 +19,7 @@
           نام خانوادگی <label style="color: red">*</label>:
         </div>
         <div class="ui-grid-col-6">
-          <input pInputText type="text"  formControlName="lastName" placeholder=""/>
+          <input pInputText type="text" [(ngModel)]="userInfo.lastName"  formControlName="lastName" placeholder=""/>
         </div>
 <!--        <div class="ui-grid-col-4">-->
 <!--          <p-message severity="error" text="نام خانوادگی  را وارد نمائید "-->
@@ -31,7 +32,7 @@
         </div>
         <div class="ui-grid-col-6">
           <!--          <p-inputMask  mask="(0999) 999-9999" formControlName="mobile" placeholder="(0912) 345-6789"></p-inputMask>-->
-          <input pInputText type="text" pKeyFilter="num"  formControlName="mobile"
+          <input pInputText type="text" pKeyFilter="num" [(ngModel)]="userInfo.mobile"  formControlName="mobile"
                  placeholder=""
                  maxlength="11"/>
         </div>
@@ -42,23 +43,10 @@
       </div>
       <div class="ui-grid-row">
         <div class="ui-grid-col-2">
-          کدملی <label style="color: red">*</label>:
-        </div>
-        <div class="ui-grid-col-6">
-          <input type="text" pInputText pKeyFilter="num"  formControlName="email">
-
-        </div>
-<!--        <div class="ui-grid-col-4">-->
-<!--          <p-message severity="error" text="ایمیل را به درستی وارد نمائید"-->
-<!--                     *ngIf="!userForm.controls['email'].valid&&userForm.controls['email'].dirty"></p-message>-->
-<!--        </div>-->
-      </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
           استان <label style="color: red">*</label>:
         </div>
         <div class="ui-grid-col-6">
-          <input pInputText type="text"  formControlName="state" placeholder=""/>
+          <input pInputText type="text" [(ngModel)]="userInfo.state"  formControlName="state" placeholder=""/>
         </div>
 <!--        <div class="ui-grid-col-4">-->
 <!--          <p-message severity="error" text=" استان خود را وارد کنید"-->
@@ -70,7 +58,7 @@
           شهر <label style="color: red">*</label>:
         </div>
         <div class="ui-grid-col-6">
-          <input pInputText type="text"  formControlName="city" placeholder=""/>
+          <input pInputText type="text" [(ngModel)]="userInfo.city"  formControlName="city" placeholder=""/>
         </div>
 <!--        <div class="ui-grid-col-4">-->
 <!--          <p-message severity="error" text=" شهر خود را وارد کنید"-->
@@ -82,7 +70,19 @@
           آدرس <label style="color: red">*</label>:
         </div>
         <div class="ui-grid-col-6">
-          <input pInputText type="text"  formControlName="address" placeholder=""/>
+          <input pInputText type="text" [(ngModel)]="userInfo.address"  formControlName="address" placeholder=""/>
+        </div>
+<!--        <div class="ui-grid-col-4">-->
+<!--          <p-message severity="error" text="آدرس خود را وارد کنید"-->
+<!--                     *ngIf="!userForm.controls['address'].valid&&userForm.controls['address'].dirty"></p-message>-->
+<!--        </div>-->
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-2">
+          کد پستی <label style="color: red">*</label>:
+        </div>
+        <div class="ui-grid-col-6">
+          <input pInputText type="text"  [(ngModel)]="userInfo.postalCode" formControlName="postalCode" placeholder=""/>
         </div>
 <!--        <div class="ui-grid-col-4">-->
 <!--          <p-message severity="error" text="آدرس خود را وارد کنید"-->
@@ -100,40 +100,13 @@
           شماره کارت بانکی  <label style="color: red">*</label>:
         </div>
         <div class="ui-grid-col-6">
-          <input pInputText type="text"  pKeyFilter="num"   maxlength="16" formControlName="cardNumber" placeholder=""/>
+          <input pInputText type="text" [(ngModel)]="userInfo.cardNumber"  pKeyFilter="num"   maxlength="16" formControlName="cardNumber" placeholder=""/>
         </div>
 <!--        <div class="ui-grid-col-4">-->
 <!--          <p-message severity="error"  text="شماره کارت بانکی خود را وارد کنید"-->
 <!--                     *ngIf="!userForm.controls['cardNumber'].valid&&userForm.controls['cardNumber'].dirty"></p-message>-->
 <!--        </div>-->
       </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
-          شماره حساب بانکی   <label style="color: red">*</label>:
-        </div>
-        <div class="ui-grid-col-6">
-          <input pInputText type="text" pKeyFilter="num"   formControlName="accountNumber" placeholder=""/>
-        </div>
-<!--        <div class="ui-grid-col-4">-->
-<!--          <p-message severity="error" text="شماره حساب بانکی   را وارد نمائید "-->
-<!--                     *ngIf="!userForm.controls['accountNumber'].valid&&userForm.controls['accountNumber'].dirty"></p-message>-->
-<!--        </div>-->
-      </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
-          شماره شبا <label style="color: red">*</label>:
-        </div>
-        <div class="ui-grid-col-6">
-          <!--          <p-inputMask  mask="(0999) 999-9999" formControlName="mobile" placeholder="(0912) 345-6789"></p-inputMask>-->
-          <input pInputText type="text" pKeyFilter="num"  formControlName="shabaNumber" placeholder=""
-                 maxlength="23"/>
-        </div>
-<!--        <div class="ui-grid-col-4">-->
-<!--          <p-message severity="error" text="شماره شبا را به درستی وارد نمائید"-->
-<!--                     *ngIf="!userForm.controls['shabaNumber'].valid&&userForm.controls['shabaNumber'].dirty"></p-message>-->
-<!--        </div>-->
-      </div>
-
 
     </div>
   </p-panel>
