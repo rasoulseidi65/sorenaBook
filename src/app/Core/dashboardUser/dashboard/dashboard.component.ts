@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
 import * as moment from 'jalali-moment';
 import {LocalStorageService} from '../../../Auth/localStorageLogin/local-storage.service';
 import {Router} from '@angular/router';
+import {CoreuserService} from '../coreuser.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -38,12 +39,15 @@ export class DashboardComponent implements OnInit {
   adminName: string = '';
 
   public date = moment(Date.now()).locale('fa').format('YYYY/M/D');
-  public time:any;
+  public time: any;
+  firstName: string = '';
+  lastName: string = '';
 
   constructor(
     public localStorage: LocalStorageService,
     private breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private service: CoreuserService
   ) {
   }
 
@@ -54,15 +58,23 @@ export class DashboardComponent implements OnInit {
 
     this.isLogged = this.localStorage.getCurrentUser();
 
-    // if (!this.isLogged) {
-    //   this.router.navigate(['/admin']);
-    // }
-    // this.userType = this.localStorage.userJson['type'];
-    // this.adminName = this.localStorage.userJson['adminName'];
+   this.getuserinfo();
   }
 
   logOut(): void {
     this.localStorage.removeCurrentUser();
     this.router.navigateByUrl('/');
+  }
+
+  getuserinfo() {
+    if (this.isLogged) {
+      this.service.getuser(this.localStorage.userJson['_id']).subscribe((res) => {
+        if (res['success'] === true) {
+          this.firstName = res['data'].firstName;
+          this.lastName = res['data'].lastName;
+
+        }
+      });
+    }
   }
 }

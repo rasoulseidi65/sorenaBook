@@ -6,8 +6,12 @@ import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   {
-    path:'' ,
-    component: DashboardComponent
+    path:'',
+    component: DashboardComponent,
+    children:[{
+      path:'' ,
+      component: OrderComponent
+    }]
   },
   {
     path:'',

@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit {
   sumOfPrice = 0;
   countBadge = 0;
   showCartList:boolean = false;
+  firstName:string='';
+  lastName:string='';
   @ViewChild('basketDropDown') basketDropDown: ElementRef;
   @ViewChild('category') category: ElementRef;
   @ViewChild('navBar') navBar: ElementRef;
@@ -42,6 +44,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogged = this.localstorage.getCurrentUser();
+    if(this.isLogged){
+      this.firstName=this.localstorage.userJson['firstName'];
+      this.lastName=this.localstorage.userJson['lastName'];
+
+    }
     setInterval(() => {
       this.getAllPrice();
     }, 1000);
@@ -59,41 +66,29 @@ export class HeaderComponent implements OnInit {
             label: 'کمک درسی',
             items: [
               {
-                label: 'گان جراح',
+                label: 'عمومی',
                 icon: 'pi pi-fw pi-angle-left',
               },
               {
-                label: 'پک جراحی',
+                label: 'تاریخی ',
                 icon: 'pi pi-fw pi-angle-left',
               }
             ]
           },
           {
-            label: 'محصولات غیلر استری',
+            label: 'دانشگاهی',
             items: [
               {
-                label: 'گان جراحی',
+                label: 'برق ',
                 icon: 'pi pi-fw pi-angle-left',
               },
               {
-                label: 'دست کش',
+                label: 'کامپیوتر ',
                 icon: 'pi pi-fw pi-angle-left',
               }
             ]
           },
-          {
-            label: 'محصولات اختصاصی',
-            items: [
-              {
-                label: 'پک ضد عفونی',
-                icon: 'pi pi-fw pi-angle-left',
-              },
-              {
-                label: 'ژل شوینده',
-                icon: 'pi pi-fw pi-angle-left',
-              }
-            ]
-          }
+
         ]
       },
       {
@@ -101,16 +96,7 @@ export class HeaderComponent implements OnInit {
         icon: 'pi pi-fw pi-question-circle',
         command: event => this.route.navigate(['/faq'])
       },
-      {
-        label: 'گالری تصاویر',
-        icon: 'pi pi-fw pi-images',
-        command: event => this.route.navigate(['/gallery'])
-      },
-      {
-        label: 'کاتالوگ',
-        icon: 'pi pi-fw pi-file-pdf',
-        command: event => this.route.navigate(['/'])
-      },
+
       {
         label: 'درباره ما',
         icon: 'pi pi-fw pi-info-circle',
