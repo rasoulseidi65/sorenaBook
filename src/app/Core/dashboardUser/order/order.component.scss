@@ -14,6 +14,12 @@
 .container-fluid .table tbody{
   font-family: IRANSans_Light;
 }
+.container-fluid .table thead tr{
+  text-align: center;
+}
+.container-fluid .table tbody tr td{
+  text-align: center;
+}
 .container-fluid .table tbody span{
   background-color: #16e838;
   padding: 3px 5px;
