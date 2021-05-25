@@ -21,4 +21,10 @@ export class LayoutServiceService {
   getUserInfo(id: any) {
     return this.http.get('http://api.sorenabook.ir/api/v1/users/index/' + id);
   }
+  updateUser(id: any, data: any) {
+    return this.http.put('http://api.sorenabook.ir/api/v1/users/updateUser/' + id, data);
+  }
+  onPayment(data: any): any {
+    return this.http.post('http://api.sorenabook.ir/api/v1/users/payment', data);
+  }
 }
