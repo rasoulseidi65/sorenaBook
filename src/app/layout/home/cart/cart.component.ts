@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CartService} from '../../../serviceCart/cart.service';
 import {LocalStorageService} from '../../../Auth/localStorageLogin/local-storage.service';
 import {LayoutServiceService} from '../../layout-service.service';
@@ -40,7 +40,14 @@ export class CartComponent implements OnInit {
       firstCtrl: ['']
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['']
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      mobile: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      state: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      postalCode: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
     });
     this.refreshCart();
   }
@@ -49,6 +56,7 @@ export class CartComponent implements OnInit {
     this.cart.deleteItem(item);
     this.items = this.cart.getItems();
     this.refreshCart();
+    this.getInfoUser();
   }
 
   refreshCart() {
@@ -65,13 +73,13 @@ export class CartComponent implements OnInit {
       //     let Inventory = response['data'][0]['Inventory'][0];
       //     if (Inventory.count > 0) {
       //       this.valueCountProduct.push(this.items[i]['product'].number);
-            if (this.items[i]['cartList'].offer === true) {
-              let pricePercent: number = (this.items[i]['cartList'].price * this.items[i]['cartList'].offerPercent) / 100;
-              this.sumPrice += (Number(this.items[i]['cartList'].price) - pricePercent) ;
+      if (this.items[i]['cartList'].offer === true) {
+        let pricePercent: number = (this.items[i]['cartList'].price * this.items[i]['cartList'].offerPercent) / 100;
+        this.sumPrice += (Number(this.items[i]['cartList'].price) - pricePercent);
 
-            } else {
-              this.sumPrice += this.items[i]['cartList'].price ;
-            }
+      } else {
+        this.sumPrice += this.items[i]['cartList'].price;
+      }
       //
       //     }
       //   }
@@ -83,30 +91,26 @@ export class CartComponent implements OnInit {
 
   }
 
-  // getInfoUser() {
-  //   if (this.localstorage.getCurrentUser() === true && this.localstorage.userType==='user') {
-  //     this.successLogin = false;
-  //     this.userInfologin = this.localStorage.userJson;
-  //     let data = {
-  //       mobile: this.userInfologin['mobile']
-  //     };
-  //     this.authService.onfindUser(data).subscribe((response) => {
-  //       if (response['success'] === true) {
-  //         this.localStorage.saveCurrentUser(JSON.stringify(response['data']));
-  //         this.userInfologin = this.localStorage.userJson;
-  //         this.userInfo.id = this.userInfologin['_id'];
-  //         this.userInfo.firstName = this.userInfologin['firstName'];
-  //         this.userInfo.lastName = this.userInfologin['lastName'];
-  //         this.userInfo.state = this.userInfologin['state'];
-  //         this.userInfo.city = this.userInfologin['city'];
-  //         this.userInfo.mobile = this.userInfologin['mobile'];
-  //         this.userInfo.phone = this.userInfologin['phone'];
-  //         this.userInfo.address = this.userInfologin['address'];
-  //         this.userInfo.postalCode = this.userInfologin['postalCode'];
-  //       }
-  //     });
-  //   }
-  // }
+  getInfoUser() {
+    if ((this.localstorage.getCurrentUser() === true) && (this.localstorage.userType === 'user')) {
+      const userInfologin = this.localstorage.userJson;
+      this.service.getUserInfo(this.localstorage.userJson['_id']).subscribe((response) => {
+        if (response['success'] === true) {
+          this.localstorage.saveCurrentUser(JSON.stringify(response['data']));
+          this.userInfo.id = userInfologin['_id'];
+          this.userInfo.firstName = userInfologin['firstName'];
+          this.userInfo.lastName = userInfologin['lastName'];
+          this.userInfo.state = userInfologin['state'];
+          this.userInfo.city = userInfologin['city'];
+          this.userInfo.mobile = userInfologin['mobile'];
+          this.userInfo.phone = userInfologin['phone'];
+          this.userInfo.address = userInfologin['address'];
+          this.userInfo.postalCode = userInfologin['postalCode'];
+        }
+      });
+    }
+  }
+
   addCart(item: any, count: any) {
     let data = {
       _id: item['cartList']._id
@@ -115,7 +119,7 @@ export class CartComponent implements OnInit {
       if (response.success === true) {
         let Inventory = response['data'][0]['Inventory'][0];
         if (Number(count.value) <= Number(Inventory.count)) {
-          this.cart.addToCart(item,count);
+          this.cart.addToCart(item, count);
           // this.refreshCart();
         } else {
           alert('این تعداد موجود نمی باشد');

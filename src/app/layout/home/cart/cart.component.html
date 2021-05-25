@@ -85,76 +85,116 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel >مشخصات پستی</ng-template>
-      <div class="card">
-        <div class="p-fluid">
-          <div class="p-grid p-fluid">
-            <div class="p-col-12 p-md-4">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" pInputText placeholder="نام ">
+      <p-card dir="rtl" class="pt-4 mb-2">
+        <p-header>
+          <p class="text-right pr-5 pt-3 titleCard">
+            اطلاعات خریدار
+          </p>
+          <p class="text-right pr-5 subTitleCard"> اطلاعات فرد تحویل گیرنده را به دقت وارد نمایید
+          </p>
+        </p-header>
+        <div class="p-grid p-fluid">
+          <div class="p-md-6">
+            <div class="p-field p-grid">
+              <label for="title" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">نام:</label>
+              <div class="p-col-12 p-md-9">
+                <input id="title" type="text" pInputText [(ngModel)]="userInfo.firstName" formControlName="firstName">
               </div>
             </div>
-            <div class="p-col-12 p-md-4">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" pInputText placeholder="نام خانوادگی">
+            <div class="p-field p-grid">
+              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">نام خانوادگی:</label>
+              <div class="p-col-12 p-md-9">
+                <input id="type" type="text" pInputText [(ngModel)]="userInfo.lastName" formControlName="lastName">
               </div>
             </div>
-            <div class="p-col-12 p-md-4">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-mobile"></i></span>
-                <input type="text" pInputText placeholder="تلفن">
+            <div class="p-field p-grid">
+              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره همراه:</label>
+              <div class="p-col-12 p-md-9">
+                <input id="type1" type="text" pInputText [(ngModel)]="userInfo.mobile" formControlName="mobile">
               </div>
             </div>
+          </div>
+
+
         </div>
-          <div class="p-grid p-fluid">
-            <div class="p-col-12 p-md-6">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                <input type="text" pInputText placeholder="تلفن ثابت">
+
+      </p-card>
+      <p-card dir="rtl" class="pt-4">
+        <p-header>
+          <p class="text-right pr-5 pt-3 titleCard">
+            آدرس تحویل گیرنده
+          </p>
+          <p class="text-right pr-5 subTitleCard"> آدرس و اطلاعات محل تحویل را به دقت وارد نمایید .
+          </p>
+        </p-header>
+        <div class="p-grid p-fluid">
+          <div class="p-md-6">
+            <div class="p-field p-grid">
+              <label for="title" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره تلفن ثابت:</label>
+              <div class="p-col-12 p-md-9">
+                <input type="text" [(ngModel)]="userInfo.phone" pInputText
+                       formControlName="phone"
+                       pKeyFilter="int"
+                       maxlength="11"
+                       minlength="11">
               </div>
             </div>
-            <div class="p-col-12 p-md-6">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-ellipsis-h"></i></span>
-                <input type="text" pInputText placeholder="کد پستی">
+            <div class="p-field p-grid">
+              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">استان:</label>
+              <div class="p-col-12 p-md-9">
+                <input id="type1" type="text" pInputText [(ngModel)]="userInfo.state" formControlName="state">
+
+                <!--                <p-dropdown appendTo="body" emptyFilterMessage="نتیجه ای یافت نشد"-->
+                <!--                            [options]="states"-->
+                <!--                            formControlName="state"-->
+                <!--                            [(ngModel)]="userInfo.state"-->
+                <!--                            optionLabel="label" [filter]="true"-->
+                <!--                            (onChange)="stateOnChange($event)"-->
+                <!--                ></p-dropdown>-->
+
+<!--                <select id="inputState1" class="form-control" (change)="stateOnChange($event.target)"-->
+<!--                        formControlName="state" [(ngModel)]="userInfo.state">-->
+<!--                  <option *ngFor="let i of states" value="{{i.Code}}">{{i.pName}}</option>-->
+
+<!--                </select>-->
+
               </div>
             </div>
+            <div class="p-field p-grid">
+              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شهر:</label>
+              <div class="p-col-12 p-md-9">
+                <input id="type1" type="text" pInputText [(ngModel)]="userInfo.city" formControlName="city">
+
+                <!--                <select class="form-control" formControlName="city" [(ngModel)]="userInfo.city">-->
+<!--                  <option *ngFor="let i of cities " [value]="i.Code">{{i.pName}}</option>-->
+<!--                </select>-->
+              </div>
+            </div>
+            <div class="p-field p-grid">
+              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">آدرس:</label>
+              <div class="p-col-12 p-md-9">
+                <textarea [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="userInfo.address"
+
+                          formControlName="address" required="required"></textarea>
+              </div>
+            </div>
+            <div class="p-field p-grid">
+              <label class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">کد پستی:</label>
+              <div class="p-col-12 p-md-9">
+                <input type="text" [(ngModel)]="userInfo.postalCode"
+                       pInputText formControlName="postalCode"
+                       pKeyFilter="int"
+                       maxlength="10"
+                       minlength="10" required="required">
+              </div>
+            </div>
+
+          </div>
+
+
         </div>
-          <div class="p-grid p-fluid">
-            <div class="p-col-12 p-md-6">
-              <div class="p-inputgroup">
-              <span class="p-inputgroup-addon"><i class="pi pi-map-marker"></i></span>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>انتخاب استان مورد نظر</option>
-                <option value="1">تهران</option>
-                <option value="2">لرستان</option>
-                <option value="3">سنندج</option>
-              </select>
-              </div>
-            </div>
-            <div class="p-col-12 p-md-6">
-              <div class="p-inputgroup">
-              <span class="p-inputgroup-addon"><i class="pi pi-map-marker"></i></span>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>انتخاب شهر مورد نظر</option>
-                <option value="1">تهران</option>
-                <option value="2">لرستان</option>
-                <option value="3">سنندج</option>
-              </select>
-              </div>
-            </div>
-        </div>
-          <div class="p-grid p-fluid">
-            <div class="p-col-12 ">
-              <div class="p-inputgroup">
-              <span class="p-inputgroup-addon"><i class="pi pi-map-marker"></i></span>
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="آدرس کامل" rows="3"></textarea>
-              </div>
-            </div>
-        </div>
-      </div>
-      </div>
+
+      </p-card>
       <div class="d-flex flex-row">
 
         <button matStepperPrevious class="mt-5 p-button-danger p-ml-auto" pButton type="button" label="مرحله قبلی"

@@ -18,4 +18,7 @@ export class LayoutServiceService {
       'http://api.sorenabook.ir/api/v1/admin/products/'+id
     );
   }
+  getUserInfo(id: any) {
+    return this.http.get('http://api.sorenabook.ir/api/v1/users/index/' + id);
+  }
 }
