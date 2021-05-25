@@ -4,6 +4,8 @@ import {CartService} from '../../../serviceCart/cart.service';
 import {LocalStorageService} from '../../../Auth/localStorageLogin/local-storage.service';
 import {LayoutServiceService} from '../../layout-service.service';
 import {MatStepper} from '@angular/material/stepper';
+import * as moment from 'jalali-moment';
+
 
 @Component({
   selector: 'app-cart',
@@ -27,8 +29,44 @@ export class CartComponent implements OnInit {
     postalCode: '',
     address: ''
   };
-  valueIndex: number = 0;
+  errorMessages = {
+    fullName: [{type: 'required', message: 'نام و نام خانوادگی را وارد کنید.'}],
+    nationalCode: [{type: 'required', message: 'کد ملی را وارد کنید.'}],
+    mobile: [
+      {type: 'required', message: 'شماره موبایل را وارد کنید.'},
+      {type: 'minlength', message: 'شماره موبایل باید 11 رقم باشد.'},
+      {type: 'maxlength', message: 'شماره موبایل باید 11 رقم باشد.'},
+      {type: 'pattern', message: 'لطفا شماره موبایل معتبر وارد کنید.'}
+    ],
+    phone: [{type: 'required', message: 'شماره تلفن ثابت  را وارد کنید.'}],
+    email: [{type: 'required', message: 'ایمیل را وارد کنید.'}],
+    sendCode: [{type: 'required', message: 'کد ایمیل شده را وارد کنید.'}],
+    country: [{type: 'required', message: 'کشور را وارد کنید.'}],
+    city: [{type: 'required', message: 'شهر را وارد کنید.'}],
+    state: [{type: 'required', message: 'استان را وارد کنید.'}],
+    postalCode: [{type: 'required', message: 'کد پستی را وارد کنید.'}],
+    address: [{type: 'required', message: 'آدرس را وارد کنید.'}],
+    password: [
+      {type: 'required', message: 'کلمه عبور را وارد کنید.'},
+      {type: 'minlength', message: 'کلمه عبور نمی تواند کمتر از 8 کاراکتر باشد.'},
+      {type: 'pattern', message: 'کلمه عبور باید شامل حروف کوچک و بزرگ لاتین و اعداد و اشکال باشد..'}
+    ],
+    confirmPassword: [
+      {type: 'required', message: 'کلمه عبور را تکرار  کنید.'},
+      {type: 'minlength', message: 'تکرار کلمه عبور نمی تواند کمتر از 8 کاراکتر باشد.'}],
 
+  };
+
+  valueIndex: number = 0;
+  isLogin: boolean = true;
+  public payment = {
+    userID: '',
+    mobile: '',
+    price: '',
+    date: '',
+    time: '',
+    statusProduct: ''
+  };
   constructor(private _formBuilder: FormBuilder,
               private cart: CartService,
               private service: LayoutServiceService,
@@ -50,13 +88,14 @@ export class CartComponent implements OnInit {
       address: new FormControl('', Validators.required),
     });
     this.refreshCart();
+    this.getInfoUser();
   }
 
   deleteCart(item: any) {
     this.cart.deleteItem(item);
     this.items = this.cart.getItems();
     this.refreshCart();
-    this.getInfoUser();
+
   }
 
   refreshCart() {
@@ -92,7 +131,8 @@ export class CartComponent implements OnInit {
   }
 
   getInfoUser() {
-    if ((this.localstorage.getCurrentUser() === true) && (this.localstorage.userType === 'user')) {
+    this.isLogin = this.localstorage.getCurrentUser();
+    if (this.isLogin) {
       const userInfologin = this.localstorage.userJson;
       this.service.getUserInfo(this.localstorage.userJson['_id']).subscribe((response) => {
         if (response['success'] === true) {
@@ -109,6 +149,34 @@ export class CartComponent implements OnInit {
         }
       });
     }
+  }
+  onPayment() {
+    this.localstorage.getCurrentUser();
+    if (this.isLogin) {
+      this.service.updateUser(this.localstorage.userJson['_id'], this.secondFormGroup.value).subscribe((result) => {
+        if (result['success'] === true) {
+
+          this.payment.userID = this.localstorage.userJson['_id'];
+          this.payment.mobile = this.localstorage.userJson['mobile'];
+          this.payment.date = moment(Date.now()).locale('fa').format('YYYY/M/D');
+          this.payment.time = moment(Date.now()).locale('fa').format('HH:mm:ss');
+          this.payment.price = this.sumPrice.toString();
+
+          let data = {
+            product: JSON.parse(localStorage.getItem('cartList')!),
+            user: this.payment,
+          };
+
+          this.service.onPayment(data).subscribe((response) => {
+            let url = response['data'];
+            document.location.href = url;
+          });
+        } else {
+        }
+
+      });
+    }
+
   }
 
   addCart(item: any, count: any) {

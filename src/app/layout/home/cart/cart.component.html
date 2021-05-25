@@ -13,8 +13,8 @@
           <ng-template pTemplate="header">
             <tr class="title-table">
               <th class="text-center">ردیف</th>
-              <th class="text-center">تصویر</th>
-              <th class="text-center">عنوان</th>
+              <th class="text-center">تصویر محصول</th>
+              <th class="text-center">عنوان محصول</th>
               <th class="text-center">تعداد</th>
               <th class="text-center">قیمت واحد</th>
               <th class="text-center">قیمت کل</th>
@@ -25,7 +25,7 @@
           <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
             <tr>
               <td class="text-center">{{rowIndex + 1}}</td>
-              <td class="text-center"><img [src]="product['cartList'].image" width="100" class="img-fluid">
+              <td class="text-center"><img [src]="product['cartList'].image"  class="img-fluid" style="width: 50px;height: 60px">
               </td>
               <td class="text-center">{{product['cartList'].title}}</td>
               <td class="text-center">
@@ -42,7 +42,7 @@
               <td class="text-center"
                   *ngIf="!product['cartList'].offer">{{product['cartList'].price |number}}</td>
 
-              <td class="text-center"><i class="fas fa-times  text-danger" (click)="deleteCart(product)"></i></td>
+              <td class="text-center"><i class="fas fa-trash text-danger" (click)="deleteCart(product)"></i></td>
 
             </tr>
           </ng-template>
@@ -55,16 +55,16 @@
             <div class="col-md-6">
               <ul class="list-group" style="list-style-type: none" dir="rtl">
                 <li class="list-group-item ">
-                  <div class="d-flex flex-row justify-content-center">
-                    <div>جمع کل:</div>
-                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  <div class="d-flex flex-row ">
+                    <div  class="p-ml-auto">جمع کل:</div>
+                    <div class="text-danger">{{sumPrice|number}} تومان</div>
                   </div>
                 </li>
 
                 <li class="list-group-item">
-                  <div class="d-flex flex-row justify-content-center">
-                    <div>مبلغ قابل پرداخت:</div>
-                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  <div class="d-flex flex-row ">
+                    <div  class="p-ml-auto">مبلغ قابل پرداخت:</div>
+                    <div class="text-danger">{{sumPrice|number}} تومان</div>
                   </div>
                 </li>
 
@@ -85,116 +85,126 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel >مشخصات پستی</ng-template>
-      <p-card dir="rtl" class="pt-4 mb-2">
-        <p-header>
-          <p class="text-right pr-5 pt-3 titleCard">
-            اطلاعات خریدار
-          </p>
-          <p class="text-right pr-5 subTitleCard"> اطلاعات فرد تحویل گیرنده را به دقت وارد نمایید
-          </p>
-        </p-header>
-        <div class="p-grid p-fluid">
-          <div class="p-md-6">
-            <div class="p-field p-grid">
-              <label for="title" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">نام:</label>
-              <div class="p-col-12 p-md-9">
-                <input id="title" type="text" pInputText [(ngModel)]="userInfo.firstName" formControlName="firstName">
-              </div>
-            </div>
-            <div class="p-field p-grid">
-              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">نام خانوادگی:</label>
-              <div class="p-col-12 p-md-9">
-                <input id="type" type="text" pInputText [(ngModel)]="userInfo.lastName" formControlName="lastName">
-              </div>
-            </div>
-            <div class="p-field p-grid">
-              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره همراه:</label>
-              <div class="p-col-12 p-md-9">
-                <input id="type1" type="text" pInputText [(ngModel)]="userInfo.mobile" formControlName="mobile">
-              </div>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p-card dir="rtl" class="pt-4 mb-2">
+            <p-header>
+              <p class="text-right pr-5 pt-3 titleCard">
+                اطلاعات خریدار
+              </p>
+              <p class="text-right pr-5 subTitleCard"> اطلاعات فرد تحویل گیرنده را به دقت وارد نمایید
+              </p>
+            </p-header>
+            <div class="p-grid p-fluid">
+              <div class="p-md-12">
+                <div class="p-field p-grid">
+                  <label for="title" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">نام:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input id="title" type="text" pInputText [(ngModel)]="userInfo.firstName" formControlName="firstName">
 
 
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">نام خانوادگی:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input id="type" type="text" pInputText [(ngModel)]="userInfo.lastName" formControlName="lastName">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره همراه:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input id="type1" type="text" pInputText [(ngModel)]="userInfo.mobile" formControlName="mobile">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="title" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره تلفن ثابت:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input type="text" [(ngModel)]="userInfo.phone" pInputText
+                           formControlName="phone"
+                           pKeyFilter="int"
+                           maxlength="11"
+                           minlength="11">
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </p-card>
         </div>
+        <div class="col-md-6">
+          <p-card dir="rtl" class="pt-4">
+            <p-header>
+              <p class="text-right pr-5 pt-3 titleCard">
+                آدرس تحویل گیرنده
+              </p>
+              <p class="text-right pr-5 subTitleCard"> آدرس و اطلاعات محل تحویل را به دقت وارد نمایید .
+              </p>
+            </p-header>
+            <div class="p-grid p-fluid">
+              <div class="p-md-12">
+                <div class="p-field p-grid">
+                  <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">استان:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input id="type1" type="text" pInputText [(ngModel)]="userInfo.state" formControlName="state">
 
-      </p-card>
-      <p-card dir="rtl" class="pt-4">
-        <p-header>
-          <p class="text-right pr-5 pt-3 titleCard">
-            آدرس تحویل گیرنده
-          </p>
-          <p class="text-right pr-5 subTitleCard"> آدرس و اطلاعات محل تحویل را به دقت وارد نمایید .
-          </p>
-        </p-header>
-        <div class="p-grid p-fluid">
-          <div class="p-md-6">
-            <div class="p-field p-grid">
-              <label for="title" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره تلفن ثابت:</label>
-              <div class="p-col-12 p-md-9">
-                <input type="text" [(ngModel)]="userInfo.phone" pInputText
-                       formControlName="phone"
-                       pKeyFilter="int"
-                       maxlength="11"
-                       minlength="11">
-              </div>
-            </div>
-            <div class="p-field p-grid">
-              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">استان:</label>
-              <div class="p-col-12 p-md-9">
-                <input id="type1" type="text" pInputText [(ngModel)]="userInfo.state" formControlName="state">
+                    <!--                <p-dropdown appendTo="body" emptyFilterMessage="نتیجه ای یافت نشد"-->
+                    <!--                            [options]="states"-->
+                    <!--                            formControlName="state"-->
+                    <!--                            [(ngModel)]="userInfo.state"-->
+                    <!--                            optionLabel="label" [filter]="true"-->
+                    <!--                            (onChange)="stateOnChange($event)"-->
+                    <!--                ></p-dropdown>-->
 
-                <!--                <p-dropdown appendTo="body" emptyFilterMessage="نتیجه ای یافت نشد"-->
-                <!--                            [options]="states"-->
-                <!--                            formControlName="state"-->
-                <!--                            [(ngModel)]="userInfo.state"-->
-                <!--                            optionLabel="label" [filter]="true"-->
-                <!--                            (onChange)="stateOnChange($event)"-->
-                <!--                ></p-dropdown>-->
+                    <!--                <select id="inputState1" class="form-control" (change)="stateOnChange($event.target)"-->
+                    <!--                        formControlName="state" [(ngModel)]="userInfo.state">-->
+                    <!--                  <option *ngFor="let i of states" value="{{i.Code}}">{{i.pName}}</option>-->
 
-<!--                <select id="inputState1" class="form-control" (change)="stateOnChange($event.target)"-->
-<!--                        formControlName="state" [(ngModel)]="userInfo.state">-->
-<!--                  <option *ngFor="let i of states" value="{{i.Code}}">{{i.pName}}</option>-->
+                    <!--                </select>-->
 
-<!--                </select>-->
-
-              </div>
-            </div>
-            <div class="p-field p-grid">
-              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شهر:</label>
-              <div class="p-col-12 p-md-9">
-                <input id="type1" type="text" pInputText [(ngModel)]="userInfo.city" formControlName="city">
-
-                <!--                <select class="form-control" formControlName="city" [(ngModel)]="userInfo.city">-->
-<!--                  <option *ngFor="let i of cities " [value]="i.Code">{{i.pName}}</option>-->
-<!--                </select>-->
-              </div>
-            </div>
-            <div class="p-field p-grid">
-              <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">آدرس:</label>
-              <div class="p-col-12 p-md-9">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شهر:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input id="type1" type="text" pInputText [(ngModel)]="userInfo.city" formControlName="city">
+                    <!--                <select class="form-control" formControlName="city" [(ngModel)]="userInfo.city">-->
+                    <!--                  <option *ngFor="let i of cities " [value]="i.Code">{{i.pName}}</option>-->
+                    <!--                </select>-->
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="type" class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">آدرس:</label>
+                  <div class="p-col-12 p-md-9">
                 <textarea [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="userInfo.address"
 
                           formControlName="address" required="required"></textarea>
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">کد پستی:</label>
+                  <div class="p-col-12 p-md-9">
+                    <input type="text" [(ngModel)]="userInfo.postalCode"
+                           pInputText formControlName="postalCode"
+                           pKeyFilter="int"
+                           maxlength="10"
+                           minlength="10" required="required">
+                  </div>
+                </div>
+
               </div>
-            </div>
-            <div class="p-field p-grid">
-              <label class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">کد پستی:</label>
-              <div class="p-col-12 p-md-9">
-                <input type="text" [(ngModel)]="userInfo.postalCode"
-                       pInputText formControlName="postalCode"
-                       pKeyFilter="int"
-                       maxlength="10"
-                       minlength="10" required="required">
-              </div>
+
+
             </div>
 
-          </div>
-
+          </p-card>
 
         </div>
+      </div>
 
-      </p-card>
       <div class="d-flex flex-row">
 
         <button matStepperPrevious class="mt-5 p-button-danger p-ml-auto" pButton type="button" label="مرحله قبلی"
@@ -216,19 +226,18 @@
           <ng-template pTemplate="header">
             <tr class="title-table">
               <th class="text-center">ردیف</th>
-              <th class="text-center">تصویر</th>
-              <th class="text-center">عنوان</th>
+              <th class="text-center">تصویر محصول</th>
+              <th class="text-center">عنوان محصول </th>
               <th class="text-center">تعداد</th>
               <th class="text-center">قیمت واحد</th>
               <th class="text-center">قیمت کل</th>
-              <th class="text-center">حذف</th>
 
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
             <tr>
               <td class="text-center">{{rowIndex + 1}}</td>
-              <td class="text-center"><img [src]="product['cartList'].image" width="100" class="img-fluid">
+              <td class="text-center"><img [src]="product['cartList'].image"  class="img-fluid" style="width: 50px;height: 60px">
               </td>
               <td class="text-center">{{product['cartList'].title}}</td>
               <td class="text-center">
@@ -245,7 +254,6 @@
               <td class="text-center"
                   *ngIf="!product['cartList'].offer">{{product['cartList'].price |number}}</td>
 
-              <td class="text-center"><i class="fas fa-times  text-danger" (click)="deleteCart(product)"></i></td>
 
             </tr>
           </ng-template>
@@ -258,16 +266,16 @@
             <div class="col-md-6">
               <ul class="list-group" style="list-style-type: none" dir="rtl">
                 <li class="list-group-item ">
-                  <div class="d-flex flex-row justify-content-center">
-                    <div>جمع کل:</div>
-                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  <div class="d-flex flex-row ">
+                    <div  class="p-ml-auto">جمع کل:</div>
+                    <div class="text-danger">{{sumPrice|number}} تومان</div>
                   </div>
                 </li>
 
                 <li class="list-group-item">
-                  <div class="d-flex flex-row justify-content-center">
-                    <div>مبلغ قابل پرداخت:</div>
-                    <div class="mr-auto">{{sumPrice|number}} تومان</div>
+                  <div class="d-flex flex-row ">
+                    <div  class="p-ml-auto">مبلغ قابل پرداخت:</div>
+                    <div class="text-danger">{{sumPrice|number}} تومان</div>
                   </div>
                 </li>
 
@@ -296,7 +304,7 @@
         <button matStepperPrevious class="mt-5 p-button-danger p-ml-auto" pButton type="button" label="مرحله قبلی"
                 icon="pi pi-angle-right" iconPos="left" ></button>
         <button class="mt-5 p-button-danger " pButton type="button" label="پرداخت هزینه "
-                icon="pi pi-check" iconPos="left" ></button>
+                icon="pi pi-check" iconPos="left" (click)="onPayment()"></button>
       </div>
     </div>
   </mat-step>

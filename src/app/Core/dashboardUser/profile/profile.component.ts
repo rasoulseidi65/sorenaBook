@@ -62,7 +62,6 @@ userInfo={
    }
  }
   onsubmit(id: any) {
-    console.log(this.formupdate.value)
     this.serviceupdate.updateuser(this.localstorag.userJson['_id'], this.formupdate.value).subscribe((result) => {
       if (result['success'] === true) {
         this.getuserinfo();
