@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {LayoutServiceService} from '../../layout-service.service';
 import {CartService} from '../../../serviceCart/cart.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-products',
@@ -43,7 +44,8 @@ export class ProductsComponent implements OnInit {
    products:any[]=[];
   displayBasic:boolean;
   constructor(private service: LayoutServiceService,
-              private cart: CartService) {
+              private cart: CartService,
+              private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -51,10 +53,12 @@ export class ProductsComponent implements OnInit {
   }
 
   getProduct() {
+    this.spinner.show();
     this.service.getAllProducts().subscribe((response)=>{
       if(response['success']===true){
         this.products=response['data'];
-        console.log(this.products)
+        this.spinner.hide();
+
       }
     })
   }

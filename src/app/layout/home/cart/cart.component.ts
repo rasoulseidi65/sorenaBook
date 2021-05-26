@@ -5,6 +5,7 @@ import {LocalStorageService} from '../../../Auth/localStorageLogin/local-storage
 import {LayoutServiceService} from '../../layout-service.service';
 import {MatStepper} from '@angular/material/stepper';
 import * as moment from 'jalali-moment';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 
 @Component({
@@ -70,7 +71,8 @@ export class CartComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder,
               private cart: CartService,
               private service: LayoutServiceService,
-              private localstorage: LocalStorageService) {
+              private localstorage: LocalStorageService,
+  private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -93,7 +95,6 @@ export class CartComponent implements OnInit {
 
   deleteCart(item: any) {
     this.cart.deleteItem(item);
-    this.items = this.cart.getItems();
     this.refreshCart();
 
   }
@@ -102,16 +103,6 @@ export class CartComponent implements OnInit {
     this.items = this.cart.getItems();
     this.sumPrice = 0;
     for (let i = 0; i < this.items.length; i++) {
-
-      // this.countList='1';
-      // let data = {
-      //   _id: this.items[i]['product']['cartList']._id
-      // };
-      // this.servicelayout.findProductID(data).subscribe((response) => {
-      //   if (response.success === true) {
-      //     let Inventory = response['data'][0]['Inventory'][0];
-      //     if (Inventory.count > 0) {
-      //       this.valueCountProduct.push(this.items[i]['product'].number);
       if (this.items[i]['cartList'].offer === true) {
         let pricePercent: number = (this.items[i]['cartList'].price * this.items[i]['cartList'].offerPercent) / 100;
         this.sumPrice += (Number(this.items[i]['cartList'].price) - pricePercent);
@@ -119,23 +110,19 @@ export class CartComponent implements OnInit {
       } else {
         this.sumPrice += this.items[i]['cartList'].price;
       }
-      //
-      //     }
-      //   }
-      // });
-
 
     }
-    // this.sumPrice = sumPrice;
 
   }
 
   getInfoUser() {
+    this.spinner.show();
     this.isLogin = this.localstorage.getCurrentUser();
     if (this.isLogin) {
       const userInfologin = this.localstorage.userJson;
       this.service.getUserInfo(this.localstorage.userJson['_id']).subscribe((response) => {
         if (response['success'] === true) {
+          this.spinner.hide();
           this.localstorage.saveCurrentUser(JSON.stringify(response['data']));
           this.userInfo.id = userInfologin['_id'];
           this.userInfo.firstName = userInfologin['firstName'];

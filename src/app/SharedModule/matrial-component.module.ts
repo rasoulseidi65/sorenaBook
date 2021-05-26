@@ -10,6 +10,9 @@ import {  DateAdapter,  MAT_DATE_FORMATS,  MAT_DATE_LOCALE } from "@angular/mate
 
 import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from "./material.persian-date.adapter";
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatToolbarModule,
     MatInputModule,
     MatIconModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
@@ -32,7 +38,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatToolbarModule,
     MatInputModule,
    MatIconModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+
+
   ],
   providers: [
 

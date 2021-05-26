@@ -24,25 +24,27 @@ import {StepsModule} from 'primeng/steps';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
   declarations: [HomeComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent, AboutComponent, ContactComponent, ProductDetailComponent, CartComponent],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule,
-    SharedmoduleModule,
-    NgbCarouselModule,
-    CarouselModule,
-    ReactiveFormsModule,
-    RippleModule,
-    PanelMenuModule,
-    SharedComponentsModule,
-    StepsModule,
-    MatStepperModule,
-    MatSelectModule,
-    MatCardModule
-  ],
+    imports: [
+        CommonModule,
+        LayoutRoutingModule,
+        SharedmoduleModule,
+        NgbCarouselModule,
+        CarouselModule,
+        ReactiveFormsModule,
+        RippleModule,
+        PanelMenuModule,
+        SharedComponentsModule,
+        StepsModule,
+        MatStepperModule,
+        MatSelectModule,
+        MatCardModule,
+        NgxSpinnerModule
+    ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],

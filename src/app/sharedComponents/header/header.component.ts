@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {MegaMenuItem, MenuItem} from 'primeng/api';
 import {CartService} from '../../serviceCart/cart.service';
 import {LocalStorageService} from '../../Auth/localStorageLogin/local-storage.service';
+import {SearchService} from '../search.service';
+import {Post} from '../post';
 
 @Component({
   selector: 'app-header',
@@ -23,13 +25,15 @@ export class HeaderComponent implements OnInit {
   showCartList:boolean = false;
   firstName:string='';
   lastName:string='';
+  post: Post[];
   @ViewChild('basketDropDown') basketDropDown: ElementRef;
   @ViewChild('category') category: ElementRef;
   @ViewChild('navBar') navBar: ElementRef;
   constructor(private viewportScroller: ViewportScroller
     , private route: Router,
               private serviceCart: CartService,
-              private localstorage: LocalStorageService) {
+              private localstorage: LocalStorageService,
+              private dataService: SearchService) {
 
 
   }
@@ -159,7 +163,17 @@ export class HeaderComponent implements OnInit {
   showMobileMenu(): void {
     this.displayMobileMenu = true;
   }
+  onSelectedFilter(e) {
+    this.getFilteredExpenseList();
+  }
+  getFilteredExpenseList() {
+    if (this.dataService.searchOption.length > 0)
+      this.post = this.dataService.filteredListOptions();
+    else {
+      this.post = this.dataService.postsData;
+    }
 
+  }
   getAllPrice(): void {
     // @ts-ignore
     this.cartlist = this.serviceCart.getItems();

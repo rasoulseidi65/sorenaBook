@@ -5,6 +5,8 @@ import {MessageService} from 'primeng/api';
 import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {CartService} from '../../../serviceCart/cart.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 
 @Component({
@@ -69,26 +71,29 @@ export class ProductDetailComponent implements OnInit {
   isLogged: boolean;
   productID: string | null;
   count: number = 1;
-  formComment:FormGroup;
-  commentText:string;
+  formComment: FormGroup;
+  commentText: string;
   // public date = moment(Date.now()).locale('fa').format('YYYY/M/D');
   // public time = moment(Date.now()).locale('fa').format('HH:mm:ss');
   constructor(private service: LayoutServiceService,
               public localStorage: LocalStorageService,
               private messageService: MessageService,
               private route: ActivatedRoute,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private cart: CartService,
+              private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.route.paramMap.subscribe(
       (params) => (this.productID = params.get('id'))
     );
     this.createform();
-    this.featuresValues.splice(0,this.featuresValues.length)
+    this.featuresValues.splice(0, this.featuresValues.length);
     this.service.getProducts(this.productID).subscribe((response) => {
       if (response.success === true) {
-        console.log(response)
+        this.spinner.hide();
         this.product = response.data;
         if (this.product.ProductFeature.length > 0) {
           for (let index = 0; index < this.product.ProductFeature.length; index++) {
@@ -118,6 +123,7 @@ export class ProductDetailComponent implements OnInit {
       }
     });
   }
+
   createform(): void {
 
     this.formComment = this.formBuilder.group({
@@ -127,5 +133,10 @@ export class ProductDetailComponent implements OnInit {
       date: new FormControl(null, [Validators.required]),
 
     });
+  }
+
+  addCart(product: any): void {
+    this.cart.addToCart(product, 1);
+    this.displayBasic = true;
   }
 }
