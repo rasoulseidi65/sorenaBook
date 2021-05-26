@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
+import {LocalStorageService} from '../localStorageLogin/local-storage.service';
 
 @Component({
   selector: 'app-login-admin',
@@ -13,7 +14,8 @@ export class LoginAdminComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private service: AuthService,
-              private route: Router) {}
+              private route: Router,
+              private localstorage:LocalStorageService) {}
 
   ngOnInit(): void {
     this.adminform();
@@ -28,8 +30,8 @@ export class LoginAdminComponent implements OnInit {
 
   getadmin() {
     this.service.getadmin(this.formadmin.value).subscribe((result) => {
-      console.log(result);
       if (result['success'] === true) {
+        this.localstorage.saveCurrentUser(JSON.stringify(result ['data'] ));
         this.route.navigate(['admin/panel']);
       }
     });

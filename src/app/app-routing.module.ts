@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {UserGuard} from './Auth/Guard/user.guard';
+import {AdminGuard} from './Auth/Guard/admin.guard';
 
 const routes: Routes = [
   {
@@ -13,11 +15,13 @@ const routes: Routes = [
   },
   {
     path: 'admin/panel',
-    loadChildren: () => import('./Core/dashboardAdmin/dashboardadmin.module').then(m => m.DashboardadminModule)
+    loadChildren: () => import('./Core/dashboardAdmin/dashboardadmin.module').then(m => m.DashboardadminModule),
+    canActivate: [AdminGuard]
   },
   {
     path: 'user/panel',
-    loadChildren: () => import('./Core/dashboardUser/dashboarduser.module').then(m => m.DashboarduserModule)
+    loadChildren: () => import('./Core/dashboardUser/dashboarduser.module').then(m => m.DashboarduserModule),
+    canActivate: [UserGuard]
   },
   {
     path: 'auth',
@@ -27,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, initialNavigation: 'enabled', scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, {useHash: true, initialNavigation: 'enabled', scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
