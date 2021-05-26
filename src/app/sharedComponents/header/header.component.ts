@@ -110,6 +110,11 @@ export class HeaderComponent implements OnInit {
         label: 'تماس با ما',
         icon: 'pi pi-fw pi-phone',
         command: event => this.route.navigate(['/contact'])
+      },
+      {
+        label: 'ورود/ثبت نام',
+        icon: 'pi pi-fw pi-user',
+        command: event => this.route.navigate(['/auth/register'])
       }
     ];
     this.itemsPc = [

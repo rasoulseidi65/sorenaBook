@@ -77,10 +77,11 @@
   margin-top: 10px;
 }
 .mobile-header {
-  background-color: #fff;
+  background-color: #2979FF;
+  color:#fff
 }
 .mobile-header .mobile-bar{
-  color:#2979FF;
+  color:#fff;
   font-size: 20px;
   background-color: transparent;
   border-color: #777;
@@ -93,7 +94,7 @@
 }
 .mobile-header .mobile-icon{
   font-size: 20px;
-  color:#2979FF;
+  color:#fff;
   padding-top: 20px;
   margin-left: 10px;
 }
@@ -109,7 +110,7 @@
 }
 .account .icon{
   margin-top: 10px;
-  color:#2979FF;
+  color:#fff;
   font-size: 20px;
   padding-left: 4px;
 }
@@ -908,4 +909,7 @@ font-family: IRANSans_Light;
 
 .sub-sub-title:hover, .sub-title:hover {
   color:#3165F6;
+}
+.textLogo{
+  font-family: IRANSans_Bold;
 }

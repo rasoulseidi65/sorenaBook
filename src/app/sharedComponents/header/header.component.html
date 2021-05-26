@@ -51,8 +51,8 @@
            [modal]="true"
            position="right">
   <div class=" text-center shoppingMe">
-    <p>کتابفروشی  سورنا</p>
-<!--    <img height="60px" src="../../../../assets/images/other/logo.png">-->
+    <p class="textLogo">کتابفروشی دست دوم سورنا</p>
+    <!--    <img height="60px" src="../../../../assets/images/other/logo.png">-->
   </div>
   <div class="p-d-flex p-flex-column">
     <div class="p-mb-auto">
@@ -63,89 +63,97 @@
 
 
 <!--mobile header-->
-<header class="mobile-header">
+<header class="mobile-header container">
   <div class="row">
     <div class="col">
-      <button (click)="showMobileMenu()" type="button" class="mobile-bar">
+      <span (click)="showMobileMenu()"  class="mobile-bar">
         <i class="fa fa-bars"></i>
-      </button>
+      </span>
     </div>
-    <div class="col">
-      <a [routerLink]="['/']" class="navbar-brand text-center"><p>
-        کتابفروشی سورنا
+    <div class="col justify-content-center">
+      <a [routerLink]="['/']" class="navbar-brand text-center">
+        <p class="text-center textLogo text-white">
+        کتابفروشی دست دوم سورنا
       </p>
-<!--        <img src="../../../../assets/images/other/logo.png" alt="کتابفروشی سورنا" class="mobile-logo">-->
+        <!--        <img src="../../../../assets/images/other/logo.png" alt="کتابفروشی سورنا" class="mobile-logo">-->
       </a>
     </div>
-    <div class="col mobile-icon p-d-flex">
-      <i class="fa fa-user p-ml-auto"></i>
-      <i class="fa fa-shopping-cart"></i>
+    <div class="col-2 mobile-icon">
+      <!--       <span class="indicator__area" *ngIf="isLogged">-->
+      <!--                <p routerLink="/user/panel">{{firstName+' '+lastName}} خوش آمدید</p>-->
+      <!--              </span>-->
+      <!--      <i class="fa fa-user p-ml-auto"></i>-->
+      <span class="indicator__area">
+                 <i class="fa fa-shopping-cart" (click)="gotoCart()"></i>
+                <span class="indicator__value">{{countBadge}}</span>
+              </span>
+
     </div>
   </div>
 </header>
 
 
 <header id="header" class="pc-header">
-<div class="site-header__nav-panel">
-  <div class="nav-panel nav-panel--sticky">
-    <div class="nav-panel__container">
-      <div class="nav-panel__row">
-        <div class="nav-panel__departments">
-          <div class="departments">
-            <button class="departments__button" (click)="toggleNavBar()" (mouseover)="openNavBar()">
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="14"
-                   class="departments__button-icon" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                   viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+  <div class="site-header__nav-panel">
+    <div class="nav-panel nav-panel--sticky">
+      <div class="nav-panel__container">
+        <div class="nav-panel__row">
+          <div class="nav-panel__departments">
+            <div class="departments">
+              <button class="departments__button" (click)="toggleNavBar()" (mouseover)="openNavBar()">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="14"
+                     class="departments__button-icon" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
 <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-                <g><path d="M732.1,732.1H990V990H732.1V732.1z M371.1,732.1h257.9V990H371.1V732.1z M10,732.1h257.9V990H10V732.1z M732.1,371.1H990v257.9H732.1V371.1z M732.1,10H990v257.9H732.1V10z M371.1,371.1h257.9v257.9H371.1V371.1z M371.1,10h257.9v257.9H371.1V10z M10,371.1h257.9v257.9H10V371.1z M10,10h257.9v257.9H10V10z"/></g>
+                  <g><path d="M732.1,732.1H990V990H732.1V732.1z M371.1,732.1h257.9V990H371.1V732.1z M10,732.1h257.9V990H10V732.1z M732.1,371.1H990v257.9H732.1V371.1z M732.1,10H990v257.9H732.1V10z M371.1,371.1h257.9v257.9H371.1V371.1z M371.1,10h257.9v257.9H371.1V10z M10,371.1h257.9v257.9H10V371.1z M10,10h257.9v257.9H10V10z"/></g>
 </svg>
-              دسته بندی محصولات
-              <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" class="departments__button-arrow">
-                <path
-                  d="M.2.4c.4-.4 1-.5 1.4-.1l2.9 3 2.9-3c.4-.4 1.1-.4 1.4.1.3.4.3.9-.1 1.3L4.5 6 .3 1.6C-.1 1.3-.1.7.2.4z"></path>
-              </svg>
-            </button>
+                دسته بندی محصولات
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" class="departments__button-arrow">
+                  <path
+                    d="M.2.4c.4-.4 1-.5 1.4-.1l2.9 3 2.9-3c.4-.4 1.1-.4 1.4.1.3.4.3.9-.1 1.3L4.5 6 .3 1.6C-.1 1.3-.1.7.2.4z"></path>
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="nav-links nav-panel__nav-links">
-          <ul class="nav-links__list">
-            <li class="nav-links__item">
-              <a class="nav-links__item-link">
-                <div class="nav-links__item-body" [routerLink]="['/home/about']" target="_blank">
-               درباره ما
-                </div>
-              </a>
-            </li>
-            <li class="nav-links__item">
-              <a class="nav-links__item-link">
-                <div class="nav-links__item-body" [routerLink]="['/home/contact']">
-                تماس با ما
-                </div>
-              </a>
-            </li>
-            <li class="nav-links__item">
-              <a class="nav-links__item-link">
-                <div class="nav-links__item-body" [routerLink]="['/auth/register']">
-                 ورود/ ثبت نام
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div style="margin:auto; width: 30%;">
-          <app-search-bar (onSelectedOption)="onSelectedFilter($event)"></app-search-bar>
-        </div>
-        <div class="nav-panel__indicators">
-          <div class="indicator">
-            <a class="indicator__button">
+          <div class="nav-links nav-panel__nav-links">
+            <ul class="nav-links__list">
+              <li class="nav-links__item">
+                <a class="nav-links__item-link">
+                  <div class="nav-links__item-body" [routerLink]="['/home/about']" target="_blank">
+                    درباره ما
+                  </div>
+                </a>
+              </li>
+              <li class="nav-links__item">
+                <a class="nav-links__item-link">
+                  <div class="nav-links__item-body" [routerLink]="['/home/contact']">
+                    تماس با ما
+                  </div>
+                </a>
+              </li>
+              <li class="nav-links__item">
+                <a class="nav-links__item-link">
+                  <div class="nav-links__item-body" [routerLink]="['/auth/register']">
+                    ورود/ ثبت نام
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div style="margin:auto; width: 30%;">
+            <app-search-bar (onSelectedOption)="onSelectedFilter($event)"></app-search-bar>
+          </div>
+          <div class="nav-panel__indicators">
+            <div class="indicator">
+              <a class="indicator__button">
               <span class="indicator__area" *ngIf="isLogged">
-                <p routerLink="/user/panel">{{firstName+' '+lastName}} خوش آمدید</p>
+                <p routerLink="/user/panel">{{firstName + ' ' + lastName}} خوش آمدید</p>
               </span>
-            </a>
-          </div>
-          <div class="indicator" #basketDropDown (clickOutside)="closeBasketDropDown()"
-               (mouseleave)="closeBasketDropDown()">
-            <a class="indicator__button" (click)="toggleBasketDropDown()" (mouseover)="openBasketDropDown()">
+              </a>
+            </div>
+            <div class="indicator" #basketDropDown (clickOutside)="closeBasketDropDown()"
+                 (mouseleave)="closeBasketDropDown()">
+              <a class="indicator__button" (click)="toggleBasketDropDown()" (mouseover)="openBasketDropDown()">
               <span class="indicator__area">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="">
                   <circle cx="7" cy="17" r="2"></circle>
@@ -155,71 +163,72 @@
                 </svg>
                 <span class="indicator__value">{{countBadge}}</span>
               </span>
-            </a>
-            <div class="indicator__dropdown" style="max-height: 458px;z-index: 99999">
-              <div class="dropcart dropcart--style--dropdown">
-                <div class="dropcart__body">
+              </a>
+              <div class="indicator__dropdown" style="max-height: 458px;z-index: 99999">
+                <div class="dropcart dropcart--style--dropdown">
+                  <div class="dropcart__body">
 
-                  <div class="dropcart__products-list" *ngIf="lengthCartlist !== 0">
-                    <div class="dropcart__product" *ngFor="let item of cartlist">
-                      <div class="product-image dropcart__product-image">
-                        <a class="product-image__body">
-                          <img [src]="item.cartList.image" alt="" class="product-image__img">
-                        </a>
-                      </div>
-                      <div class="dropcart__product-info">
-                        <div class="dropcart__product-name">
-                          <a>{{item['cartList'].title}}</a>
+                    <div class="dropcart__products-list" *ngIf="lengthCartlist !== 0">
+                      <div class="dropcart__product" *ngFor="let item of cartlist">
+                        <div class="product-image dropcart__product-image">
+                          <a class="product-image__body">
+                            <img [src]="item.cartList.image" alt="" class="product-image__img">
+                          </a>
                         </div>
-                        <div class="dropcart__product-meta d-flex">
-<!--                          <span class="dropcart__product-quantity">{{item['number']}}</span>-->
+                        <div class="dropcart__product-info">
+                          <div class="dropcart__product-name">
+                            <a>{{item['cartList'].title}}</a>
+                          </div>
+                          <div class="dropcart__product-meta d-flex">
+                            <!--                          <span class="dropcart__product-quantity">{{item['number']}}</span>-->
 
-                          <span class="dropcart__product-quantity" *ngIf="item['cartList'].offer">{{((item['cartList'].price-((item['cartList'].price *item['product']['cartList'].offerPercent)/100)|number)) }}تومان </span>
+                            <span class="dropcart__product-quantity"
+                                  *ngIf="item['cartList'].offer">{{((item['cartList'].price - ((item['cartList'].price * item['product']['cartList'].offerPercent) / 100)|number)) }}
+                              تومان </span>
 
-                          <span class="dropcart__product-quantity" *ngIf="!item['cartList'].offer">{{item['cartList'].price|number }}تومان </span>
-                          <!--                          <span class="dropcart__product-price">{{item['product']['cartList'].price|number}}-->
-                          <!--                            تومان-->
-                          <!--                          </span>-->
+                            <span class="dropcart__product-quantity"
+                                  *ngIf="!item['cartList'].offer">{{item['cartList'].price|number }}تومان </span>
+                            <!--                          <span class="dropcart__product-price">{{item['product']['cartList'].price|number}}-->
+                            <!--                            تومان-->
+                            <!--                          </span>-->
+                          </div>
                         </div>
+                        <i class="pi pi-trash fa-1x p-text-left" style="color:#c33" (click)="onDeleteCart(item)"></i>
                       </div>
-                      <i class="pi pi-trash fa-1x p-text-left" style="color:#c33" (click)="onDeleteCart(item)"></i>
                     </div>
-                  </div>
-                  <div class="dropcart__products-list" *ngIf="lengthCartlist === 0">
-                    <p class="text-center">
-                      سبد خرید شما خالی است.
-                    </p>
-                  </div>
-                  <div class="dropcart__totals">
-                    <table>
-                      <tbody>
-                      <tr>
-                        <th>جمع کل</th>
-                        <td>{{sumOfPrice|number}} تومان</td>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="dropcart__buttons">
-                    <button class="btn" style="background-color: #c33;color: #ffffff;font-size: 14px"
-                            (click)="gotoCart()" >مشاهده سبد و تکمیل خرید
-                    </button>
+                    <div class="dropcart__products-list" *ngIf="lengthCartlist === 0">
+                      <p class="text-center">
+                        سبد خرید شما خالی است.
+                      </p>
+                    </div>
+                    <div class="dropcart__totals">
+                      <table>
+                        <tbody>
+                        <tr>
+                          <th>جمع کل</th>
+                          <td>{{sumOfPrice|number}} تومان</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="dropcart__buttons">
+                      <button class="btn" style="background-color: #c33;color: #ffffff;font-size: 14px"
+                              (click)="gotoCart()">مشاهده سبد و تکمیل خرید
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+
           </div>
-
-
         </div>
+
+
       </div>
 
 
-
     </div>
-
-
-
   </div>
-</div>
 </header>
