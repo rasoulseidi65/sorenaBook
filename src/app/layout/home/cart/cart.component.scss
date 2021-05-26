@@ -417,7 +417,7 @@ input::-webkit-input-placeholder {
 
 /*Phones*/
 @media (max-width: 399px) and (min-width: 360px) {
-  ::ng-deep.mat-stepper-horizontal {
+ :host ::ng-deep.mat-stepper-horizontal {
     margin-left: -6%;
     margin-right: -3%;
   }
@@ -479,7 +479,7 @@ input::-webkit-input-placeholder {
     margin-left: -120%;
   }
 
-  ::ng-deep .mat-step-label {
+  :host::ng-deep .mat-step-label {
 
     font-size: 12px !important;
   }
@@ -510,7 +510,7 @@ input::-webkit-input-placeholder {
     margin-left: -120%;
   }
 
-  ::ng-deep .mat-step-label {
+ :host ::ng-deep .mat-step-label {
 
     font-size: 11px !important;
   }
@@ -761,7 +761,7 @@ hr {
   font-size: 14px;
 }
 
-::ng-deep.mat-step-header .mat-step-icon-state-edit {
+:host::ng-deep.mat-step-header .mat-step-icon-state-edit {
   background-color: #4d4d4d !important;
   color: white;
 }
@@ -776,7 +776,7 @@ hr {
 
   }
 
-  ::ng-deep.mat-vertical-content-container {
+  :host::ng-deep.mat-vertical-content-container {
     margin-left: 0;
     margin-right: 55px !important;
 
@@ -793,7 +793,7 @@ hr {
 
   }
 
-  ::ng-deep.mat-vertical-content-container {
+  :host::ng-deep.mat-vertical-content-container {
     margin-left: 0;
     margin-right: 55px !important;
   }
@@ -831,11 +831,11 @@ input.example-right-align {
   -moz-appearance: textfield;
 }
 
-::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+:host::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: transparent !important;
 }
 
-::ng-deep.mat-form-field-label-wrapper {
+:host::ng-deep.mat-form-field-label-wrapper {
   font-family: IRANSansWeb;
   text-align: right;
 }
@@ -854,7 +854,7 @@ input.example-right-align {
   font-size: 100px;
 }
 
-:host::ng-deep.ui-fileupload-row > div {
+:host:host::ng-deep.ui-fileupload-row > div {
   display: table-cell;
   padding: .5em 1em;
   vertical-align: middle;
@@ -874,7 +874,7 @@ input.example-right-align {
   border: 1.3px solid #00C851 !important;
 }
 
-::ng-deep .ui-inputtext.ng-dirty.ng-invalid {
+:host::ng-deep .ui-inputtext.ng-dirty.ng-invalid {
   border: 1.3px solid #ff0808 !important;
 }
 
