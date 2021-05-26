@@ -29,4 +29,7 @@ export class AuthService {
   getUser(id: any) {
     return this.http.get('http://api.sorenabook.ir/api/v1/users/index/' + id);
   }
+  getadmin(data: any) {
+    return this.http.post('http://api.sorenabook.ir/api/v1/admin/login', data);
+  }
 }

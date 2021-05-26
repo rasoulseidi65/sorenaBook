@@ -1,0 +1,35 @@
+:host::ng-deep .p-grid.p-text-center{
+  margin-top: 20%;
+}
+:host::ng-deep .p-grid .p-md-offset-4 {
+  margin: 0px auto;
+}
+:host::ng-deep .p-grid .card {
+  margin-top: 10%;
+  direction: rtl;
+  border-radius: 15px;
+}
+:host::ng-deep .p-grid .card  h5{
+  font-family: IRANSans_Bold;
+  font-size: 26px;
+  color: #EF2B2F;
+  font-weight: bold;
+  margin-top: 10px;
+}
+:host::ng-deep .p-grid .card  span{
+  font-family: IRANSans_Light;
+  font-size: 20px;
+  color: #ffffff;
+}
+:host::ng-deep  label.p-col-fixed {
+  font-family: IRANSans_Bold;
+}
+:host::ng-deep button.p-button-rounded.p-button-danger.p-button-lg.p-button.p-component {
+  margin: 10px 0px;
+  border-radius: 1rem;
+  padding: 15px 0px;
+}
+:host::ng-deep .p-field-checkbox {
+  font-family:IRANSans_Bold;
+  margin-top: 10px;
+}

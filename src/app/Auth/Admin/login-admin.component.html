@@ -1,1 +1,14 @@
-<p>login-admin works!</p>
+<div class=" p-grid p-text-center" style="margin: 0px">
+  <div class="p-col-12 p-md-4 p-md-offset-4">
+    <img src="../../../assets/images/logo.png" class="p-text-center" [width]="120" [height]="120">
+    <div class="card p-col-12" [formGroup]="formadmin">
+      <h5>SORENABOOK</h5>
+      <span style="color: #6d6e72">صفحه ورود به پنل ادمین</span>
+      <label for="firstname3" class="p-col-fixed"  style="width:100px">نام کاربری</label>
+      <input id="firstname3" type="text" pInputText formControlName="mobile">
+      <label for="lastname3" class="p-col-fixed" style="width:100px">رمز عبور</label>
+      <input type="password" id="lastname3" pPassword formControlName="password" />
+      <button pButton pRipple  type="button" (click)="getadmin()" label="ورود به سورنا" class="p-button-rounded p-button-danger p-button-lg"></button>
+    </div>
+  </div>
+</div>
