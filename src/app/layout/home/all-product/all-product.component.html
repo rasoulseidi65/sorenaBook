@@ -1,19 +1,21 @@
+<app-header></app-header>
+
 <section class="card-box mt-5">
   <div class="container-fluid" dir="rtl">
     <div class="row justify-content-center">
       <div class="col col-12 align-items-center">
         <div class="section-title text-right">
           <p-divider align="center" type="solid">
-            <h2 class="p-text-center">جدیدترین محصولات</h2>
+            <h2 class="p-text-center">همه محصولات</h2>
           </p-divider>
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid mt-3">
-    <div class="best-seller ltr">
-      <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let item of products">
+    <div class="best-seller ltr container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3"  *ngFor="let item of Products">
           <div class="block-products-carousel__column">
             <div class="block-products-carousel__cell">
               <div class="product-card product-card--layout--grid">
@@ -75,7 +77,7 @@
                         <div class="tag-badge tag-badge--sale">{{item['topText']}}</div>
                       </div>
                       <div class="text-center">
-                        <h4 class="product-title text-center" [routerLink]="['product-detail',item._id]">{{item.title}}</h4>
+                        <h4 class="product-title text-center" [routerLink]="['/product-detail',item._id]">{{item.title}}</h4>
 
                       </div>
                     </div>
@@ -84,7 +86,7 @@
                 <div class="product-card__footer">
                   <button class="product-card__addtocart-icon" type="button"
                           pTooltip="افزودن به سبد خرید" tooltipPosition="bottom"
-                          (click)="addCart(item)"
+
                   >
                     <svg width="20" height="20">
                       <circle cx="7" cy="17" r="2"></circle>
@@ -112,9 +114,9 @@
               </div>
             </div>
           </div>
-        </ng-template>
+        </div>
 
-      </owl-carousel-o>
+      </div>
     </div>
   </div>
 </section>
@@ -134,3 +136,4 @@
 
   </p-footer>
 </p-dialog>
+<app-footer></app-footer>

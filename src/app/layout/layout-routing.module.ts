@@ -6,6 +6,7 @@ import {AboutComponent} from './home/about/about.component';
 import {ContactComponent} from './home/contact/contact.component';
 import {ProductDetailComponent} from './home/product-detail/product-detail.component';
 import {CartComponent} from './home/cart/cart.component';
+import {AllProductComponent} from './home/all-product/all-product.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'products',
+    component: AllProductComponent
   },
 ];
 

@@ -67,7 +67,7 @@ export class SearchBarComponent implements OnInit {
       // @ts-ignore
       this.dataService.searchOption.push(posts);
       this.onSelectedOption.emit(this.dataService.searchOption);
-      this.router.navigate(['/home/product-detail', this.productSearch]);
+      this.router.navigate(['product-detail', this.productSearch]);
 
     }
     this.focusOnPlaceInput();
@@ -97,7 +97,7 @@ export class SearchBarComponent implements OnInit {
     this.dataService.allProductBySearch(data).subscribe((response) => {
       if (response['success'] === true) {
         this.dataService.resultSearchBox = response['data'];
-        this.router.navigate(['/home/resultSearch']);
+        this.router.navigate(['products']);
       }
     });
   }

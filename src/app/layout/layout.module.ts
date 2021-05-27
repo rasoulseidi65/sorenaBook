@@ -25,10 +25,15 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { AllProductComponent } from './home/all-product/all-product.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SliderComponent, DiscountProductsComponent, SubscriptionComponent, ProductsComponent, FeaturesComponent, AdvertisingComponent, AboutComponent, ContactComponent, ProductDetailComponent, CartComponent],
+  declarations: [HomeComponent, SliderComponent,
+    DiscountProductsComponent, SubscriptionComponent,
+    ProductsComponent, FeaturesComponent, AdvertisingComponent,
+    AboutComponent, ContactComponent, ProductDetailComponent,
+    CartComponent, AllProductComponent],
     imports: [
         CommonModule,
         LayoutRoutingModule,

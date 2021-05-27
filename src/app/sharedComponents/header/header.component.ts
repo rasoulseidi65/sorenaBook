@@ -147,11 +147,11 @@ export class HeaderComponent implements OnInit {
 
       {
         label: 'درباره ما', icon: 'pi pi-fw pi-info-circle',
-        command: event => this.route.navigate(['home/about'])
+        command: event => this.route.navigate(['/about'])
       },
       {
         label: 'تماس ما', icon: 'pi pi-fw pi-phone',
-        command: event => this.route.navigate(['home/contact'])
+        command: event => this.route.navigate(['/contact'])
       },
 
       {
@@ -209,7 +209,7 @@ export class HeaderComponent implements OnInit {
   goPageCart() {
     this.localstorage.getCurrentUser();
     if (this.localstorage.userJson != null) {
-      this.route.navigate(['/home/cart']);
+      this.route.navigate(['/cart']);
     } else {
       this.route.navigate(['/auth/login']);
     }
@@ -247,7 +247,7 @@ export class HeaderComponent implements OnInit {
   }
   gotoCart(){
     if(this.isLogged && this.showCartList){
-      this.route.navigate(['/home/cart']);
+      this.route.navigate(['cart']);
     }
     else{
       this.route.navigate(['/auth/register']);
